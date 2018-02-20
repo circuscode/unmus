@@ -1,0 +1,19 @@
+#dashboard_right_now li a.zirkusliebe-count:before {
+  content: "\f303";
+}
+
+#dashboard_right_now li a.ello-count:before {
+    content: "\f487";
+  }
+
+#dashboard_right_now li a.raketenstaub-count:before {
+    content: "\f128";
+  }
+
+#dashboard_right_now li a.pinseldisko-count:before {
+content: "\f309";
+}
+
+#dashboard_right_now li a.tweet-count:before {
+content: "\f301";
+}
