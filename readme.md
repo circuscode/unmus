@@ -65,6 +65,14 @@ This project is licensed under the GPL3 License.
 
 ## Changelog
 
+### 0.2
+
+Released: XX.XX.2018
+
+* Bugfix: Do not cache Podlove WebPlayer on paged Archives
+* Bugfix: Current Menu Item on paged Zirkusliebe Archives
+* Bugfix: Current Menu Item on paged Raketenstaub Archives
+
 ### 0.1
 
 Released: 20.02.2018

@@ -79,12 +79,12 @@ function raketenstaub_cpt_glance_counter( $items = array() ) {
 add_filter( 'dashboard_glance_items', 'raketenstaub_cpt_glance_counter', 10, 1 );
 
 /*
-Adds Current Menu Item Class @ Nav (for Pinseldisko Archive Page 2 to n)
+Adds Current Menu Item Class @ Nav (for Raketenstaub Archive Page 2 to n)
 */
 
 function raketenstaub_nav_class( $classes, $item ) {
 
-    if ( is_post_type_archive('raketenstaub') && $item->title == 'raketenstaub' ) {
+    if ( is_post_type_archive('raketenstaub') && $item->title == 'Raketenstaub' ) {
         $classes[] = 'current-menu-item';
     }
 

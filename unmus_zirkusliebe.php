@@ -14,6 +14,30 @@ function is_zirkusliebe_archive() {
 
     $current_url = "https://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 
+    $localdevurl='http://localunmus/zirkusliebe/';
+	$webdevurl='http://dev.unmus.de/zirkusliebe/';
+	$webprodurl='https://www.unmus.de/zirkusliebe/';
+	
+	$localdev=false;
+	$webdev=false;
+	$webprod=false;
+	
+	$localdev=strpos($current_url,$localdevurl);
+	$webdev=strpos($current_url,$webdevurl);
+	$webprod=strpos($current_url,$webprodurl);
+	
+	if ( $localdev !== false ) { 
+		return true;
+    }
+    if ( $webdev !== false ) { 
+		return true;
+    }
+    if ( $webprod !== false ) { 
+		return true;
+    }
+
+    /* Following does not work on paged archives 
+
     if($current_url == 'https://localunmus/zirkusliebe/') {
         return true;
     }
@@ -26,6 +50,8 @@ function is_zirkusliebe_archive() {
     else {
         return false;
     }
+
+    */
 
 }
 
@@ -82,17 +108,20 @@ function zirkusliebe_nav_class( $classes, $item ) {
 	
 	if ( $localdev !== false OR $webdev !== false OR $webprod !== false ) { 
 		$podlove_archive = true; 
-	}
+    } 
 	
     if ( $podlove_archive == true && $item->title == 'unmus' ) {
 		unset($classes[array_search('current-menu-item', $classes)]);
+    }
+
+    if ( is_post_type_archive('podcast') && $item->title == 'Zirkusliebe' ) {
+        $classes[] = 'current-menu-item';
     }
 	
 	return $classes;
 
 }
 add_filter( 'nav_menu_css_class', 'zirkusliebe_nav_class', 10, 2 );
-
 
 /* 
 Disable Podlove Rewrite Rules
