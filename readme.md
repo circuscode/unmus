@@ -67,8 +67,9 @@ This project is licensed under the GPL3 License.
 
 ### 0.2
 
-Released: XX.XX.2018
+Release pending
 
+* Improvement: WordPress Custom Post Admin Icons
 * Bugfix: Do not cache Podlove WebPlayer on paged Archives
 * Bugfix: Current Menu Item on paged Zirkusliebe Archives
 * Bugfix: Current Menu Item on paged Raketenstaub Archives
