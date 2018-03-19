@@ -70,6 +70,7 @@ This project is licensed under the GPL3 License.
 Release pending
 
 * Improvement: WordPress Custom Post Admin Icons
+* New Setting: Amount of Post @ Podcast Archive
 * Bugfix: Do not cache Podlove WebPlayer on paged Archives
 * Bugfix: Current Menu Item on paged Zirkusliebe Archives
 * Bugfix: Current Menu Item on paged Raketenstaub Archives
