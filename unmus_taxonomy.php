@@ -5,43 +5,43 @@ All about Taxonomies
 */ 
 
 /* 
-Pinseldisko Taxonomy
+Zirkusliebe Taxonomy (like Category for Guests)
 */
 
-add_action( 'init', 'create_athlete_taxonomy' );
+add_action( 'init', 'create_artist_taxonomy' );
 
-function create_athlete_taxonomy() {
+function create_artist_taxonomy() {
+
 	$labels = array(
-		'name'                           => 'Athletes',
-		'singular_name'                  => 'Athlete',
-		'search_items'                   => 'Search Athletes',
-		'all_items'                      => 'All Athletes',
-		'edit_item'                      => 'Edit Athlete',
-		'update_item'                    => 'Update Athlete',
-		'add_new_item'                   => 'Add New Athlete',
-		'new_item_name'                  => 'New Athlete Name',
-		'menu_name'                      => 'Athlete',
-		'view_item'                      => 'View Athlete',
-		'popular_items'                  => 'Popular Athlete',
-		'separate_items_with_commas'     => 'Separate athletes with commas',
-		'add_or_remove_items'            => 'Add or remove athletes',
-		'choose_from_most_used'          => 'Choose from the most used athletes',
-		'not_found'                      => 'No athletes found'
-	);
+		'name' => _x( 'Artisten', 'taxonomy general name' ),
+		'singular_name' => _x( 'Artist', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Artisten suchen' ),
+		'popular_items' => __( 'Beliebte Artisten' ),
+		'all_items' => __( 'Alle Artisten' ),
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Artist bearbeiten' ), 
+		'update_item' => __( 'Artist aktualisieren' ),
+		'add_new_item' => __( 'Neuen Artisten hinzufügen' ),
+		'new_item_name' => __( 'Neuer Name' ),
+		'separate_items_with_commas' => __( 'Artisten durch Kommas trennen' ),
+		'add_or_remove_items' => __( 'Artisten hinzufügen oder entfernen' ),
+		'choose_from_most_used' => __( 'Wähle aus den meistgenutzen Artisten' ),
+		'menu_name' => __( 'Artisten' ),
+	  ); 
 
 	register_taxonomy(
-		'athlete',
-		'post',
+		'artist',
+		'podcast',
 		array(
-			'label' => __( 'Athlete' ),
-			'hierarchical' => false,
+			'hierarchical' => true,
 			'labels' => $labels,
-			'public' => true,
-			'show_in_nav_menus' => false,
-			'show_tagcloud' => false,
+			'show_ui' => true,
 			'show_admin_column' => true,
+			'update_count_callback' => '_update_post_term_count',
+			'query_var' => true,
 			'rewrite' => array(
-				'slug' => 'athletes'
+				'slug' => 'artist'
 			)
 		)
 	);

@@ -37,6 +37,7 @@ require_once('unmus_scripting.php');
 require_once('unmus_conditionals.php');
 require_once('unmus_maintenance.php');
 require_once('unmus_raketenstaub.php');
+require_once('unmus_taxonomy.php');
 
 /* 
 Activate 

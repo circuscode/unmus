@@ -14,6 +14,12 @@ Content Formats of unmus are implemented by the following custom post types.
 * Pinseldisko
 * Raketenstaub
 
+## Custom Taxonomies
+
+New custom taxonomies are implemented as follows.
+
+* Artist (Podcast)
+
 ## Features
 
 The plugin provides the following features.
@@ -69,6 +75,7 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
+* Feature: Zirkusliebe Artist Custom Taxonomy
 * Improvement: WordPress Custom Post Admin Icons
 * New Setting: Amount of Post @ Podcast Archive
 * Bugfix: Do not cache Podlove WebPlayer on paged Archives
