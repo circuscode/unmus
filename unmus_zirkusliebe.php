@@ -150,4 +150,40 @@ function unmus_zirkusliebe_change_posts_per_page( $query ) {
 }
 add_filter( 'pre_get_posts', 'unmus_zirkusliebe_change_posts_per_page' );
 
+/*
+Modify Podcast Excerpt
+*/
+
+function zirkusliebe_excerpt_modify($input) {
+
+    if('podcast' == get_post_type()) {
+
+        $word_count = str_word_count( strip_tags( $input ) );
+
+        if ($word_count > 65 ) {
+
+            $text = $input;
+            $text = str_replace(']]>', ']]>', $text);
+            $text = strip_tags($text);
+            $excerpt_length = 55;
+            $words = explode(' ', $text, $excerpt_length + 1);
+            if (count($words)> $excerpt_length) {
+                array_pop($words);
+                array_push($words, '[...]');
+                $text = implode(' ', $words);
+            }
+            return '<p>'.$text.'</p>';
+
+        }
+        else {
+            return $input;
+        }
+    }
+    else { 
+        return $input;
+    }
+
+}
+add_filter('the_excerpt', 'zirkusliebe_excerpt_modify');
+
 ?>

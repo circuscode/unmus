@@ -78,6 +78,7 @@ Release pending
 * Feature: Zirkusliebe Artist Custom Taxonomy
 * Improvement: WordPress Custom Post Admin Icons
 * New Setting: Amount of Post @ Podcast Archive
+* Modification: Podlove Publisher Excerpts Lengths
 * Bugfix: Do not cache Podlove WebPlayer on paged Archives
 * Bugfix: Current Menu Item on paged Zirkusliebe Archives
 * Bugfix: Current Menu Item on paged Raketenstaub Archives
