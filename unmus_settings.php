@@ -54,6 +54,11 @@ function unmus_options_display_zirkusliebe_amountofposts()
 	echo '<input class="regular-text" type="text" name="unmus_zirkusliebe_amountofposts" id="unmus_zirkusliebe_amountofposts" value="'. get_option('unmus_zirkusliebe_amountofposts') .'"/>';
 }
 
+function unmus_options_display_ello_amountofposts()
+{
+	echo '<input class="regular-text" type="text" name="unmus_ello_amountofposts" id="unmus_ello_amountofposts" value="'. get_option('unmus_ello_amountofposts') .'"/>';
+}
+
 /* 
 Sections
 */
@@ -90,9 +95,11 @@ function unmus_options_customposttype_display()
 	
 	add_settings_field("unmus_raketenstaub_amountofposts", "Amount of Posts @ Raketen", "unmus_options_display_raketenstaub_amountofposts", "unmus-options", "customposttype_settings_section");
 	add_settings_field("unmus_zirkusliebe_amountofposts", "Amount of Posts @ Zirkus", "unmus_options_display_zirkusliebe_amountofposts", "unmus-options", "customposttype_settings_section");
+	add_settings_field("unmus_ello_amountofposts", "Amount of Posts @ Ello", "unmus_options_display_ello_amountofposts", "unmus-options", "customposttype_settings_section");
 	
 	register_setting("unmus_settings", "unmus_raketenstaub_amountofposts", "unmus_validate_raketenstaub_amountofposts");
 	register_setting("unmus_settings", "unmus_zirkusliebe_amountofposts", "unmus_validate_zirkusliebe_amountofposts");
+	register_setting("unmus_settings", "unmus_ello_amountofposts", "unmus_validate_ello_amountofposts");
 }
 
 /*
@@ -149,7 +156,18 @@ function unmus_validate_raketenstaub_amountofposts ( $amountofposts ) {
 
 } 
 
+/* Validate Input: Zirkusliebe Number of Posts */
+
 function unmus_validate_zirkusliebe_amountofposts ( $amountofposts ) {
+    
+    $output = $amountofposts;
+    return $output;
+
+} 
+
+/* Validate Input: Ello Number of Posts */
+
+function unmus_validate_ello_amountofposts ( $amountofposts ) {
     
     $output = $amountofposts;
     return $output;

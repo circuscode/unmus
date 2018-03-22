@@ -93,4 +93,22 @@ function ello_special_nav_class( $classes, $item ) {
 }
 add_filter( 'nav_menu_css_class', 'ello_special_nav_class', 10, 2 );
 
+/*
+Modify Post per Page
+*/
+
+function unmus_ello_change_posts_per_page( $query ) {
+
+	$amountofposts=get_option('unmus_ello_amountofposts');
+
+    if ( is_admin() || ! $query->is_main_query() ) {
+       return;
+    }
+
+    if ( is_post_type_archive( 'ello' ) ) {
+       $query->set( 'posts_per_page', $amountofposts );
+    }
+}
+add_filter( 'pre_get_posts', 'unmus_ello_change_posts_per_page' );
+
 ?>
