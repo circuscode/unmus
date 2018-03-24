@@ -23,7 +23,7 @@ add_action( 'template_redirect', function() {
 	}
 
 	// Minification & Defer */
-	add_filter( 'rocket_exclude_css', 'wp_rocket_unmus_exclude_from_css_minification' );
+	// add_filter( 'rocket_exclude_css', 'wp_rocket_unmus_exclude_from_css_minification' );
 	add_filter( 'rocket_exclude_js', 'wp_rocket_unmus_exclude_from_js_minification' );
 	add_filter( 'rocket_exclude_defer_js', 'wp_rocket_unmus_exclude_from_defer_js' );
 
@@ -31,7 +31,8 @@ add_action( 'template_redirect', function() {
 	add_filter( 'rocket_exclude_cache_busting', 'wp_rocket_unmus_exclude_from_cache_busting' );
 
 	// Optimize CSS Delivery
-	add_filter( 'rocket_exclude_async_css', 'wp_rocket_unmus_exclude_from_async_css' );
+	// Option is currently deactivated in wpRocket Settings
+	// add_filter( 'rocket_exclude_async_css', 'wp_rocket_unmus_exclude_from_async_css' );
 	
 });
 

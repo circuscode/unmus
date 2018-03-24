@@ -73,6 +73,12 @@ This project is licensed under the GPL3 License.
 
 ## Changelog
 
+### 0.3
+
+Release pending
+
+* Feature: CSS Minification @ Podlove Archives
+
 ### 0.2
 
 Released: 24.03.2018
