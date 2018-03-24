@@ -60,26 +60,4 @@ function unmus_post_types_date_archives($query) {
 }
 add_action( 'pre_get_posts', 'unmus_post_types_date_archives' );
 
-/*
-Remove Post Formats from Standard Post Type @ WordPress Editor
-*/
-
-function unmus_remove_post_formats_from_standard_post_editor () {
-
-    global $pagenow;
-
-    if ( 'post.php' === $pagenow && isset($_GET['post']) && 'post' === get_post_type( $_GET['post'] ) ) {
-        remove_theme_support('post-formats');
-    }
-}
-add_action( 'admin_init', 'unmus_remove_post_formats_from_standard_post_editor' );
-
-/* Admin Styles */
-
-function unmus_admin_style() {
-    wp_enqueue_style('admin-styles',  plugin_dir_url( __FILE__ ).'/unmus_admin-styles.css');
- }
- 
- add_action('admin_enqueue_scripts', 'unmus_admin_style');
-
 ?>

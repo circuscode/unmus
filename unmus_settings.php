@@ -59,6 +59,12 @@ function unmus_options_display_ello_amountofposts()
 	echo '<input class="regular-text" type="text" name="unmus_ello_amountofposts" id="unmus_ello_amountofposts" value="'. get_option('unmus_ello_amountofposts') .'"/>';
 }
 
+
+function unmus_options_display_force_feedupdate()
+{
+	echo '<input class="regular-text" type="text" name="unmus_force_feedupdate" id="unmus_force_feedupdate" value="'. get_option('unmus_force_feedupdate') .'"/>';
+}
+
 /* 
 Sections
 */
@@ -68,6 +74,9 @@ function unmus_options_display_blog_description()
 
 function unmus_options_display_customposttype_description()
 { echo '<p>Format Related</p>'; }
+
+function unmus_options_display_internal_description()
+{ echo '<p>Technical Settings</p>'; }
 
 /* 
 Definitions
@@ -102,12 +111,26 @@ function unmus_options_customposttype_display()
 	register_setting("unmus_settings", "unmus_ello_amountofposts", "unmus_validate_ello_amountofposts");
 }
 
+// Plugin Basic Settings 
+
+function unmus_options_internal_display()
+{
+	
+	add_settings_section("internal_settings_section", "Internal", "unmus_options_display_internal_description", "unmus-options");
+	
+	add_settings_field("unmus_force_feedupdate", "Force Feed Update", "unmus_options_display_force_feedupdate", "unmus-options", "internal_settings_section");
+	
+	register_setting("unmus_settings", "unmus_force_feedupdate", "unmus_validate_force_feedupdate");
+
+}
+
 /*
 Actions
 */
 
 add_action("admin_init", "unmus_options_blog_display");
 add_action("admin_init", "unmus_options_customposttype_display");
+add_action("admin_init", "unmus_options_internal_display");
 
 /*
 Validation
@@ -173,5 +196,14 @@ function unmus_validate_ello_amountofposts ( $amountofposts ) {
     return $output;
 
 } 
+
+/* Validate Input: Force Feedupdate */
+
+function unmus_validate_force_feedupdate ( $force ) {
+	
+    $output = $force;
+	return $output;
+	
+}
 
 ?>

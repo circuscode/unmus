@@ -95,10 +95,9 @@ add_filter( 'nav_menu_css_class', 'pinseldisko_nav_class', 10, 2 );
 
 /*
 Insert Thumbnail into Content @ Pinseldisko Archive
-> This code is obsolet with the huhu theme
-*/
 
-/*
+> This code is obsolet with the huhu theme
+
 function pinseldisko_archive_insert_thumbnail( $content ) {
 	
 	if (is_post_type_archive('pinseldisko')) {

@@ -5,10 +5,8 @@ All about Taxonomies
 */ 
 
 /* 
-Zirkusliebe Taxonomy (like Category for Guests)
+Zirkusliebe Taxonomy
 */
-
-add_action( 'init', 'create_artist_taxonomy' );
 
 function create_artist_taxonomy() {
 
@@ -46,5 +44,6 @@ function create_artist_taxonomy() {
 		)
 	);
 }
+add_action( 'init', 'create_artist_taxonomy' );
 
 ?>

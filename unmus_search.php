@@ -5,7 +5,7 @@ Search Modifications
 */
 
 /* 
-Remove Quotes & Images from Search 
+Remove Quotes & Images Post Types from Search 
 */
 
 function unmus_search_exclude_post_format( $query ) {

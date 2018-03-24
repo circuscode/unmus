@@ -4,12 +4,16 @@
 SEO Framework Modifications
 */
 
+if (function_exists('the_seo_framework_pre_load')) {
+
+/*
+Filter Stack
+*/
+
 add_action( 'template_redirect', function() {
-        
-        if (function_exists('the_seo_framework_pre_load')) {
            
-                // Create Next-Previous @ Mathilda
-                if (function_exists('mathilda_activate')) {
+        // Create Next-Previous @ Mathilda
+        if (function_exists('mathilda_activate')) {
                 if( mathilda_is_tweet_page() ) {
 
                         add_filter( 'the_seo_framework_paged_url_output_prev', 'mathilda_prev_meta_output' );
@@ -17,25 +21,25 @@ add_action( 'template_redirect', function() {
                         add_filter( 'the_seo_framework_pre', 'mathilda_canonical' );
 
                 }
-                }
+        }
 
-                // Manipulate Meta Descriptions
-                add_filter( 'the_seo_framework_description_output', 'unmus_meta_description_output' );
+        // Manipulate Meta Descriptions
+        add_filter( 'the_seo_framework_description_output', 'unmus_meta_description_output' );
 
-                // Manipulate Titles
-                add_filter( 'the_seo_framework_pro_add_title', 'unmus_manipulate_title', 10, 3 );
+        // Manipulate Titles
+        add_filter( 'the_seo_framework_pro_add_title', 'unmus_manipulate_title', 10, 3 );
 
-                // Add noindex
-                add_filter( 'the_seo_framework_robots_meta_array', 'unmus_robots_data_noindex', 10, 1 );
+        // Add noindex
+        add_filter( 'the_seo_framework_robots_meta_array', 'unmus_robots_data_noindex', 10, 1 );
 
-                // Disable Cannonical for Archives and defined Pages
-                if ( is_archive() OR is_search() OR ( is_paged() AND is_home() ) OR is_zirkusliebe_archive() OR is_page('wordpress') OR is_page('notify-me')) {
-                        
-                        add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
-                        
-                }
+        // Disable Cannonical for Archives and defined Pages
+        if ( is_archive() OR is_search() OR ( is_paged() AND is_home() ) OR is_page('wordpress') OR is_page('notify-me')) {
+                
+                add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
+                
+        }
 
-        } // function exists
+        
 } );   
 
 /*
@@ -52,8 +56,12 @@ function unmus_meta_description_output() {
                 $description = 'Sketchnotes und Visual Storytelling';
                 return esc_html( $description );
         }
-        elseif ( is_zirkusliebe_archive() ) {
+        elseif ( is_post_type_archive('podcast') ) {
                 $description = 'Podcast!';
+                return esc_html( $description );
+        }
+        elseif ( is_post_type_archive('raketenstaub') ) {
+                $description = 'Instagram on unmus';
                 return esc_html( $description );
         }
         elseif (function_exists('mathilda_activate')) {
@@ -84,7 +92,7 @@ Manipulate Title
 
 function unmus_manipulate_title( $title, $args = array(), $escape = true ) {
 
-        if ( is_zirkusliebe_archive() ) {
+        if ( is_post_type_archive('podcast') ) {
                 return 'Zirkusliebe';
         }
         elseif ( is_post_type_archive('ello') ) {
@@ -126,7 +134,7 @@ function unmus_robots_data_noindex( $robots ) {
         if(1 != $paged) {
         //true
 
-                if ( is_post_type_archive('ello') OR is_post_type_archive('pinseldisko') OR is_zirkusliebe_archive() ) {
+                if ( is_post_type_archive('ello') OR is_post_type_archive('pinseldisko') OR is_post_type_archive('raketenstaub') OR is_post_type_archive('podcast') ) {
                         $robots['noindex']='noindex';
                 }
                 return $robots;
@@ -197,5 +205,7 @@ function mathilda_prev_meta_output() {
 
         }
 }
+
+} // function exists
 
 ?>

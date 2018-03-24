@@ -18,16 +18,21 @@ add_action( 'template_redirect', function() {
 	add_filter( 'rocket_buffer', 'wp_rocket_unmus_put_charset_first',PHP_INT_MAX);
 	
 	// Apply Filters below only @ Zirkusliebe Archive 
-	if ( ! ( is_zirkusliebe_archive() ) ) {
+	if ( ! ( is_post_type_archive('podcast') ) ) {
 		return;
 	}
-	
-	add_filter( 'rocket_exclude_defer_js', 'wp_rocket_unmus_exclude_from_defer_js' );
-	add_filter( 'rocket_exclude_cache_busting', 'wp_rocket_unmus_exclude_from_cache_busting' );
-	add_filter( 'rocket_exclude_css', 'wp_rocket_unmus_exclude_from_css_minification' );
-	add_filter( 'rocket_exclude_async_css', 'wp_rocket_unmus_exclude_from_async_css' );
-	add_filter( 'rocket_exclude_js', 'wp_rocket_unmus_exclude_from_js_minification' );
 
+	// Minification & Defer */
+	add_filter( 'rocket_exclude_css', 'wp_rocket_unmus_exclude_from_css_minification' );
+	add_filter( 'rocket_exclude_js', 'wp_rocket_unmus_exclude_from_js_minification' );
+	add_filter( 'rocket_exclude_defer_js', 'wp_rocket_unmus_exclude_from_defer_js' );
+
+	// Remove Query String
+	add_filter( 'rocket_exclude_cache_busting', 'wp_rocket_unmus_exclude_from_cache_busting' );
+
+	// Optimize CSS Delivery
+	add_filter( 'rocket_exclude_async_css', 'wp_rocket_unmus_exclude_from_async_css' );
+	
 });
 
 /**
@@ -79,12 +84,13 @@ function wp_rocket_unmus_exclude_from_defer_js( $excluded_files = array() ) {
 	* Duplicate below line as needed to exclude multiple files.
 	*/
 
+	/* Jquery */
 	$excluded_files[] = '/wp-includes/js/jquery/jquery-migrate.min.js';
     $excluded_files[] = '/wp-includes/js/jquery/jquery.js';
 
 	/* Podlove WebPlayer 2 */
     $excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/lib/modules/podlove_web_player/player_v2/player/podlove-web-player/static/podlove-web-player.min.js';
-	$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js?ver=2.6.2';
+	$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js';
 	
 	/* Podlove WebPlayer 4 */
 	$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js';
@@ -111,12 +117,13 @@ function wp_rocket_unmus_exclude_from_cache_busting( $excluded_files = array() )
 		* Duplicate below line as needed to exclude multiple files.
 		*/
 
+		/* Jquery */
 		$excluded_files[] = '/wp-includes/js/jquery/jquery-migrate.min.js';
 		$excluded_files[] = '/wp-includes/js/jquery/jquery.js';
 	
 		/* Podlove WebPlayer 2 */
 		$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/lib/modules/podlove_web_player/player_v2/player/podlove-web-player/static/podlove-web-player.min.js';
-		$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js?ver=2.6.2';
+		$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js';
 	
 		/* Podlove WebPlayer 4 */
 		$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js';
@@ -151,8 +158,11 @@ function wp_rocket_unmus_exclude_from_async_css( $excluded_files = array() ) {
 	/* Podlove WebPlayer 2 */
 
     $excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/lib/modules/podlove_web_player/player_v2/player/podlove-web-player/static/podlove-web-player.min.css';
-	$excluded_files[] = '/wp-content/cache/busting/1/wp-content-plugins-podlove-podcasting-plugin-for-wordpress-lib-modules-podlove_web_player-player_v2-player-podlove-web-player-static-podlove-web-player.min-2.1.1.css';
+	$excluded_files[] = '/wp-content/cache/busting/1/wp-content-plugins-podlove-podcasting-plugin-for-wordpress-lib-modules-podlove_web_player-player_v2-player-podlove-web-player-static-podlove-web-player.min.css';
 	
+	/* Podlove WebPlayer 4 */
+	$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/css/frontend.css';
+
 	/**
 	* Stop editing here.
 	*/
@@ -204,13 +214,13 @@ function wp_rocket_unmus_exclude_from_js_minification( $excluded_files = array()
 	* Duplicate below line as needed to exclude multiple files.
 	*/
 	
-	/* General */
+	/* Jquery */
 	$excluded_files[] = '/wp-includes/js/jquery/jquery-migrate.min.js';
     $excluded_files[] = '/wp-includes/js/jquery/jquery.js';
 	
 	/* Podlove WebPlayer 2 */
     $excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/lib/modules/podlove_web_player/player_v2/player/podlove-web-player/static/podlove-web-player.min.js';
-    $excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js?ver=2.6.2';
+    $excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js';
 
 	/* Podlove WebPlayer 4 */
 	$excluded_files[] = '/wp-content/plugins/podlove-podcasting-plugin-for-wordpress/js/frontend.js';

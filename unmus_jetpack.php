@@ -29,6 +29,6 @@ function remove_devicepx() {
 }
 add_action( 'wp_enqueue_scripts', 'remove_devicepx' );
 
-} // if function
+} // if function exists
 
 ?>

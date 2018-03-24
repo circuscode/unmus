@@ -6,6 +6,8 @@ if(! function_exists( 'schema_wp' )) { return; }
 Schema Enhancements
 */
 
+// This code is not used anymore since Schema was removed from unmus
+
 function unmus_schema_wp_set_default_image( $json ) {
 	
 	// If image is already defiend,

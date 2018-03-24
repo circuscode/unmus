@@ -1,28 +1,28 @@
 # unmus Custom Plugin
 
-This is the custom plugin running on [unmus.de](https://www.unmus.de/).
+This is the custom WordPress plugin running on [unmus.de](https://www.unmus.de/).
 
 ## Description 
 
-This custom plugin for WordPress provides additional features for unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. Using the unmus custom plugin on other WordPress is not recommended (technically possible, not tested).
+This custom WordPress plugin provides additional features related to unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. Using the unmus custom plugin on other WordPress is not recommended.
 
 ## Custom Post Types
 
-Content Formats of unmus are implemented by the following custom post types.
+Following custom post types are implemented.
 
-* Ello (Zimtwolke)
+* Zimtwolke (Ello)
 * Pinseldisko
 * Raketenstaub
 
 ## Custom Taxonomies
 
-New custom taxonomies are implemented as follows.
+Following custom taxonomies are implemented.
 
-* Artist (Podcast)
+* Artist (Podcast related)
 
 ## Features
 
-The plugin provides the following features.
+The plugin provides the following additional features.
 
 * Creative Commons Markup
 * Maintenance Mode
@@ -45,9 +45,11 @@ Standard features of the following plugins will be manipulated or extended.
 
 Following standard features of the WordPress Core will be manipulated or extended.
 
+* Admin
 * Search
 * Rewrite Rules
 * Feed
+* Update
 
 ## Related Theme
 
@@ -73,16 +75,23 @@ This project is licensed under the GPL3 License.
 
 ### 0.2
 
-Release pending
+Released: 24.03.2018
 
 * Feature: Zirkusliebe Artist Custom Taxonomy
-* Improvement: WordPress Custom Post Admin Icons
+* Improvement: Custom WordPress Post Admin Icons
+* Improvement: Raketenstaub SEO
 * New Setting: Amount of Post @ Podcast Archive
 * New Setting: Amount of Post @ Zimtwolke Archive
-* Modification: Podlove Publisher Excerpts Lengths
+* New Setting: Force Feedupdate
+* Modification: Podlove Publisher Excerpt Length
+* Modification: Activate Theme Auto Updates
+* Removed: Obsolet Podlove Workarounds
 * Bugfix: Do not cache Podlove WebPlayer on paged Archives
 * Bugfix: Current Menu Item on paged Zirkusliebe Archives
 * Bugfix: Current Menu Item on paged Raketenstaub Archives
+* Bugfix: Remove Settings with Plugin Deinstallation
+* Others: Deactivate Post Format Filter for Posts
+* Others: Internal code improvements
 
 ### 0.1
 

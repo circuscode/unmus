@@ -3,7 +3,7 @@
 /*
 Plugin Name:	unmus
 Plugin URI:		https://www.unmus.de/
-Description:	Additional WordPress Features Unmus
+Description:	Additional WordPress Features @ unmus
 Version:		0.2
 Author: 		Marco Hitschler
 Author URI: 	https://www.unmus.de/
@@ -49,6 +49,7 @@ function unmus_activate () {
 	add_option('unmus_raketenstaub_amountofposts',"10");
 	add_option('unmus_zirkusliebe_amountofposts',"10");
 	add_option('unmus_ello_amountofposts',"10");
+	add_option('unmus_force_feedupdate',"0");
 }
 
 register_activation_hook( __FILE__ , 'unmus_activate' );
@@ -73,6 +74,15 @@ function unmus_delete () {
 	delete_option('unmus_raketenstaub_amountofposts');
 	delete_option('unmus_zirkusliebe_amountofposts');
 	delete_option('unmus_ello_amountofposts');
+	delete_option('unmus_force_feedupdate');
 } 
+
+register_uninstall_hook( __FILE__ , 'unmus_delete' );
+
+/*
+Updates
+*/
+
+add_filter( 'auto_update_theme', '__return_true' );
 
 ?>

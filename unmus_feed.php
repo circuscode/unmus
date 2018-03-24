@@ -69,10 +69,11 @@ function ello_filter_images_from_feed(&$wp_query) {
 add_filter('pre_get_posts','ello_filter_images_from_feed');
 
 /*
-Feed Updates
+Force Feed Updates
 */
 
-// Activate to force Feed Update
-// add_filter('wp_feed_cache_transient_lifetime', create_function('', 'return 60;'));
+if(get_option('unmus_force_feedupdate')) {
+    add_filter('wp_feed_cache_transient_lifetime', create_function('', 'return 60;'));
+}
 
 ?>
