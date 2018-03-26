@@ -22,9 +22,19 @@ add_action( 'template_redirect', function() {
 		return;
 	}
 
-	// Minification & Defer */
+	// Remove default minify/defer priorities.
+	remove_filter( 'rocket_buffer', 'rocket_minify_process', 13 );
+	remove_filter( 'rocket_buffer', 'rocket_defer_js', 14 );
+
+	// Re-add minify/defer priorities (reversed).
+	add_filter( 'rocket_buffer', 'rocket_defer_js', 13 );
+	add_filter( 'rocket_buffer', 'rocket_minify_process', 14 );
+
+	// Minification */
 	// add_filter( 'rocket_exclude_css', 'wp_rocket_unmus_exclude_from_css_minification' );
-	add_filter( 'rocket_exclude_js', 'wp_rocket_unmus_exclude_from_js_minification' );
+	// add_filter( 'rocket_exclude_js', 'wp_rocket_unmus_exclude_from_js_minification' );
+
+	// Defer */
 	add_filter( 'rocket_exclude_defer_js', 'wp_rocket_unmus_exclude_from_defer_js' );
 
 	// Remove Query String

@@ -78,6 +78,7 @@ This project is licensed under the GPL3 License.
 Release pending
 
 * Feature: CSS Minification @ Podlove Archives
+* Feature: JavaScript Minification @ Podlove Archives
 
 ### 0.2
 
