@@ -79,6 +79,7 @@ Release pending
 
 * Feature: CSS Minification @ Podlove Archives
 * Feature: JavaScript Minification @ Podlove Archives
+* Others: Hidden Developer Settings
 
 ### 0.2
 

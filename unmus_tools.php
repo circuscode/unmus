@@ -1,6 +1,16 @@
 <?php
 
 /* 
+Developer - Yes or No? 
+*/
+
+$unmus_developer=get_option('unmus_developer');
+if (! $unmus_developer == 1)
+{
+return;
+}
+
+/* 
 Mathilda Tools @ Menu
 */
 
