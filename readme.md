@@ -77,9 +77,10 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
+* Improvement: Maintenance Mode excluded for active Logins
 * Improvement: CSS Minification @ Podlove Archives
 * Improvement: JavaScript Minification @ Podlove Archives
-* Improvement: Enqueue Podcast CSS only if required
+* Improvement: Enqueue Podcast CSS only @ Podlove Content
 * Others: Hidden Developer Settings
 
 ### 0.2
