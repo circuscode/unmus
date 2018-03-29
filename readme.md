@@ -77,8 +77,9 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
-* Feature: CSS Minification @ Podlove Archives
-* Feature: JavaScript Minification @ Podlove Archives
+* Improvement: CSS Minification @ Podlove Archives
+* Improvement: JavaScript Minification @ Podlove Archives
+* Improvement: Enqueue Podcast CSS only if required
 * Others: Hidden Developer Settings
 
 ### 0.2
