@@ -6,13 +6,13 @@
  *
  */
 
-if(function_exists( 'rocket_deactivation' )) { return; }
-
 /*
 Execute or do not execute
 */
 
 add_action( 'template_redirect', function() {
+
+	if(!function_exists( 'rocket_deactivation' )) { return; }
 
 	// Always execute
 	add_filter( 'rocket_buffer', 'wp_rocket_unmus_put_charset_first',PHP_INT_MAX);
@@ -251,6 +251,9 @@ function wp_rocket_unmus_exclude_from_js_minification( $excluded_files = array()
 
 function wp_rocket_unmus_refresh_mathilda()
 {
+
+	if(! function_exists( 'rocket_deactivation' )) { return; }
+
 	$cache_mathilda_url=null;
 	$current_host = $_SERVER['HTTP_HOST'];
 
@@ -277,5 +280,6 @@ function wp_rocket_unmus_refresh_mathilda()
 	}
 
 	rocket_clean_files( $clear_urls );
+
 }
 add_action('mathilda_tweets_updated', 'wp_rocket_unmus_refresh_mathilda');

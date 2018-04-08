@@ -81,6 +81,7 @@ Release pending
 * Improvement: CSS Minification @ Podlove Archives
 * Improvement: JavaScript Minification @ Podlove Archives
 * Improvement: Enqueue Podcast CSS only @ Podlove Content
+* Bugfix: Cache Handling Error
 * Others: Hidden Developer Settings
 
 ### 0.2
