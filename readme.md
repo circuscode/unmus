@@ -75,7 +75,7 @@ This project is licensed under the GPL3 License.
 
 ### 0.3
 
-Release pending
+Released: 23.05.2018
 
 * Improvement: Maintenance Mode excluded for active Logins
 * Improvement: CSS Minification @ Podlove Archives
