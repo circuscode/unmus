@@ -73,6 +73,12 @@ This project is licensed under the GPL3 License.
 
 ## Changelog
 
+### 0.4
+
+Release pending
+
+* Changed: Hide Data Privacy Checkbox
+
 ### 0.3
 
 Released: 23.05.2018
