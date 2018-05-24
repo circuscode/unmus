@@ -78,6 +78,7 @@ This project is licensed under the GPL3 License.
 Release pending
 
 * Changed: Hide Data Privacy Checkbox
+* Changed: Set all post to "BlogPosting" (structured data)
 
 ### 0.3
 

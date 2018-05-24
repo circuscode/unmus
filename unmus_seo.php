@@ -32,6 +32,9 @@ add_action( 'template_redirect', function() {
         // Add noindex
         add_filter( 'the_seo_framework_robots_meta_array', 'unmus_robots_data_noindex', 10, 1 );
 
+        // Structured Data
+        add_filter( 'the_seo_framework_articles_default_meta', 'unmus_tsf_blogposting' );
+
         // Disable Cannonical for Archives and defined Pages
         if ( is_archive() OR is_search() OR ( is_paged() AND is_home() ) OR is_page('wordpress') OR is_page('notify-me')) {
                 
@@ -204,6 +207,11 @@ function mathilda_prev_meta_output() {
         return esc_html( $mathilda_permalink );
 
         }
+}
+
+function unmus_tsf_blogposting( $meta ) {
+        $meta['type'] = 'BlogPosting';    
+        return $meta;
 }
 
 } // function exists
