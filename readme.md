@@ -80,8 +80,8 @@ Release pending
 * Activated: Auto Updates for Plugins
 * CleanUp: Obsolet Code
 * Removed: Podlove JS @ Non Podcast Content
-* Removed: Schema Modifiations
-* Removed: Jetpack Modifiations
+* Removed: Schema Modifications
+* Removed: Jetpack Modifications
 * Removed: Podcast-related Rocket Processes
 * Improvement: Better SEO on paged archives
 
