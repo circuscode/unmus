@@ -4,7 +4,7 @@ This is the custom WordPress plugin running on [unmus.de](https://www.unmus.de/)
 
 ## Description 
 
-This custom WordPress plugin provides additional features related to unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. Using the unmus custom plugin on other WordPress is not recommended.
+This custom WordPress plugin provides additional features related to unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins.
 
 ## Custom Post Types
 
@@ -35,9 +35,7 @@ The plugin provides the following additional features.
 Standard features of the following plugins will be manipulated or extended.
 
 * AMP
-* Jetpack
 * Podlove Publisher
-* Schema
 * The SEO Framework
 * wpRocket
 
