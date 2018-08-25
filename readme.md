@@ -73,7 +73,7 @@ This project is licensed under the GPL3 License.
 
 ### 0.4
 
-Release pending
+Released: 25.08.2018
 
 * Changed: Hide Data Privacy Checkbox
 * Changed: Set all post to "BlogPosting" (structured data)
