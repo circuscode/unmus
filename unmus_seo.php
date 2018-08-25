@@ -4,7 +4,7 @@
 SEO Framework Modifications
 */
 
-if (function_exists('the_seo_framework_pre_load')) {
+if (!function_exists('the_seo_framework_pre_load')) { return; }
 
 /*
 Filter Stack
@@ -42,7 +42,6 @@ add_action( 'template_redirect', function() {
                 
         }
 
-        
 } );   
 
 /*
@@ -67,22 +66,6 @@ function unmus_meta_description_output() {
                 $description = 'Instagram on unmus';
                 return esc_html( $description );
         }
-        elseif (function_exists('mathilda_activate')) {
-                
-                if(mathilda_is_tweet_page()){
-                $mathilda_subpage=mathilda_which_page();
-                
-                $description='Alle Tweets von @irrlicht (aber nicht auf Twitter, sondern im Blog)';
-
-                        if($mathilda_subpage==1) {
-                                return $description;
-                        }
-                        else {
-                                $description=$description.' - Seite '. $mathilda_subpage;
-                                return $description;
-                        }
-                }
-        }
 	else {
                 return $description=the_seo_framework_description_from_cache();
         }
@@ -96,16 +79,40 @@ Manipulate Title
 function unmus_manipulate_title( $title, $args = array(), $escape = true ) {
 
         if ( is_post_type_archive('podcast') ) {
-                return 'Zirkusliebe';
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
+                if($paged>1) {
+                        return 'Zirkusliebe - Seite '.$paged;
+                }
+                else {
+                        return 'Zirkusliebe';   
+                }
         }
         elseif ( is_post_type_archive('ello') ) {
-                return 'Zimtwolke';
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
+                if($paged>1) {
+                        return 'Zimtwolke - Seite '.$paged;
+                }
+                else {
+                        return 'Zimtwolke';   
+                }
         }
         elseif ( is_post_type_archive('pinseldisko') ) {
-                return 'Pinseldisko';
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
+                if($paged>1) {
+                        return 'Pinseldisko - Seite '.$paged;
+                }
+                else {
+                        return 'Pinseldisko';   
+                }
         }
         elseif ( is_post_type_archive('raketenstaub') ) {
-                return 'Raketenstaub';
+                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
+                if($paged>1) {
+                        return 'Raketenstaub - Seite '.$paged;
+                }
+                else {
+                        return 'Raketenstaub';   
+                }
         }
         elseif (function_exists('mathilda_activate')) {
 
@@ -209,11 +216,13 @@ function mathilda_prev_meta_output() {
         }
 }
 
+/*
+Schema BlogPosting
+*/
+
 function unmus_tsf_blogposting( $meta ) {
         $meta['type'] = 'BlogPosting';    
         return $meta;
 }
-
-} // function exists
 
 ?>

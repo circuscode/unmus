@@ -79,6 +79,13 @@ Release pending
 
 * Changed: Hide Data Privacy Checkbox
 * Changed: Set all post to "BlogPosting" (structured data)
+* Activated: Auto Updates for Plugins
+* CleanUp: Obsolet Code
+* Removed: Podlove JS @ Non Podcast Content
+* Removed: Schema Modifiations
+* Removed: Jetpack Modifiations
+* Removed: Podcast-related Rocket Processes
+* Improvement: Better SEO on paged archives
 
 ### 0.3
 

@@ -93,23 +93,4 @@ function pinseldisko_nav_class( $classes, $item ) {
 }
 add_filter( 'nav_menu_css_class', 'pinseldisko_nav_class', 10, 2 );
 
-/*
-Insert Thumbnail into Content @ Pinseldisko Archive
-
-> This code is obsolet with the huhu theme
-
-function pinseldisko_archive_insert_thumbnail( $content ) {
-	
-	if (is_post_type_archive('pinseldisko')) {
-		global $post;
-		return str_replace('<p><a class="more', '<a style="border:0;" href="'.get_the_permalink().'">'.get_the_post_thumbnail($post_id, large ).'</a><p style="margin-top:20px"><a class="more', $content);
-	}
-	else {
-		global $post;
-		return $content;
-	}
-}
-add_filter( 'the_content', 'pinseldisko_archive_insert_thumbnail' );
-*/
-
 ?>

@@ -32,48 +32,6 @@ function zirkusliebe_cpt_glance_counter( $items = array() ) {
 add_filter( 'dashboard_glance_items', 'zirkusliebe_cpt_glance_counter', 10, 1 );
 
 /*
-With Podlove Release 2.7 this is not required anymore
-Bugfix Workaround: Remove Current Menu Item Class from Home Link in Navigation @ Zirkusliebe
-
-function zirkusliebe_workaround_nav_class( $classes, $item ) {
-	
-	$podlove_archive=false;
-	
-	$host = get_home_url();
-    $path = $_SERVER['REQUEST_URI'];
-    $current_url = esc_url($host . $path);
-
-	$localdevurl='http://localunmus/zirkusliebe/';
-	$webdevurl='http://dev.unmus.de/zirkusliebe/';
-	$webprodurl='https://www.unmus.de/zirkusliebe/';
-	
-	$localdev=false;
-	$webdev=false;
-	$webprod=false;
-	
-	$localdev=strpos($current_url,$localdevurl);
-	$webdev=strpos($current_url,$webdevurl);
-	$webprod=strpos($current_url,$webprodurl);
-	
-	if ( $localdev !== false OR $webdev !== false OR $webprod !== false ) { 
-		$podlove_archive = true; 
-    } 
-	
-    if ( $podlove_archive == true && $item->title == 'unmus' ) {
-		unset($classes[array_search('current-menu-item', $classes)]);
-    }
-
-    if ( is_post_type_archive('podcast') && $item->title == 'Zirkusliebe' ) {
-        $classes[] = 'current-menu-item';
-    }
-	
-	return $classes;
-
-}
-add_filter( 'nav_menu_css_class', 'zirkusliebe_workaround_nav_class', 10, 2 );
-*/
-
-/*
 Adds Current Menu Item Class @ Nav (for Zirkusliebe Archive Page 2 to n)
 */
 
@@ -147,7 +105,6 @@ Remove Podlove CSS @ Non Podcast Content
 */
 
 function unmus_remove_podlove_css(){
-
     if(! ( is_post_type_archive('podcast') OR ('podcast' == get_post_type() ) ) )
     {
     wp_dequeue_style( 'podlove-frontend-css' );
@@ -155,5 +112,17 @@ function unmus_remove_podlove_css(){
     }
 }
 add_action('wp_enqueue_scripts', 'unmus_remove_podlove_css');
+
+/*
+Remove Podlove Java Script @ Non Podcast Content
+*/
+
+function unmus_remove_podlove_js(){
+    if(! ( is_post_type_archive('podcast') OR ('podcast' == get_post_type() ) ) )
+    {
+    wp_dequeue_script( 'podlove_frontend' );
+    }
+}
+add_action('wp_enqueue_scripts', 'unmus_remove_podlove_js');
 
 ?>

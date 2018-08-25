@@ -4,7 +4,7 @@
 Plugin Name:	unmus
 Plugin URI:		https://www.unmus.de/
 Description:	Additional WordPress Features @ unmus
-Version:		0.4
+Version:		0.5
 Author: 		Marco Hitschler
 Author URI: 	https://www.unmus.de/
 License:     	GPL3
@@ -85,5 +85,6 @@ Updates
 */
 
 add_filter( 'auto_update_theme', '__return_true' );
+add_filter( 'auto_update_plugin', '__return_true' );
 
 ?>

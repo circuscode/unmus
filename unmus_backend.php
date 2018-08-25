@@ -45,7 +45,6 @@ function unmus_admin_style() {
     wp_enqueue_style('admin-styles',  plugin_dir_url( __FILE__ ).'/unmus_styles.css');
 
 }
- 
 add_action('admin_enqueue_scripts', 'unmus_admin_style');
 
 ?>
