@@ -71,6 +71,12 @@ This project is licensed under the GPL3 License.
 
 ## Changelog
 
+### 0.5
+
+Release pending
+
+* Improved: Remove JS/CSS Resources if not required
+
 ### 0.4
 
 Released: 25.08.2018
