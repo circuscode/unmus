@@ -1,7 +1,5 @@
 <?php
 
-if(!function_exists( 'rocket_deactivation' )) { return; }
-
 /**
  * Filter cache buffer, extract meta tag, inject right after opening head tag.
  * This ensures html output is valid with W3C Standards
@@ -44,8 +42,6 @@ add_filter( 'rocket_buffer', 'wp_rocket_unmus_put_charset_first',PHP_INT_MAX);
 
 function wp_rocket_unmus_refresh_mathilda()
 {
-
-	if(! function_exists( 'rocket_deactivation' )) { return; }
 
 	$cache_mathilda_url=null;
 	$current_host = $_SERVER['HTTP_HOST'];
