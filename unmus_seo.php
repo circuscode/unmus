@@ -4,8 +4,6 @@
 SEO Framework Modifications
 */
 
-if (!function_exists('the_seo_framework_pre_load')) { return; }
-
 /*
 Filter Stack
 */
@@ -27,7 +25,7 @@ add_action( 'template_redirect', function() {
         add_filter( 'the_seo_framework_description_output', 'unmus_meta_description_output' );
 
         // Manipulate Titles
-        add_filter( 'the_seo_framework_pro_add_title', 'unmus_manipulate_title', 10, 3 );
+        add_filter( 'the_seo_framework_title_from_generation', 'unmus_seo_framework_manipulate_title', 10, 3 );
 
         // Add noindex
         add_filter( 'the_seo_framework_robots_meta_array', 'unmus_robots_data_noindex', 10, 1 );
@@ -76,44 +74,12 @@ function unmus_meta_description_output() {
 Manipulate Title
 */
 
-function unmus_manipulate_title( $title, $args = array(), $escape = true ) {
+function unmus_seo_framework_manipulate_title( $title, $args = array(), $escape = true ) {
 
         if ( is_post_type_archive('podcast') ) {
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
-                if($paged>1) {
-                        return 'Zirkusliebe - Seite '.$paged;
-                }
-                else {
                         return 'Zirkusliebe';   
-                }
         }
-        elseif ( is_post_type_archive('ello') ) {
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
-                if($paged>1) {
-                        return 'Zimtwolke - Seite '.$paged;
-                }
-                else {
-                        return 'Zimtwolke';   
-                }
-        }
-        elseif ( is_post_type_archive('pinseldisko') ) {
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
-                if($paged>1) {
-                        return 'Pinseldisko - Seite '.$paged;
-                }
-                else {
-                        return 'Pinseldisko';   
-                }
-        }
-        elseif ( is_post_type_archive('raketenstaub') ) {
-                $paged = (get_query_var('paged')) ? get_query_var('paged') : 1; 
-                if($paged>1) {
-                        return 'Raketenstaub - Seite '.$paged;
-                }
-                else {
-                        return 'Raketenstaub';   
-                }
-        }
+
         elseif (function_exists('mathilda_activate')) {
 
                 if(mathilda_is_tweet_page()){
@@ -123,7 +89,7 @@ function unmus_manipulate_title( $title, $args = array(), $escape = true ) {
                         return 'Tweets';
                 }
                 else {
-                        $tweetspagedtitle='Tweets - Seite '. $mathilda_subpage .'';
+                        $tweetspagedtitle='Tweets - Page '. $mathilda_subpage .'';
                         return $tweetspagedtitle;
                 }
                 }

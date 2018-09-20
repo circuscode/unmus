@@ -77,6 +77,7 @@ Release pending
 
 * Added: Raketenstaub Taxonomy
 * Improved: Remove JS/CSS Resources if not required
+* Updated: Compatibility SEO Framework 3.1
 * Bugfix: Rocket Cache Handling
 
 ### 0.4
