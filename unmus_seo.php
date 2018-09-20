@@ -8,8 +8,8 @@ SEO Framework Modifications
 Filter Stack
 */
 
-add_action( 'template_redirect', function() {
-           
+function unmus_seo_framework_filter_stack() {
+
         // Create Next-Previous @ Mathilda
         if (function_exists('mathilda_activate')) {
                 if( mathilda_is_tweet_page() ) {
@@ -21,11 +21,11 @@ add_action( 'template_redirect', function() {
                 }
         }
 
-        // Manipulate Meta Descriptions
-        add_filter( 'the_seo_framework_description_output', 'unmus_meta_description_output' );
-
         // Manipulate Titles
         add_filter( 'the_seo_framework_title_from_generation', 'unmus_seo_framework_manipulate_title', 10, 3 );
+
+        // Manipulate Meta Descriptions
+        add_filter( 'the_seo_framework_generated_description', 'unmus_seo_framework_manipulate_meta_description' );
 
         // Add noindex
         add_filter( 'the_seo_framework_robots_meta_array', 'unmus_robots_data_noindex', 10, 1 );
@@ -40,35 +40,8 @@ add_action( 'template_redirect', function() {
                 
         }
 
-} );   
-
-/*
-Manipulate Meta Descriptions
-*/
-
-function unmus_meta_description_output() {
-	
-	if ( is_post_type_archive('ello') ) {
-                $description = 'Mid-size Bloggen';
-                return esc_html( $description );
-	}
-	elseif ( is_post_type_archive('pinseldisko') ) {
-                $description = 'Sketchnotes und Visual Storytelling';
-                return esc_html( $description );
-        }
-        elseif ( is_post_type_archive('podcast') ) {
-                $description = 'Podcast!';
-                return esc_html( $description );
-        }
-        elseif ( is_post_type_archive('raketenstaub') ) {
-                $description = 'Instagram on unmus';
-                return esc_html( $description );
-        }
-	else {
-                return $description=the_seo_framework_description_from_cache();
-        }
-	
 }
+add_action( 'template_redirect', 'unmus_seo_framework_filter_stack');   
 
 /*
 Manipulate Title
@@ -96,6 +69,31 @@ function unmus_seo_framework_manipulate_title( $title, $args = array(), $escape 
         }
 	return $title;
 
+}
+
+/*
+Manipulate Meta Descriptions
+*/
+
+function unmus_seo_framework_manipulate_meta_description() {
+	
+	if ( is_post_type_archive('ello') ) {
+                $description = 'Mid-size Bloggen';
+                return esc_html( $description );
+	}
+	elseif ( is_post_type_archive('pinseldisko') ) {
+                $description = 'Sketchnotes und Visual Storytelling';
+                return esc_html( $description );
+        }
+        elseif ( is_post_type_archive('podcast') ) {
+                $description = 'Podcast!';
+                return esc_html( $description );
+        }
+        elseif ( is_post_type_archive('raketenstaub') ) {
+                $description = 'Instagram on unmus';
+                return esc_html( $description );
+        }
+	
 }
 
 /*  
