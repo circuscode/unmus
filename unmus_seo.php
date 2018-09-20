@@ -27,9 +27,6 @@ function unmus_seo_framework_filter_stack() {
         // Manipulate Meta Descriptions
         add_filter( 'the_seo_framework_generated_description', 'unmus_seo_framework_manipulate_meta_description' );
 
-        // Add noindex
-        add_filter( 'the_seo_framework_robots_meta_array', 'unmus_robots_data_noindex', 10, 1 );
-
         // Structured Data
         add_filter( 'the_seo_framework_articles_default_meta', 'unmus_tsf_blogposting' );
 
@@ -94,25 +91,6 @@ function unmus_seo_framework_manipulate_meta_description() {
                 return esc_html( $description );
         }
 	
-}
-
-/*  
-Add noindex
-*/
-
-function unmus_robots_data_noindex( $robots ) {
-
-        // get current page we are on. If not set we can assume we are on page 1.
-        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-        // are we on page one?
-        if(1 != $paged) {
-        //true
-
-                if ( is_post_type_archive('ello') OR is_post_type_archive('pinseldisko') OR is_post_type_archive('raketenstaub') OR is_post_type_archive('podcast') ) {
-                        $robots['noindex']='noindex';
-                }
-                return $robots;
-        }
 }
 
 /*
