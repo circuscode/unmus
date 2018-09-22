@@ -80,6 +80,7 @@ Release pending
 * Improved: Remove JS/CSS Resources if not required
 * Updated: Compatibility SEO Framework 3.1
 * Bugfix: Rocket Cache Handling
+* Others: Code Improvements
 
 ### 0.4
 

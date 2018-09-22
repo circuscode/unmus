@@ -10,17 +10,6 @@ Filter Stack
 
 function unmus_seo_framework_filter_stack() {
 
-        // Create Next-Previous @ Mathilda
-        if (function_exists('mathilda_activate')) {
-                if( mathilda_is_tweet_page() ) {
-
-                        add_filter( 'the_seo_framework_paged_url_output_prev', 'mathilda_prev_meta_output' );
-                        add_filter( 'the_seo_framework_paged_url_output_next', 'mathilda_next_meta_output' );
-                        add_filter( 'the_seo_framework_pre', 'mathilda_canonical' );
-
-                }
-        }
-
         // Manipulate Titles
         add_filter( 'the_seo_framework_title_from_generation', 'unmus_seo_framework_manipulate_title', 10, 3 );
 
@@ -30,11 +19,16 @@ function unmus_seo_framework_filter_stack() {
         // Structured Data
         add_filter( 'the_seo_framework_articles_default_meta', 'unmus_tsf_blogposting' );
 
-        // Disable Cannonical for Archives and defined Pages
+        // Disable Cannonical for Archives and Pages without Content
         if ( is_archive() OR is_search() OR ( is_paged() AND is_home() ) OR is_page('wordpress') OR is_page('notify-me')) {
-                
                 add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
-                
+        }
+
+        // Create Next and Previous @ Mathilda
+        if( mathilda_is_tweet_page() ) {
+                add_filter( 'the_seo_framework_paged_url_output_prev', 'mathilda_prev_meta_output' );
+                add_filter( 'the_seo_framework_paged_url_output_next', 'mathilda_next_meta_output' );
+                add_filter( 'the_seo_framework_pre', 'mathilda_canonical' );
         }
 
 }
