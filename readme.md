@@ -76,6 +76,7 @@ This project is licensed under the GPL3 License.
 Release pending
 
 * Added: Raketenstaub Taxonomy
+* Removed: Auto Update for Plugins
 * Improved: Remove JS/CSS Resources if not required
 * Updated: Compatibility SEO Framework 3.1
 * Bugfix: Rocket Cache Handling
