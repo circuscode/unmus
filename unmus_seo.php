@@ -66,7 +66,7 @@ function unmus_seo_framework_manipulate_title( $title, $args = array(), $escape 
 Manipulate Meta Descriptions
 */
 
-function unmus_seo_framework_manipulate_meta_description() {
+function unmus_seo_framework_manipulate_meta_description($description) {
 	
 	if ( is_post_type_archive('ello') ) {
                 $description = 'Mid-size Bloggen';
@@ -82,6 +82,9 @@ function unmus_seo_framework_manipulate_meta_description() {
         }
         elseif ( is_post_type_archive('raketenstaub') ) {
                 $description = 'Instagram on unmus';
+                return esc_html( $description );
+        }
+        else {
                 return esc_html( $description );
         }
 	
