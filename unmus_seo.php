@@ -53,7 +53,7 @@ function unmus_seo_framework_manipulate_title( $title, $args = array(), $escape 
                         return 'Tweets';
                 }
                 else {
-                        $tweetspagedtitle='Tweets - Page '. $mathilda_subpage .'';
+                        $tweetspagedtitle='Tweets - Seite '. $mathilda_subpage .'';
                         return $tweetspagedtitle;
                 }
                 }
