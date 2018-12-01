@@ -53,25 +53,25 @@ Raketenstaub Taxonomy
 function create_raketen_taxonomy() {
 
 	$labels = array(
-		'name' => _x( 'Kollektion', 'taxonomy general name' ),
-		'singular_name' => _x( 'Kollektion', 'taxonomy singular name' ),
-		'search_items' =>  __( 'Kollektion suchen' ),
-		'popular_items' => __( 'Beliebte Kollektionen' ),
-		'all_items' => __( 'Alle Kollektionen' ),
+		'name' => _x( 'Fotoalbum', 'taxonomy general name' ),
+		'singular_name' => _x( 'Fotoalbum', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Fotoalbum suchen' ),
+		'popular_items' => __( 'Beliebte Fotoalben' ),
+		'all_items' => __( 'Alle Fotoalben' ),
 		'parent_item' => null,
 		'parent_item_colon' => null,
-		'edit_item' => __( 'Kollektion bearbeiten' ), 
-		'update_item' => __( 'Kollektion aktualisieren' ),
-		'add_new_item' => __( 'Neue Kollektion hinzufügen' ),
+		'edit_item' => __( 'Fotoalbum bearbeiten' ), 
+		'update_item' => __( 'Fotoalbum aktualisieren' ),
+		'add_new_item' => __( 'Neues Fotoalbum hinzufügen' ),
 		'new_item_name' => __( 'Neuer Name' ),
-		'separate_items_with_commas' => __( 'Kollektionen durch Kommas trennen' ),
-		'add_or_remove_items' => __( 'Kollektion hinzufügen oder entfernen' ),
-		'choose_from_most_used' => __( 'Wähle aus den meistgenutzen Kollektionen' ),
-		'menu_name' => __( 'Kollektionen' ),
+		'separate_items_with_commas' => __( 'Fotoalben durch Kommas trennen' ),
+		'add_or_remove_items' => __( 'Fotoalben hinzufügen oder entfernen' ),
+		'choose_from_most_used' => __( 'Wähle aus den meistgenutzen Fotoalben' ),
+		'menu_name' => __( 'Fotoalben' ),
 	  ); 
 
 	register_taxonomy(
-		'kollektion',
+		'fotoalbum',
 		'raketenstaub',
 		array(
 			'hierarchical' => true,
@@ -81,7 +81,7 @@ function create_raketen_taxonomy() {
 			'update_count_callback' => '_update_post_term_count',
 			'query_var' => true,
 			'rewrite' => array(
-				'slug' => 'kollektion'
+				'slug' => 'fotoalbum'
 			)
 		)
 	);
