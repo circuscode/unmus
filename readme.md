@@ -75,6 +75,7 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
+* Added: Pinseldisko Taxonomy
 * Added: Raketenstaub Taxonomy
 * Removed: Auto Update for Plugins
 * Improved: Remove JS/CSS Resources if not required

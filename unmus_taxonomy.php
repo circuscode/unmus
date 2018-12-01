@@ -88,4 +88,46 @@ function create_raketen_taxonomy() {
 }
 add_action( 'init', 'create_raketen_taxonomy' );
 
+/* 
+Pinseldisko Taxonomy
+*/
+
+function create_pinseldisko_taxonomy() {
+
+	$labels = array(
+		'name' => _x( 'Kunsthalle', 'taxonomy general name' ),
+		'singular_name' => _x( 'Kunsthalle', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Kunsthalle suchen' ),
+		'popular_items' => __( 'Beliebte Kunsthallen' ),
+		'all_items' => __( 'Alle Kunsthallen' ),
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Kunsthalle bearbeiten' ), 
+		'update_item' => __( 'Kunsthalle aktualisieren' ),
+		'add_new_item' => __( 'Neue Kunsthalle hinzufügen' ),
+		'new_item_name' => __( 'Neuer Name' ),
+		'separate_items_with_commas' => __( 'Kunsthallen durch Kommas trennen' ),
+		'add_or_remove_items' => __( 'Kunsthalle hinzufügen oder entfernen' ),
+		'choose_from_most_used' => __( 'Wähle aus den meistgenutzen Kunsthallen' ),
+		'menu_name' => __( 'Kunsthalle' ),
+	  ); 
+
+	register_taxonomy(
+		'kunsthalle',
+		'pinseldisko',
+		array(
+			'hierarchical' => true,
+			'labels' => $labels,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'update_count_callback' => '_update_post_term_count',
+			'query_var' => true,
+			'rewrite' => array(
+				'slug' => 'kunsthalle'
+			)
+		)
+	);
+}
+add_action( 'init', 'create_pinseldisko_taxonomy' );
+
 ?>
