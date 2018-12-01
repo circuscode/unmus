@@ -130,4 +130,46 @@ function create_pinseldisko_taxonomy() {
 }
 add_action( 'init', 'create_pinseldisko_taxonomy' );
 
+/* 
+Zimtwolke Taxonomy
+*/
+
+function create_zimtwolke_taxonomy() {
+
+	$labels = array(
+		'name' => _x( 'Tagebuch', 'taxonomy general name' ),
+		'singular_name' => _x( 'Tagebuch', 'taxonomy singular name' ),
+		'search_items' =>  __( 'Tagebuch suchen' ),
+		'popular_items' => __( 'Beliebte Tagebücher' ),
+		'all_items' => __( 'Alle Tagebücher' ),
+		'parent_item' => null,
+		'parent_item_colon' => null,
+		'edit_item' => __( 'Tagebuch bearbeiten' ), 
+		'update_item' => __( 'Tagebuch aktualisieren' ),
+		'add_new_item' => __( 'Neues Tagebuch hinzufügen' ),
+		'new_item_name' => __( 'Neuer Name' ),
+		'separate_items_with_commas' => __( 'Tagebücher durch Kommas trennen' ),
+		'add_or_remove_items' => __( 'Tagebuch hinzufügen oder entfernen' ),
+		'choose_from_most_used' => __( 'Wähle aus den meistgenutzen Tagebüchern' ),
+		'menu_name' => __( 'Tagebücher' ),
+	  ); 
+
+	register_taxonomy(
+		'tagebuch',
+		'ello',
+		array(
+			'hierarchical' => true,
+			'labels' => $labels,
+			'show_ui' => true,
+			'show_admin_column' => true,
+			'update_count_callback' => '_update_post_term_count',
+			'query_var' => true,
+			'rewrite' => array(
+				'slug' => 'tagebuch'
+			)
+		)
+	);
+}
+add_action( 'init', 'create_zimtwolke_taxonomy' );
+
 ?>

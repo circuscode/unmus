@@ -19,6 +19,9 @@ Following custom post types are implemented.
 Following custom taxonomies are implemented.
 
 * Artist (Podcast related)
+* Fotoalbum (Raketenstaub related)
+* Kunsthalle (Pinseldisko related)
+* Tagebuch (Zimtwolke related)
 
 ## Features
 
@@ -75,6 +78,7 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
+* Added: Zimtwolke Taxonomy
 * Added: Pinseldisko Taxonomy
 * Added: Raketenstaub Taxonomy
 * Removed: Auto Update for Plugins
