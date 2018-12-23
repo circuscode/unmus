@@ -81,6 +81,7 @@ Release pending
 * Added: Zimtwolke Taxonomy
 * Added: Pinseldisko Taxonomy
 * Added: Raketenstaub Taxonomy
+* Added: Workaround Envira Shortcode @ Podlove Feed
 * Removed: Auto Update for Plugins
 * Improved: Remove JS/CSS Resources if not required
 * Updated: Compatibility SEO Framework 3.1

@@ -100,4 +100,23 @@ function zirkusliebe_excerpt_modify($input) {
 }
 add_filter('the_excerpt', 'zirkusliebe_excerpt_modify');
 
+/*
+Workaround Envira Shortcode Error @ Feed
+*/
+
+function unmus_zirkusliebe_feed_content_zero( $content ) {
+  
+    if( is_feed() ) {
+
+        if('podcast' == get_post_type()) {
+            return "";
+        } 
+
+    }
+
+    return $content;
+
+}
+add_filter( 'the_content', 'unmus_zirkusliebe_feed_content_zero' );
+
 ?>
