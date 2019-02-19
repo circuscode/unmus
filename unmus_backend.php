@@ -47,4 +47,10 @@ function unmus_admin_style() {
 }
 add_action('admin_enqueue_scripts', 'unmus_admin_style');
 
+/* 
+ACF
+*/
+
+add_filter( 'acf/settings/remove_wp_meta_box', '__return_false' );
+
 ?>

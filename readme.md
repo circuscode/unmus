@@ -87,6 +87,7 @@ Release pending
 * Updated: Compatibility SEO Framework 3.1
 * Bugfix: Rocket Cache Handling
 * Others: Code Improvements
+* Others: Show Standard Custom Fields again (ACF)
 
 ### 0.4
 
