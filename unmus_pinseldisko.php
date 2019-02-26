@@ -38,7 +38,7 @@ function pinseldisko_custom_post_type() {
 			'show_in_admin_bar'   => true,
 			'publicly_queryable'  => true,
 			'exclude_from_search' => false,
-			'supports'            => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'author', 'trackbacks', 'comments', 'revisions', false),
+			'supports'            => array( 'title', 'editor', 'thumbnail', 'excerpt','custom-fields', 'author', 'trackbacks', 'comments', 'revisions', false),
 			'has_archive'         => true,
 			'can_export'          => true,
 			'menu_position'       => 7,

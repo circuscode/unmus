@@ -78,6 +78,7 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
+* Added: Pinseldisko Excerpt
 * Added: Zimtwolke Taxonomy
 * Added: Pinseldisko Taxonomy
 * Added: Raketenstaub Taxonomy
