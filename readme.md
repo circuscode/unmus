@@ -89,6 +89,7 @@ Release pending
 * Bugfix: Rocket Cache Handling
 * Others: Code Improvements
 * Others: Show Standard Custom Fields again (ACF)
+* Ghost: Include Custom Fields @ WordPress Search
 
 ### 0.4
 
