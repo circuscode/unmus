@@ -117,6 +117,6 @@ function unmus_zirkusliebe_feed_content_zero( $content ) {
     return $content;
 
 }
-add_filter( 'the_content', 'unmus_zirkusliebe_feed_content_zero' );
+// add_filter( 'the_content', 'unmus_zirkusliebe_feed_content_zero' );
 
 ?>
