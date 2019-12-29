@@ -73,7 +73,7 @@ Force Feed Updates
 */
 
 if(get_option('unmus_force_feedupdate')) {
-    add_filter('wp_feed_cache_transient_lifetime', create_function('', 'return 60;'));
+    add_filter('wp_feed_cache_transient_lifetime', 60 );
 }
 
 ?>
