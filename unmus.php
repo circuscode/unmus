@@ -4,7 +4,7 @@
 Plugin Name:	unmus
 Plugin URI:		https://www.unmus.de/
 Description:	Additional WordPress Features @ unmus
-Version:		0.5
+Version:		0.6
 Author: 		Marco Hitschler
 Author URI: 	https://www.unmus.de/
 License:     	GPL3
@@ -50,6 +50,9 @@ function unmus_activate () {
 	add_option('unmus_zirkusliebe_amountofposts',"10");
 	add_option('unmus_ello_amountofposts',"10");
 	add_option('unmus_force_feedupdate',"0");
+	add_option('unmus_wordpress_update_auto',"0");
+	add_option('unmus_plugins_update_auto',"0");
+	add_option('unmus_themes_update_auto',"0");
 }
 
 register_activation_hook( __FILE__ , 'unmus_activate' );
@@ -75,14 +78,11 @@ function unmus_delete () {
 	delete_option('unmus_zirkusliebe_amountofposts');
 	delete_option('unmus_ello_amountofposts');
 	delete_option('unmus_force_feedupdate');
+	delete_option('unmus_wordpress_update_auto');
+	delete_option('unmus_plugins_update_auto');
+	delete_option('unmus_themes_update_auto');
 } 
 
 register_uninstall_hook( __FILE__ , 'unmus_delete' );
-
-/*
-Updates
-*/
-
-add_filter( 'auto_update_theme', '__return_true' );
 
 ?>
