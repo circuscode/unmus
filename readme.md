@@ -4,7 +4,7 @@ This is the custom WordPress plugin running on [unmus.de](https://www.unmus.de/)
 
 ## Description 
 
-This custom WordPress plugin provides additional features related to unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins.
+This custom WordPress plugin provides additional features related to unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added.
 
 ## Custom Post Types
 
@@ -32,6 +32,7 @@ The plugin provides the following additional features.
 * Custom WordPress Conditionals
 * Custom WordPress Settings
 * Custom WordPress Tools
+* Operation Options
 
 ## Plugin Modifications
 
@@ -76,14 +77,14 @@ This project is licensed under the GPL3 License.
 
 ### 0.5
 
-Release pending
+Released: 30.12.2019
 
 * Added: Pinseldisko Excerpt
 * Added: Zimtwolke Taxonomy
 * Added: Pinseldisko Taxonomy
 * Added: Raketenstaub Taxonomy
 * Added: Workaround Envira Shortcode @ Podlove Feed (and removed again ;-)
-* Removed: Auto Update for Plugins
+* Improved: Auto Updates
 * Improved: Remove JS/CSS Resources if not required
 * Updated: Compatibility SEO Framework 3.1
 * Bugfix: Rocket Cache Handling
