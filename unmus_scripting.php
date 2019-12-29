@@ -9,15 +9,9 @@ function unmus_scripting() {
     /*
     Script
     */
-    
-    echo '<p>Hallo Welt!</p>';
-    
+	
     /* 
     Afterprocessing
-    */
-    
-    /* 
-    Snippets
     */
     
 }
