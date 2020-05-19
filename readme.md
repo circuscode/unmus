@@ -4,7 +4,7 @@ This is the custom WordPress plugin running on [unmus.de](https://www.unmus.de/)
 
 ## Description 
 
-This custom WordPress plugin provides additional features related to unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added. 
+This custom WordPress plugin provides additional features related to unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added.
 
 ## Custom Post Types
 
