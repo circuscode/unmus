@@ -75,6 +75,12 @@ This project is licensed under the GPL3 License.
 
 ## Changelog
 
+### 0.6
+
+Release pending
+
+* Added: Disable AMP Persistent Object Cache Test
+
 ### 0.5
 
 Released: 30.12.2019
