@@ -65,6 +65,21 @@ The plugin supports German only (hard-coded).
 
 Do it the WordPress Way! 
 
+## Branches
+
+This repository follows the git-flow workflow.
+
+* master branch is the latest release
+* develop branch is the current state of development
+* feature branches contain dedicated features in development
+* bugfix branches contain dedicated bugfixes in development
+* hotfix branches contain dedicated bugfixes in development
+* release branches contain the next release in preparation
+
+## Unterstanding the Deployment
+
+Branches will be deployed continously onto the environments. The master branch is connected with the productive environment and the develop branch is connected with the test environment. The deployment itself is managed by GitHub Actions.
+
 ## Built With
 
 * [Visual Studio Code](https://code.visualstudio.com)
