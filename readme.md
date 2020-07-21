@@ -67,37 +67,16 @@ Do it the WordPress Way!
 
 ## Branches
 
-_This repository follows the git-flow workflow mostly._
+This repository follows the git-flow workflow.
 
-### Master
+* master branch is the latest release
+* develop branch is the current state of development
+* feature branches contain dedicated features in development
+* bugfix branches contain dedicated bugfixes in development
+* hotfix branches contain dedicated bugfixes in development
+* release branches contain the next release in preparation
 
-The master branch is the current version used in productive environment.
-
-### Develop
-
-The develop branch is the current state of development.
-
-### Feature
-
-Feature branches contain dedicated features in development.
-
-### Bugfix
-
-Bugfix branches contain dedicated bugfixes in development.
-
-### Hotfix
-
-There are no hotfix branches.
-
-### Release
-
-There are no release branches.
-
-## Deployment
-
-_Unterstanding the Deployment_
-
-### Continuous Deployment
+## Unterstanding the Deployment
 
 Branches will be deployed continously onto the environments. The master branch is connected with the productive environment and the develop branch is connected with the test environment. The deployment itself is managed by GitHub Actions.
 
