@@ -14,6 +14,6 @@ jobs:
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@3.1.0
       with:
-        ftp-server: ftp://unmus.de/unmus/pub/wp-content/plugins/unmus
+        ftp-server: ftp://unmus.de/unmus/public/wordpress/wp-content/plugins/unmus
         ftp-username: ${{ secrets.FTP_USER_GUTHUBDEPLOY }}
         ftp-password: ${{ secrets.FTP_PASSWORD_GITHUBDEPLOY }}
