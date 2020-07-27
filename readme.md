@@ -4,7 +4,7 @@ This is the custom WordPress plugin running on [unmus.de](https://www.unmus.de/)
 
 ## Description 
 
-This custom WordPress plugin provides additional features related to unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added.
+unmus custom WordPress plugin provides additional features related to the blog unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added.
 
 ## Custom Post Types
 
@@ -71,12 +71,14 @@ This repository follows the git-flow workflow.
 
 * master branch is the latest release
 * develop branch is the current state of development
-* feature branches contain dedicated features in development
+* feature branches contain large features in development
 * bugfix branches contain dedicated bugfixes in development
 * hotfix branches contain dedicated hotfixes in development
 * release branches contain the next release in preparation
 
-## Unterstanding the Deployment
+Small or minor changes will be commited directly to the development branch.
+
+## Continous Deployment
 
 Branches will be deployed continously onto the environments. The master branch is connected with the productive environment and the develop branch is connected with the test environment. The deployment itself is managed by GitHub Actions.
 
@@ -94,6 +96,7 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
+* Added: Gutenberg for Custom Post Type Zimtwolke
 * Added: Disable AMP Persistent Object Cache Test
 
 ### 0.5

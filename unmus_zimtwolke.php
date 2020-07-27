@@ -43,7 +43,8 @@ function ello_custom_post_type() {
 			'can_export'          => true,
 			'menu_position'       => 8,
 			'capability_type'     => 'post',
-			'rewrite'             => array('slug' => 'zimtwolke' )
+			'rewrite'             => array('slug' => 'zimtwolke' ),
+			'show_in_rest'        => true
 		);
 
 		register_post_type( 'ello', $args );
