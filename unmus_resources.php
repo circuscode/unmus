@@ -32,6 +32,7 @@ function unmus_remove_podlove_js(){
     {
     wp_dequeue_script( 'podlove_frontend' );
     wp_dequeue_script( 'podlove-player4-embed' );
+    wp_dequeue_script( 'podlove-pwp4-player' );
     }
 }
 add_action('wp_enqueue_scripts', 'unmus_remove_podlove_js',99);
