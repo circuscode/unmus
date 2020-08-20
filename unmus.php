@@ -86,4 +86,9 @@ function unmus_delete () {
 
 register_uninstall_hook( __FILE__ , 'unmus_delete' );
 
+add_action( 'admin_init', function() {
+	delete_metadata( 'post', 0, '_tsfem-extension-post-meta', false, true );
+	delete_metadata( 'term', 0, '_tsfem-extension-term-meta', false, true ); // This shouldn't be populated yet as of EM v2.4.0
+} );
+
 ?>
