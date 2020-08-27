@@ -38,4 +38,21 @@ if($unmus_themes_update) {
     add_filter( 'auto_update_theme', '__return_true' );
 }
 
+/* eMail Notification */
+
+// Disable core auto-update email notifications.
+function unmus_stop_update_emails( $send, $type, $core_update, $result ) {
+if ( ! empty( $type ) && $type == 'success' ) {
+return false;
+}
+return true;
+}
+add_filter( 'auto_core_update_send_email', 'unmus_stop_update_emails', 10, 4 );
+
+// Disable plugins auto-update email notifications.
+add_filter( 'auto_plugin_update_send_email', '__return_false' );
+ 
+// Disable themes auto-update email notifications.
+add_filter( 'auto_theme_update_send_email', '__return_false' );
+
 ?>
