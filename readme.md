@@ -96,6 +96,7 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
+* Added: Disable Auto Update eMail Notifications
 * Added: Gutenberg for Custom Post Type Zimtwolke
 * Added: Disable AMP Persistent Object Cache Test
 * Added: Dequeue Podlove Webplayer 4 JS
