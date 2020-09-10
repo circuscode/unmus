@@ -100,6 +100,8 @@ Release pending
 * Added: Gutenberg for Custom Post Type Zimtwolke
 * Added: Disable AMP Persistent Object Cache Test
 * Added: Dequeue Podlove Webplayer 4 JS
+* Added: Remove IP from comments author
+* Added: Remove User Agent from comments author
 
 ### 0.5
 
