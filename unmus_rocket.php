@@ -68,7 +68,9 @@ function wp_rocket_unmus_refresh_mathilda()
 		}
 	}
 
-	rocket_clean_files( $clear_urls );
+	if (function_exists('rocket_clean_files')) {
+		rocket_clean_files( $clear_urls );
+	}
 
 }
 add_action('mathilda_tweets_updated', 'wp_rocket_unmus_refresh_mathilda');
