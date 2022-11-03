@@ -102,6 +102,7 @@ Release pending
 * Added: Dequeue Podlove Webplayer 4 JS
 * Added: Remove IP from comments author
 * Added: Remove User Agent from comments author
+* Bugfix: Exclude the page "WordPress" from search
 
 ### 0.5
 

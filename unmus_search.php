@@ -33,11 +33,11 @@ Exclude Page WordPress from Search
 
 function unmus_search_filter( $query ) {
 
-    $page = get_page_by_title( 'WordPress' );
+  // Exclude "WordPress" Page with ID2169
 
-    if ( ! $query->is_admin && $query->is_search && $query->is_main_query() ) {
-      $query->set( 'post__not_in', array( $page->ID ) );
-    }
+  if ( ! $query->is_admin && $query->is_search && $query->is_main_query() ) {
+    $query->set( 'post__not_in', array( 2169 ) );
+  }
 
   }
 add_action( 'pre_get_posts', 'unmus_search_filter' );
