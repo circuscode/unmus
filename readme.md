@@ -57,6 +57,11 @@ Following standard features of the WordPress Core will be manipulated or extende
 
 * huhu
 
+## Related Plugins
+
+* Mathilda
+* TootPress
+
 ## Languages
 
 The plugin supports German only (hard-coded).
@@ -96,6 +101,8 @@ This project is licensed under the GPL3 License.
 
 Release pending
 
+* Added: Cache Handling for TootPress
+* Added: SEO Extensions for TootPress
 * Added: Disable Auto Update eMail Notifications
 * Added: Gutenberg for Custom Post Type Zimtwolke
 * Added: Disable AMP Persistent Object Cache Test

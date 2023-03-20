@@ -11,7 +11,7 @@ return;
 }
 
 /* 
-Mathilda Tools @ Menu
+unmus Tools @ Menu
 */
 
 function unmus_tools_menu() {
@@ -27,7 +27,7 @@ function unmus_tools_menu() {
 add_action('admin_menu', 'unmus_tools_menu');
 
 /*
-Mathilda Tools Controller
+unmus Tools Controller
 */
 
 function unmus_tools_controller() {
