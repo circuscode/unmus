@@ -24,21 +24,21 @@ function unmus_seo_framework_filter_stack() {
                 add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
         }
 
-        // Create Next and Previous @ Mathilda
+        // Create Next, Create Previous & Overwrite Canonicals @ Mathilda
         if(function_exists('mathilda_activate')) {
                 if( mathilda_is_tweet_page() ) {
                         add_filter( 'the_seo_framework_paged_url_output_prev', 'mathilda_prev_meta_output' );
                         add_filter( 'the_seo_framework_paged_url_output_next', 'mathilda_next_meta_output' );
-                        add_filter( 'the_seo_framework_pre', 'mathilda_canonical' );
+                        add_filter( 'the_seo_framework_rel_canonical_output', 'mathilda_canonical' );
                 }
         }
 
-        // Create Next and Previous @ TootPress
+        // Create Next, Create Previous & Overwrite Canonicals @ TootPress
         if(function_exists('tootpress_activate')) {
                 if( tootpress_toot_here() ) {
                         add_filter( 'the_seo_framework_paged_url_output_prev', 'tootpress_prev_meta_output' );
                         add_filter( 'the_seo_framework_paged_url_output_next', 'tootpress_next_meta_output' );
-                        add_filter( 'the_seo_framework_pre', 'tootpress_canonical' );
+                        add_filter( 'the_seo_framework_rel_canonical_output', 'tootpress_canonical' );
                 }
         }       
 
@@ -121,20 +121,19 @@ Create Canonicals @ Mathilda
 
 function mathilda_canonical() {
         
-        $mathilda_subpage=mathilda_which_page();
-        
-        if($mathilda_subpage==1) {
-                $mathilda_permalink=get_permalink();
-        }
-        else {
-                $mathilda_permalink=get_permalink();
-                $mathilda_permalink=$mathilda_permalink . $mathilda_subpage."/";
-        }
+        if(function_exists('mathilda_activate')) {
 
-        $output='<link rel="canonical" href="'.$mathilda_permalink.'" />';
-        add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
-        return $output;
+                $mathilda_subpage=mathilda_which_page();
+                
+                if($mathilda_subpage==1) {
+                        $mathilda_canonical=get_permalink();
+                } else {
+                        $mathilda_canonical=get_permalink() . $mathilda_subpage."/";
+                }
 
+                return $mathilda_canonical;
+
+        }
 }
 
 /**
@@ -147,19 +146,19 @@ function mathilda_canonical() {
 
 function tootpress_canonical() {
         
-        $tootpress_subpage=tootpress_get_query_var();
-        
-        if($tootpress_subpage==1) {
-                $tootpress_permalink=get_permalink();
-        }
-        else {
-                $tootpress_permalink=get_permalink();
-                $tootpress_permalink=$tootpress_permalink . $tootpress_subpage."/";
-        }
+        if(function_exists('tootpress_activate')) {
 
-        $output='<link rel="canonical" href="'.$tootpress_permalink.'" />';
-        add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
-        return $output;
+                $tootpress_subpage=tootpress_get_query_var();
+                
+                if($tootpress_subpage==1) {
+                        $tootpress_canonical=get_permalink();
+                } else {
+                        $tootpress_canonical=get_permalink() . $tootpress_subpage."/";
+                }
+
+                return $tootpress_canonical;
+
+        }
 
 }
 
@@ -168,6 +167,8 @@ Create NEXT @ Mathilda
 */
 
 function mathilda_next_meta_output() {
+
+        if(function_exists('mathilda_activate')){
 
         $mathilda_subpage=mathilda_which_page();
         $number_of_pages=mathilda_pages();
@@ -180,7 +181,8 @@ function mathilda_next_meta_output() {
         }
 
         return esc_html( $mathilda_permalink );
-
+        
+        }
 }
 
 /*
@@ -189,7 +191,7 @@ Create PREV @ Mathilda
 
 function mathilda_prev_meta_output() {
 
-        if( is_page('tweets') ) {
+        if(function_exists('mathilda_activate')){
 
                 $mathilda_subpage=mathilda_which_page();
                 $number_of_pages=mathilda_pages();
@@ -201,7 +203,7 @@ function mathilda_prev_meta_output() {
                         $mathilda_permalink=false;
                 }
 
-        return esc_html( $mathilda_permalink );
+                return esc_html( $mathilda_permalink );
 
         }
 }
@@ -216,18 +218,21 @@ function mathilda_prev_meta_output() {
 
 function tootpress_next_meta_output() {
 
-        $tootpress_subpage=tootpress_get_query_var();
-        $number_of_pages=tootpress_amount_of_pages();
+        if( function_exists('tootpress_activate') ) {
 
-        $tootpress_permalink=get_permalink();
-        $tootpress_permalink=$tootpress_permalink . ($tootpress_subpage+1)."/";
-        
-        if($tootpress_subpage==$number_of_pages) {
-                $tootpress_permalink=false;
+                $tootpress_subpage=tootpress_get_query_var();
+                $number_of_pages=tootpress_amount_of_pages();
+
+                $tootpress_permalink=get_permalink();
+                $tootpress_permalink=$tootpress_permalink . ($tootpress_subpage+1)."/";
+                
+                if($tootpress_subpage==$number_of_pages) {
+                        $tootpress_permalink=false;
+                }
+
+                return esc_html( $tootpress_permalink );
+
         }
-
-        return esc_html( $tootpress_permalink );
-
 }
 
 /**
@@ -240,7 +245,7 @@ function tootpress_next_meta_output() {
 
 function tootpress_prev_meta_output() {
 
-        if( is_page('toots') ) {
+        if( function_exists('tootpress_activate') ) {
 
                 $tootpress_subpage=tootpress_get_query_var();
                 $number_of_pages=tootpress_amount_of_pages();
