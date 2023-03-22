@@ -75,9 +75,9 @@ function unmus_seo_framework_manipulate_title( $title, $args = array(), $escape 
                 if (tootpress_toot_here()) {
                         $tootpress_page=tootpress_get_query_var();
                         if($tootpress_page==1) {
-                                return 'Toots';
+                                return 'Tröts';
                         } else {
-                                $tootspagedtitle='Toots - Seite '. $tootpress_page .'';
+                                $tootspagedtitle='Tröts - Seite '. $tootpress_page .'';
                                 return $tootspagedtitle;
                         }   
                 }
