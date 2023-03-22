@@ -99,7 +99,7 @@ This project is licensed under the GPL3 License.
 
 ### 0.6
 
-Release pending
+Released: 22.03.2023
 
 * Added: Cache Handling for TootPress
 * Added: SEO Extensions for TootPress
