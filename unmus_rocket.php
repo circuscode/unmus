@@ -75,4 +75,40 @@ function wp_rocket_unmus_refresh_mathilda()
 }
 add_action('mathilda_tweets_updated', 'wp_rocket_unmus_refresh_mathilda');
 
+/**
+ * Removes TootPress Pages from wpRocket Cache
+ * 
+ * Function will called everytime new toots have been loaded
+ * 
+ * @since 0.6
+ */
+
+function unmus_wprocket_fresh_cache_tootpress() {
+
+	if(!function_exists('rocket_clean_files') OR !function_exists('tootpress_activate')) {
+		return false;
+	}
+
+	$current_host=get_site_url();
+	$page_slug=tootpress_get_slug();
+
+	$cache_tootpress_url=$current_host.'/'.$page_slug.'/';
+
+	$cache_number_of_pages=tootpress_amount_of_pages();
+	$clear_urls=array();
+
+	for($i=0; $i < $cache_number_of_pages; $i++)
+	{
+		if($i==0) {
+			$clear_urls[]=$cache_tootpress_url;
+		} else {
+			$clear_urls[]=$cache_tootpress_url.($i+1).'/';
+		}
+	}
+
+	rocket_clean_files( $clear_urls );
+
+}
+add_action('tootpress_toots_update', 'unmus_wprocket_fresh_cache_tootpress');
+
 ?>

@@ -24,40 +24,65 @@ function unmus_seo_framework_filter_stack() {
                 add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
         }
 
-        // Create Next and Previous @ Mathilda
-        if( mathilda_is_tweet_page() ) {
-                add_filter( 'the_seo_framework_paged_url_output_prev', 'mathilda_prev_meta_output' );
-                add_filter( 'the_seo_framework_paged_url_output_next', 'mathilda_next_meta_output' );
-                add_filter( 'the_seo_framework_pre', 'mathilda_canonical' );
+        // Create Next, Create Previous & Overwrite Canonicals @ Mathilda
+        if(function_exists('mathilda_activate')) {
+                if( mathilda_is_tweet_page() ) {
+                        add_filter( 'the_seo_framework_paged_url_output_prev', 'mathilda_prev_meta_output' );
+                        add_filter( 'the_seo_framework_paged_url_output_next', 'mathilda_next_meta_output' );
+                        add_filter( 'the_seo_framework_rel_canonical_output', 'mathilda_canonical' );
+                }
         }
+
+        // Create Next, Create Previous & Overwrite Canonicals @ TootPress
+        if(function_exists('tootpress_activate')) {
+                if( tootpress_toot_here() ) {
+                        add_filter( 'the_seo_framework_paged_url_output_prev', 'tootpress_prev_meta_output' );
+                        add_filter( 'the_seo_framework_paged_url_output_next', 'tootpress_next_meta_output' );
+                        add_filter( 'the_seo_framework_rel_canonical_output', 'tootpress_canonical' );
+                }
+        }       
 
 }
 add_action( 'template_redirect', 'unmus_seo_framework_filter_stack');   
 
-/*
-Manipulate Title
-*/
+/**
+ * Manipulates the title for some pages
+ * 
+ * @since 0.1
+ * 
+ * @return string Manipulated Title
+ */
 
 function unmus_seo_framework_manipulate_title( $title, $args = array(), $escape = true ) {
 
-        if ( is_post_type_archive('podcast') ) {
-                        return 'Zirkusliebe';   
-        }
-
-        elseif (function_exists('mathilda_activate')) {
-
-                if(mathilda_is_tweet_page()){
-                $mathilda_subpage=mathilda_which_page();
-                
-                if($mathilda_subpage==1) {
-                        return 'Tweets';
-                }
-                else {
-                        $tweetspagedtitle='Tweets - Seite '. $mathilda_subpage .'';
-                        return $tweetspagedtitle;
-                }
+        if ( is_post_type_archive('podcast') ) {     
+                return 'Zirkusliebe'; 
+        } 
+        
+        if(function_exists('mathilda_activate')) {
+                if (mathilda_is_tweet_page()) {
+                        $mathilda_subpage=mathilda_which_page();
+                        if($mathilda_subpage==1) {
+                                return 'Tweets';
+                        } else {
+                                $tweetspagedtitle='Tweets - Seite '. $mathilda_subpage .'';
+                                return $tweetspagedtitle;
+                        }
                 }
         }
+
+        if(function_exists('tootpress_activate')) {
+                if (tootpress_toot_here()) {
+                        $tootpress_page=tootpress_get_query_var();
+                        if($tootpress_page==1) {
+                                return 'Toots';
+                        } else {
+                                $tootspagedtitle='Toots - Seite '. $tootpress_page .'';
+                                return $tootspagedtitle;
+                        }   
+                }
+        }
+
 	return $title;
 
 }
@@ -96,19 +121,44 @@ Create Canonicals @ Mathilda
 
 function mathilda_canonical() {
         
-        $mathilda_subpage=mathilda_which_page();
-        
-        if($mathilda_subpage==1) {
-                $mathilda_permalink=get_permalink();
-        }
-        else {
-                $mathilda_permalink=get_permalink();
-                $mathilda_permalink=$mathilda_permalink . $mathilda_subpage."/";
-        }
+        if(function_exists('mathilda_activate')) {
 
-        $output='<link rel="canonical" href="'.$mathilda_permalink.'" />';
-        add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
-        return $output;
+                $mathilda_subpage=mathilda_which_page();
+                
+                if($mathilda_subpage==1) {
+                        $mathilda_canonical=get_permalink();
+                } else {
+                        $mathilda_canonical=get_permalink() . $mathilda_subpage."/";
+                }
+
+                return $mathilda_canonical;
+
+        }
+}
+
+/**
+ * Creates the canonical URL for the TootPress Pages 
+ * 
+ * @since 0.6
+ * 
+ * @return html Cannonical Link
+ */
+
+function tootpress_canonical() {
+        
+        if(function_exists('tootpress_activate')) {
+
+                $tootpress_subpage=tootpress_get_query_var();
+                
+                if($tootpress_subpage==1) {
+                        $tootpress_canonical=get_permalink();
+                } else {
+                        $tootpress_canonical=get_permalink() . $tootpress_subpage."/";
+                }
+
+                return $tootpress_canonical;
+
+        }
 
 }
 
@@ -117,6 +167,8 @@ Create NEXT @ Mathilda
 */
 
 function mathilda_next_meta_output() {
+
+        if(function_exists('mathilda_activate')){
 
         $mathilda_subpage=mathilda_which_page();
         $number_of_pages=mathilda_pages();
@@ -129,7 +181,8 @@ function mathilda_next_meta_output() {
         }
 
         return esc_html( $mathilda_permalink );
-
+        
+        }
 }
 
 /*
@@ -138,7 +191,7 @@ Create PREV @ Mathilda
 
 function mathilda_prev_meta_output() {
 
-        if( is_page('tweets') ) {
+        if(function_exists('mathilda_activate')){
 
                 $mathilda_subpage=mathilda_which_page();
                 $number_of_pages=mathilda_pages();
@@ -150,7 +203,61 @@ function mathilda_prev_meta_output() {
                         $mathilda_permalink=false;
                 }
 
-        return esc_html( $mathilda_permalink );
+                return esc_html( $mathilda_permalink );
+
+        }
+}
+
+/**
+ * Creates the NEXT Link for the TootPress Pages
+ * 
+ * @since 0.6
+ * 
+ * @return string Next Link
+ */
+
+function tootpress_next_meta_output() {
+
+        if( function_exists('tootpress_activate') ) {
+
+                $tootpress_subpage=tootpress_get_query_var();
+                $number_of_pages=tootpress_amount_of_pages();
+
+                $tootpress_permalink=get_permalink();
+                $tootpress_permalink=$tootpress_permalink . ($tootpress_subpage+1)."/";
+                
+                if($tootpress_subpage==$number_of_pages) {
+                        $tootpress_permalink=false;
+                }
+
+                return esc_html( $tootpress_permalink );
+
+        }
+}
+
+/**
+ * Creates the PREV Link for the TootPress Pages
+ * 
+ * @since 0.6
+ * 
+ * @return string Prev Link
+ */
+
+function tootpress_prev_meta_output() {
+
+        if( function_exists('tootpress_activate') ) {
+
+                $tootpress_subpage=tootpress_get_query_var();
+                $number_of_pages=tootpress_amount_of_pages();
+
+                $tootpress_permalink=get_permalink();
+                $tootpress_permalink=$tootpress_permalink . ($tootpress_subpage-1)."/";
+                
+                if($tootpress_subpage==1) {
+                        $tootpress_permalink=false;
+                }
+
+        return esc_html( $tootpress_permalink );
 
         }
 }
