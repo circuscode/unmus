@@ -72,16 +72,14 @@ Do it the WordPress Way!
 
 ## Branches
 
-This repository follows the git-flow workflow.
+This repository follows the git-flow workflow to a large extent.
 
 * master branch is the latest release
 * develop branch is the current state of development
-* feature branches contain large features in development
+* feature branches contain dedicated features in development
 * bugfix branches contain dedicated bugfixes in development
-* hotfix branches contain dedicated hotfixes in development
-* release branches contain the next release in preparation
 
-Small or minor changes will be commited directly to the development branch.
+Hotfix and release branches will not be applied.
 
 ## Continous Deployment
 
