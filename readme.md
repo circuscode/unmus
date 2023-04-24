@@ -43,6 +43,10 @@ Standard features of the following plugins will be manipulated or extended.
 * The SEO Framework
 * wpRocket
 
+### Embed Privacy 
+
+* Adjust Embed Overlay Text
+
 ## WordPress Core
 
 Following standard features of the WordPress Core will be manipulated or extended.
@@ -52,6 +56,12 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Rewrite Rules
 * Feed
 * Update
+
+### Comment Form
+
+* Remove Comment Author's IP address
+* Remove Comment Author's User Agent
+* Remove Cookie Option in Comment Field
 
 ## Related Theme
 
@@ -94,6 +104,12 @@ Branches will be deployed continously onto the environments. The master branch i
 This project is licensed under the GPL3 License.
 
 ## Changelog
+
+### 0.7
+
+* Added: Adjustment Embed Overlay Text (Embed Privacy)
+* Removed: AMP Extensions
+* Improved: Code Refactoring
 
 ### 0.6
 

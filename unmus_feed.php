@@ -10,8 +10,9 @@ Add Unmus Formats to Feed
 
 function unmus_feed($qv) {
 
-	if (isset($qv['feed']) && !isset($qv['post_type']))
+	if (isset($qv['feed']) && !isset($qv['post_type'])) {
 		$qv['post_type'] = array('post', 'ello', 'pinseldisko','podcast');
+    }
 	return $qv;
 }
 add_filter('request', 'unmus_feed');
@@ -40,7 +41,7 @@ function ello_filter_quotes_from_feed(&$wp_query) {
 
 	}
 }
-add_filter('pre_get_posts','ello_filter_quotes_from_feed');
+// add_filter('pre_get_posts','ello_filter_quotes_from_feed');
 
 /*
 Remove Post Format Image from Feed
@@ -66,7 +67,7 @@ function ello_filter_images_from_feed(&$wp_query) {
 
 	}
 }
-add_filter('pre_get_posts','ello_filter_images_from_feed');
+// add_filter('pre_get_posts','ello_filter_images_from_feed');
 
 /*
 Force Feed Updates
