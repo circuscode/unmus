@@ -34,23 +34,12 @@ The plugin provides the following additional features.
 * Custom WordPress Tools
 * Operation Options
 
-## Plugin Modifications
-
-Standard features of the following plugins will be manipulated or extended.
-
-* AMP
-* Podlove Publisher
-* The SEO Framework
-* wpRocket
-
-### Embed Privacy 
-
-* Adjust Embed Overlay Text
-
 ## WordPress Core
 
 Following standard features of the WordPress Core will be manipulated or extended.
 
+* Comment Form
+* Site Health
 * Admin
 * Search
 * Rewrite Rules
@@ -62,6 +51,23 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Remove Comment Author's IP address
 * Remove Comment Author's User Agent
 * Remove Cookie Option in Comment Field
+
+### Site Health
+
+* Disable Persistent Object Cache Test
+
+## Plugin Modifications
+
+Standard features of the following plugins will be manipulated or extended.
+
+* Podlove Publisher
+* The SEO Framework
+* wpRocket
+* Embed Privacy
+
+### Embed Privacy 
+
+* Adjust Embed Overlay Text
 
 ## Related Theme
 
@@ -93,7 +99,7 @@ Hotfix and release branches will not be applied.
 
 ## Continous Deployment
 
-Branches will be deployed continously onto the environments. The master branch is connected with the productive environment and the develop branch is connected with the test environment. The deployment itself is managed by GitHub Actions.
+Branches will be deployed continously onto the environments. The master branch is connected with the productive environment and the develop branch is connected with the test environment. The deployment itself is managed by GitHub Actions. Releases are not used in the regular way. Releases can be understood as freeze or state of functional bundels.
 
 ## Built With
 
@@ -107,8 +113,11 @@ This project is licensed under the GPL3 License.
 
 ### 0.7
 
+in progress
+
 * Added: Adjustment Embed Overlay Text (Embed Privacy)
 * Removed: AMP Extensions
+* Improved: Documentation
 * Improved: Code Refactoring
 
 ### 0.6
