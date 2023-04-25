@@ -7,24 +7,17 @@
  * @since 0.6
  */
 
-// Avoids code execution if WordPress is not loaded (Security Measure)
-if ( !defined('ABSPATH') ) {
-	exit;
-}
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
  
 /**
- * Disable AMP Persistent Object Tests in Site Health.
+ * Disable Persistent Object Cache Check @ Site Health
  *
- * @since 0.6
+ * @since 0.7
  * 
- * @param array $tests The Site Health tests.
- * @return array $tests The filtered tests, without AMP persistent object cache test.
  */
 
-function unmus_disable_amp_persistent_object_cache_test ( $tests ) {
-	unset( $tests['direct']['amp_persistent_object_cache'] );
-	return $tests;
-}
-add_filter( 'site_status_tests', 'unmus_disable_amp_persistent_object_cache_test', 50 );
+add_filter('site_status_should_suggest_persistent_object_cache', '__return_false');
+
 
 ?>
