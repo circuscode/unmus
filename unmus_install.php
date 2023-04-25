@@ -27,7 +27,7 @@ function unmus_activate () {
 	add_option('unmus_wordpress_update_auto',"0");
 	add_option('unmus_plugins_update_auto',"0");
 	add_option('unmus_themes_update_auto',"0");
-	add_option('unmus_developer',"0")
+	add_option('unmus_developer',"0");
 }
 
 /**
@@ -57,7 +57,7 @@ function unmus_delete () {
 	delete_option('unmus_wordpress_update_auto');
 	delete_option('unmus_plugins_update_auto');
 	delete_option('unmus_themes_update_auto');
-	delete_option('unmus_developer')
+	delete_option('unmus_developer');
 }
 
 ?>
