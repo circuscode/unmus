@@ -1,24 +1,33 @@
 <?php
 
-/*
-Conditionals
-*/
+/**
+ * Conditionals
+ * 
+ * @package unmus
+ */
 
-/*
-Get Environment
-*/
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
+
+/**
+ * Get Environment
+ *
+ * @return string Environment
+ */
 
 function unmus_get_environment() {
     return get_option('unmus_environment');
 }
 
-/*
-Is local
-*/
+/**
+ * Is this the local environment?
+ *
+ * @return bool
+ */
 
-function is_unmus_environment_local() {
-    $environ=get_option('unmus_environment');
-    if($environ=='local') {
+function unmus_is_environment_local() {
+    $env=unmus_get_environment();
+    if($env=='local') {
         return true;
     }
     else {
@@ -26,13 +35,15 @@ function is_unmus_environment_local() {
     }
 }
 
-/*
-Is dev
-*/
+/**
+ * Is this the dev environment?
+ *
+ * @return bool
+ */
 
-function is_unmus_environment_dev() {
-    $environ=get_option('unmus_environment');
-    if($environ=='dev') {
+function unmus_is_environment_dev() {
+    $env=unmus_get_environment();
+    if($env=='dev') {
         return true;
     }
     else {
@@ -40,13 +51,15 @@ function is_unmus_environment_dev() {
     }
 }
 
-/*
-Is public
-*/
+/**
+ * Is this the public environment?
+ *
+ * @return bool
+ */
 
-function is_unmus_environment_public() {
-    $environ=get_option('unmus_environment');
-    if($environ=='public') {
+function unmus_is_environment_public() {
+    $env=unmus_get_environment();
+    if($env=='public') {
         return true;
     }
     else {

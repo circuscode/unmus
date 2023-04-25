@@ -31,7 +31,7 @@ require_once('unmus_search.php');
 require_once('unmus_wordpress.php');
 require_once('unmus_settings.php');
 require_once('unmus_tools.php');
-require_once('unmus_scripting.php');
+require_once('unmus_script.php');
 require_once('unmus_conditionals.php');
 require_once('unmus_maintenance.php');
 require_once('unmus_raketenstaub.php');

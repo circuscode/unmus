@@ -32,6 +32,7 @@ The plugin provides the following additional features.
 * Custom WordPress Conditionals
 * Custom WordPress Settings
 * Custom WordPress Tools
+* Scripting
 * Operation Options
 
 ## WordPress Core
