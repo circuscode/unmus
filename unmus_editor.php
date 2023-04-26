@@ -1,30 +1,39 @@
 <?php
 
-/*
-Admin Enhancements
-*/
+/**
+ * Editor Enhancements
+ * 
+ * @package unmus
+ */
 
-/*
-Post Format Filter @ Zimtwolke
-*/
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
 
-add_action( 'restrict_manage_posts', function( $post_type = "" ) {
+/**
+ * Add Post Format Filter to Ello Table View
+ *
+ * @param string Post Type
+ */
+
+function unmus_ello_post_format_filter($post_type = "") {
 
     if ( in_array( $post_type, array( 'ello' ) ) ) {
         wp_dropdown_categories( array(
             'taxonomy'          => 'post_format',
             'hide_empty'        => 0,
             'name'              => 'post_format', 
-            'show_option_all'   => 'Select Post Format',
+            'show_option_all'   => 'Post Format',
             'value_field'       => 'slug',
         ) );
     }
-    
-} );
 
-/*
-Remove Post Formats @ Standard Post Type
-*/
+}
+add_action( 'restrict_manage_posts', 'unmus_ello_post_format_filter');
+
+/**
+ * Remove Post Format Option in Editor for Standard Posts Types
+ *
+ */
 
 function unmus_remove_post_formats_from_standard_post_editor () {
 
@@ -36,20 +45,12 @@ function unmus_remove_post_formats_from_standard_post_editor () {
 }
 add_action( 'admin_init', 'unmus_remove_post_formats_from_standard_post_editor' );
 
-/* 
-Admin Styles 
-*/
-
-function unmus_admin_style() {
-
-    wp_enqueue_style('admin-styles',  plugin_dir_url( __FILE__ ).'/unmus_styles.css');
-
-}
-add_action('admin_enqueue_scripts', 'unmus_admin_style');
-
-/* 
-ACF
-*/
+/**
+ * Show Custom Fields Meta Box in Editor
+ * 
+ * @see Advanced Custom Fields Plugin
+ *
+ */
 
 add_filter( 'acf/settings/remove_wp_meta_box', '__return_false' );
 

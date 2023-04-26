@@ -39,6 +39,7 @@ The plugin provides the following additional features.
 
 Following standard features of the WordPress Core will be manipulated or extended.
 
+* Editor
 * Comment Form
 * Site Health
 * Admin
@@ -46,6 +47,12 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Rewrite Rules
 * Feed
 * Update
+
+### Editor
+
+* Add Post Format Filter in Ello Table View
+* Deactivate Post Format Option for Standard Posts
+* Show Custom Field Meta Box in Editor
 
 ### Comment Form
 
