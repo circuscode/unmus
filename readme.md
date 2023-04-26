@@ -27,11 +27,10 @@ Following custom taxonomies are implemented.
 
 The plugin provides the following additional features.
 
-* Creative Commons Markup
-* Maintenance Mode
 * Custom WordPress Conditionals
 * Custom WordPress Settings
 * Custom WordPress Tools
+* Maintenance Mode
 * Scripting
 * Operation Options
 
@@ -125,6 +124,7 @@ in progress
 
 * Added: Adjustment Embed Overlay Text (Embed Privacy)
 * Removed: AMP Extensions
+* Removed: Creative Commons (integrated to huhu)
 * Improved: Documentation
 * Improved: Code Refactoring
 
