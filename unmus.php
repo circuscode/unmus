@@ -21,7 +21,6 @@ require_once('unmus_install.php');
 require_once('unmus_zimtwolke.php'); 
 require_once('unmus_pinseldisko.php'); 
 require_once('unmus_zirkusliebe.php'); 
-require_once('unmus_creativecommons.php'); 
 require_once('unmus_feed.php'); 
 require_once('unmus_rewrite.php');
 require_once('unmus_rocket.php');
