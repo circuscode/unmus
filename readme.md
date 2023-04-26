@@ -51,7 +51,6 @@ Following standard features of the WordPress Core will be manipulated or extende
 
 * Add Post Format Filter in Ello Table View
 * Deactivate Post Format Option for Standard Posts
-* Show Custom Field Meta Box in Editor
 
 ### Comment Form
 
@@ -67,10 +66,15 @@ Following standard features of the WordPress Core will be manipulated or extende
 
 Standard features of the following plugins will be manipulated or extended.
 
+* Advanced Custom Fields
 * Podlove Publisher
 * The SEO Framework
 * wpRocket
 * Embed Privacy
+
+### Advanced Custom Fields
+
+* Show Custom Field Meta Box in Editor again
 
 ### Embed Privacy 
 
