@@ -38,14 +38,18 @@ The plugin provides the following additional features.
 
 Following standard features of the WordPress Core will be manipulated or extended.
 
+* Feed
 * Editor
 * Comment Form
 * Site Health
-* Admin
 * Search
 * Rewrite Rules
-* Feed
 * Update
+
+### Feed
+
+* Add unmus-related Post Types to Feed
+* Remove Post Formats Quote & Image from Feed
 
 ### Editor
 
@@ -129,6 +133,7 @@ in progress
 * Added: Adjustment Embed Overlay Text (Embed Privacy)
 * Removed: AMP Extensions
 * Removed: Creative Commons (integrated to huhu)
+* Removed: Force Feed Update (this can better be done by deleting transients)
 * Improved: Documentation
 * Improved: Code Refactoring
 

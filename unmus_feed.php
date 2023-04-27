@@ -1,34 +1,37 @@
 <?php
 
-/*
-Manage Feed
-*/
+/**
+ * Feed
+ * 
+ * @package unmus
+ */
 
-/*
-Add Unmus Formats to Feed
-*/
+/**
+ * Add Post Types to Feed
+ *
+ */
 
 function unmus_feed($qv) {
-
 	if (isset($qv['feed']) && !isset($qv['post_type'])) {
-		$qv['post_type'] = array('post', 'ello', 'pinseldisko','podcast');
+		$qv['post_type'] = array('post','ello','pinseldisko','podcast');
     }
 	return $qv;
 }
 add_filter('request', 'unmus_feed');
 
-/*
-Remove Post Format Quote from Feed
-*/
+/**
+ * Remove Post Formats Quote & Image from Feed
+ *
+ */
 
-function ello_filter_quotes_from_feed(&$wp_query) {
+function unmus_filter_post_formats_from_feed(&$wp_query) {
 	
 	if( $wp_query->is_feed ) {
 	
 		$post_format_tax_query = array(
             'taxonomy' => 'post_format',
             'field' => 'slug',
-            'terms' => 'post-format-quote',
+            'terms' => array('post-format-quote','post-format-image'),
             'operator' => 'NOT IN'
         );
         $tax_query = $wp_query->get( 'tax_query' );
@@ -41,40 +44,6 @@ function ello_filter_quotes_from_feed(&$wp_query) {
 
 	}
 }
-// add_filter('pre_get_posts','ello_filter_quotes_from_feed');
-
-/*
-Remove Post Format Image from Feed
-*/
-
-function ello_filter_images_from_feed(&$wp_query) {
-	
-	if( $wp_query->is_feed ) {
-	
-		$post_format_tax_query = array(
-            'taxonomy' => 'post_format',
-            'field' => 'slug',
-            'terms' => 'post-format-image',
-            'operator' => 'NOT IN'
-        );
-        $tax_query = $wp_query->get( 'tax_query' );
-        if ( is_array( $tax_query ) ) {
-            $tax_query = $tax_query + $post_format_tax_query;
-        } else {
-            $tax_query = array( $post_format_tax_query );
-        }
-        $wp_query->set( 'tax_query', $tax_query );
-
-	}
-}
-// add_filter('pre_get_posts','ello_filter_images_from_feed');
-
-/*
-Force Feed Updates
-*/
-
-if(get_option('unmus_force_feedupdate')) {
-    add_filter('wp_feed_cache_transient_lifetime', 60 );
-}
+add_filter('pre_get_posts','unmus_filter_post_formats_from_feed');
 
 ?>
