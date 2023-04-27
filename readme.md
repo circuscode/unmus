@@ -42,9 +42,9 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Editor
 * Comment Form
 * Site Health
+* Update
 * Search
 * Rewrite Rules
-* Update
 
 ### Feed
 
@@ -65,6 +65,12 @@ Following standard features of the WordPress Core will be manipulated or extende
 ### Site Health
 
 * Disable Persistent Object Cache Test
+
+### Update
+
+* Run WordPress Updates automaticly
+* Run Plugin Updates automaticly 
+* Run Theme Updates automaticly
 
 ## Plugin Modifications
 
