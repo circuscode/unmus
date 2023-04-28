@@ -38,7 +38,7 @@ require_once('unmus_taxonomy.php');
 require_once('unmus_dataprivacy.php');
 require_once('unmus_resources.php');
 require_once('unmus_sitehealth.php');
-require_once('unmus_plugin.php');
+require_once('unmus_glance.php');
 require_once('unmus_update.php');
 
 // Ensure that all required functions are available during setup

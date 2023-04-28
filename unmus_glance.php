@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin
+ * Glance
  * 
  * @package unmus
  */
@@ -11,6 +11,8 @@ if (!defined('ABSPATH')) { exit; }
 
 /**
  * Enqueue Plugin CSS Styles
+ * 
+ * The Styles are required for "At A Glance" in WordPress Dashboard
  *
  */
 
