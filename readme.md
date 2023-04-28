@@ -32,7 +32,6 @@ The plugin provides the following additional features.
 * Custom WordPress Tools
 * Maintenance Mode
 * Scripting
-* Operation Options
 
 ## WordPress Core
 
