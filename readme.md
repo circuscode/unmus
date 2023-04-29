@@ -109,9 +109,18 @@ Standard features of the following plugins will be manipulated or extended.
 
 * Adjust Embed Overlay Text
 
-### Podlove Publisher & Web Player
+### Podlove Publisher & Podlove Web Player
 
 * Remove Podlove Web Player Resources from Pages without Podcast
+
+### The SEO Framework
+
+* Manipulate Title for TootPress, Mathilda & Podcast Archive
+* Manipulate Meta Description for Custom Post Type Archives
+* Disable Cannonical URLs for Archives and Pages without Content
+* Create Cannonical URLs for TootPress and Mathilda Pages
+* Create NEXT and PREV Links for TootPress and Mathilda Pages
+* Set Schema to BlogPosting
 
 ### wpRocket
 

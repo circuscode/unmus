@@ -1,12 +1,21 @@
 <?php
 
-/*
-SEO Framework Modifications
-*/
+/**
+ * SEO Framework Modifications
+ * 
+ * @package unmus
+ */
 
-/*
-Filter Stack
-*/
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
+
+/**
+ * Filter Stack
+ * 
+ * Includes and triggers all modifications 
+ * Logic of the Modifications is defined outside of the Filter Stack
+ *
+ */
 
 function unmus_seo_framework_filter_stack() {
 
@@ -43,7 +52,9 @@ function unmus_seo_framework_filter_stack() {
         }       
 
 }
-add_action( 'template_redirect', 'unmus_seo_framework_filter_stack');   
+if (defined('THE_SEO_FRAMEWORK_VERSION')) {
+add_action( 'template_redirect', 'unmus_seo_framework_filter_stack');
+}
 
 /**
  * Manipulates the title for some pages
@@ -87,9 +98,14 @@ function unmus_seo_framework_manipulate_title( $title, $args = array(), $escape 
 
 }
 
-/*
-Manipulate Meta Descriptions
-*/
+/**
+ * Manipulates the Meta Descriptions
+ * 
+ * @since 0.1
+ * 
+ * @param string Meta Description
+ * @return string Manipulated Meta Description
+ */
 
 function unmus_seo_framework_manipulate_meta_description($description) {
 	
@@ -115,9 +131,13 @@ function unmus_seo_framework_manipulate_meta_description($description) {
 	
 }
 
-/*
-Create Canonicals @ Mathilda
-*/
+/**
+ * Creates the canonical URL for the Mathilda Pages 
+ * 
+ * @see Mathilda Plugin
+ * 
+ * @return html Cannonical Link
+ */
 
 function mathilda_canonical() {
         
@@ -139,6 +159,7 @@ function mathilda_canonical() {
 /**
  * Creates the canonical URL for the TootPress Pages 
  * 
+ * @see TootPress Plugin
  * @since 0.6
  * 
  * @return html Cannonical Link
@@ -162,9 +183,13 @@ function tootpress_canonical() {
 
 }
 
-/*
-Create NEXT @ Mathilda
-*/
+/**
+ * Creates the NEXT Link for the Mathilda Pages
+ * 
+ * @see Mathilda Plugin
+ * 
+ * @return string Next Link
+ */
 
 function mathilda_next_meta_output() {
 
@@ -185,9 +210,13 @@ function mathilda_next_meta_output() {
         }
 }
 
-/*
-Create PREV @ Mathilda
-*/
+/**
+ * Creates the PREV Link for the Mathilda Pages
+ * 
+ * @see Mathilda Plugin
+ * 
+ * @return string Prev Link
+ */
 
 function mathilda_prev_meta_output() {
 
@@ -262,9 +291,10 @@ function tootpress_prev_meta_output() {
         }
 }
 
-/*
-Schema BlogPosting
-*/
+/**
+ * Set the Schema to BlogPosting.
+ * 
+ */
 
 function unmus_tsf_blogposting( $meta ) {
         $meta['type'] = 'BlogPosting';    
