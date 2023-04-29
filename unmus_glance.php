@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) { exit; }
  */
 
 function unmus_custom_post_types_glance( $items = array() ) {
-    $post_types = array( 'pinseldisko', 'raketenstaub' ); 
+    $post_types = array( 'ello', 'raketenstaub', 'pinseldisko' ); 
     foreach( $post_types as $type ) {
         if( ! post_type_exists( $type ) ) continue;
         $num_posts = wp_count_posts( $type );
