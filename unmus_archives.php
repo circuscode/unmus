@@ -21,9 +21,7 @@ function unmus_custom_post_types_author_archives($query) {
     if ( $query->is_author ) {
 
 		$query->set( 'post_type', array('ello', 'post', 'podcast', 'pinseldisko', 'raketenstaub') );
-
 	}
-
 }
 add_action( 'pre_get_posts', 'unmus_custom_post_types_author_archives' );
 
@@ -38,7 +36,6 @@ function unmus_custom_post_types_date_archives($query) {
     if ( $query->is_date ) {
     
 		$query->set( 'post_type', array('ello', 'post', 'podcast', 'pinseldisko', 'raketenstaub') );
-		
 	}
 }
 add_action( 'pre_get_posts', 'unmus_custom_post_types_date_archives' );
