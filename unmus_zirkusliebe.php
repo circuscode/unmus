@@ -1,41 +1,22 @@
 <?php
 
-/* 
-Podcast Zirkusliebe
-*/
+/**
+ * All about Podcast
+ * 
+ * @package unmus
+ */
 
-/*
-Zirkusliebe @ Auf einen Blick
-*/
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
 
-function zirkusliebe_cpt_glance_counter( $items = array() ) {
-    $post_types = array( 'podcast' ); 
-    foreach( $post_types as $type ) {
-        if( ! post_type_exists( $type ) ) continue;
-        $num_posts = wp_count_posts( $type );
-        if( $num_posts ) {
-            $published = intval( $num_posts->publish );
-            $post_type = get_post_type_object( $type );
-            $text = _n( '%s ' . $post_type->labels->singular_name, '%s ' . $post_type->labels->name, $published, 'your_textdomain' );
-            $text = sprintf( $text, number_format_i18n( $published ) );
-            if ( current_user_can( $post_type->cap->edit_posts ) ) {
-            $output = '' . $text . '';
-                echo '<li><a class="zirkusliebe-count" href="edit.php?post_type=podcast">' . $output . '</a></li>';
-            } else {
-            $output = '' . $text . '';
-                echo ' ' . $output . '';
-            }
-        }
-    }
-    return $items;
-}
-add_filter( 'dashboard_glance_items', 'zirkusliebe_cpt_glance_counter', 10, 1 );
+/**
+ * Adds Current Menu Item Class
+ * 
+ * Required for Podcast Archive Pages (2 to n)
+ *
+ */
 
-/*
-Adds Current Menu Item Class @ Nav (for Zirkusliebe Archive Page 2 to n)
-*/
-
-function zirkusliebe_nav_class( $classes, $item ) {
+function unmus_zirkusliebe_nav_class( $classes, $item ) {
 
     if ( is_post_type_archive('podcast') && $item->title == 'Zirkusliebe' ) {
         $classes[] = 'current-menu-item';
@@ -44,31 +25,18 @@ function zirkusliebe_nav_class( $classes, $item ) {
     return $classes;
 
 }
-add_filter( 'nav_menu_css_class', 'zirkusliebe_nav_class', 10, 2 );
-
-/*
-Modify Post per Page
-*/
-
-function unmus_zirkusliebe_change_posts_per_page( $query ) {
-
-	$amountofposts=get_option('unmus_zirkusliebe_amountofposts');
-
-    if ( is_admin() || ! $query->is_main_query() ) {
-       return;
-    }
-
-    if ( is_post_type_archive( 'podcast' ) ) {
-       $query->set( 'posts_per_page', $amountofposts );
-    }
+if (function_exists('load_podlove_podcast_publisher')) {
+    add_filter( 'nav_menu_css_class', 'unmus_zirkusliebe_nav_class', 10, 2 );
 }
-add_filter( 'pre_get_posts', 'unmus_zirkusliebe_change_posts_per_page' );
 
-/*
-Modify Podcast Excerpt
-*/
+/**
+ * Modify Podcast Excerpt Length
+ * 
+ * I do not remember why I have created this function.
+ *
+ */
 
-function zirkusliebe_excerpt_modify($input) {
+function unmus_zirkusliebe_excerpt_modify($input) {
 
     if('podcast' == get_post_type()) {
 
@@ -98,25 +66,8 @@ function zirkusliebe_excerpt_modify($input) {
     }
 
 }
-add_filter('the_excerpt', 'zirkusliebe_excerpt_modify');
-
-/*
-Workaround Envira Shortcode Error @ Feed
-*/
-
-function unmus_zirkusliebe_feed_content_zero( $content ) {
-  
-    if( is_feed() ) {
-
-        if('podcast' == get_post_type()) {
-            return "";
-        } 
-
-    }
-
-    return $content;
-
+if (function_exists('load_podlove_podcast_publisher')) {
+    add_filter('the_excerpt', 'unmus_zirkusliebe_excerpt_modify');
 }
-// add_filter( 'the_content', 'unmus_zirkusliebe_feed_content_zero' );
 
 ?>
