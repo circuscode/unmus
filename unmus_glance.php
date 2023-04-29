@@ -10,12 +10,12 @@
 if (!defined('ABSPATH')) { exit; }
 
 /**
- * Add Pinseldisko @ Auf einen Blick
- *
+ * Add Custom Post Types @ Auf einen Blick
+ * 
  */
 
-function unmus_pinseldisko_glance( $items = array() ) {
-    $post_types = array( 'pinseldisko' ); 
+function unmus_custom_post_types_glance( $items = array() ) {
+    $post_types = array( 'pinseldisko', 'raketenstaub' ); 
     foreach( $post_types as $type ) {
         if( ! post_type_exists( $type ) ) continue;
         $num_posts = wp_count_posts( $type );
@@ -26,7 +26,7 @@ function unmus_pinseldisko_glance( $items = array() ) {
             $text = sprintf( $text, number_format_i18n( $published ) );
             if ( current_user_can( $post_type->cap->edit_posts ) ) {
             $output = '' . $text . '';
-                echo '<li class="post-count"><a class="pinseldisko-count" href="edit.php?post_type=pinseldisko">' . $output . '</a></li>';
+                echo '<li class="post-count"><a class="'.$type.'-count" href="edit.php?post_type='.$type.'">' . $output . '</a></li>';
             } else {
             $output = '' . $text . '';
                 echo ' ' . $output . '';
@@ -35,7 +35,7 @@ function unmus_pinseldisko_glance( $items = array() ) {
     }
     return $items;
 }
-add_filter( 'dashboard_glance_items', 'unmus_pinseldisko_glance', 10, 1 );
+add_filter( 'dashboard_glance_items', 'unmus_custom_post_types_glance', 10, 1 );
 
 /**
  * Enqueue Plugin CSS Styles
