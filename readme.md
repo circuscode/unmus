@@ -81,6 +81,11 @@ Following standard features of the WordPress Core will be manipulated or extende
 
 * Option to Change Amount of Post per Page for CPT Raketenstaub
 
+### Search
+
+* Remove Post Formats from Search
+* Remove WordPress Page from Search
+
 ### Rewrites
 
 * Remove CPT Slug from Post URL
@@ -165,6 +170,7 @@ in progress
 * Removed: AMP Extensions
 * Removed: Creative Commons (integrated to huhu)
 * Removed: Force Feed Update (this can better be done by deleting transients)
+* Removed: Custom Fields in Search
 * Improved: Documentation
 * Improved: Code Refactoring
 
