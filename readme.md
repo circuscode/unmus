@@ -45,7 +45,7 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Dashboard
 * Loop
 * Search
-* Rewrite Rules
+* Rewrites
 
 ### Feed
 
@@ -80,6 +80,10 @@ Following standard features of the WordPress Core will be manipulated or extende
 ### Loop
 
 * Option to Change Amount of Post per Page for CPT Raketenstaub
+
+### Rewrites
+
+* Remove CPT Slug from Post URL
 
 ## Plugin Modifications
 
