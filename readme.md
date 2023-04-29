@@ -87,6 +87,7 @@ Standard features of the following plugins will be manipulated or extended.
 
 * Advanced Custom Fields
 * Podlove Publisher
+* Podlove Web Player
 * The SEO Framework
 * wpRocket
 * Embed Privacy
@@ -98,6 +99,10 @@ Standard features of the following plugins will be manipulated or extended.
 ### Embed Privacy 
 
 * Adjust Embed Overlay Text
+
+### Podlove Web Player
+
+* Remove Podlove Web Player Resources from Pages without Podcast
 
 ## Related Theme
 
@@ -146,6 +151,7 @@ This project is licensed under the GPL3 License.
 in progress
 
 * Added: Adjustment Embed Overlay Text (Embed Privacy)
+* Added: Support for Podlove Web Player 5
 * Removed: AMP Extensions
 * Removed: Creative Commons (integrated to huhu)
 * Removed: Force Feed Update (this can better be done by deleting transients)
