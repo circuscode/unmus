@@ -115,5 +115,18 @@ if(function_exists('rocket_clean_files') && function_exists('tootpress_activate'
 add_action('tootpress_toots_update', 'unmus_wprocket_fresh_cache_tootpress');
 }
 
+/**
+ * Delete Cache if Maintenance Mode is activated or deactivated
+ * 
+ * @since 0.7
+ * @see wpRocket Plugin
+ */
+
+function unmus_wprocket_delete_cache(){
+	rocket_clean_domain();
+}
+if(function_exists('rocket_clean_files')){
+add_action('update_option_unmus_maintenance','unmus_wprocket_delete_cache');
+}
 
 ?>
