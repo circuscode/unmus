@@ -90,11 +90,11 @@ Following standard features of the WordPress Core will be manipulated or extende
 Standard features of the following plugins will be manipulated or extended.
 
 * Advanced Custom Fields
+* Embed Privacy
 * Podlove Publisher
 * Podlove Web Player
 * The SEO Framework
 * wpRocket
-* Embed Privacy
 
 ### Advanced Custom Fields
 
@@ -104,9 +104,15 @@ Standard features of the following plugins will be manipulated or extended.
 
 * Adjust Embed Overlay Text
 
-### Podlove Web Player
+### Podlove Publisher & Web Player
 
 * Remove Podlove Web Player Resources from Pages without Podcast
+
+### wpRocket
+
+* Create valid HTML in Cache based on W3C Standards
+* Remove TootPress Pages from Cache if new Toots have been loaded
+* Remove Mathilda Pages from Cache if new Tweets have been loaded
 
 ## Related Theme
 
