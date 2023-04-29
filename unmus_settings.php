@@ -1,18 +1,28 @@
 <?php
 
-/* 
-Options 
-*/
+/**
+ * Options
+ * 
+ * @package unmus
+ */
+
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
+
+/**
+ * Add Options Menu
+ * 
+ */
 
 function unmus_options_menu() {
     add_options_page('unmus', 'unmus', 'manage_options', 'unmus-options', "unmus_options_content");
 }
-
 add_action( 'admin_menu', 'unmus_options_menu');
 
-/*
-Options Page
-*/
+/**
+ * Create Options Page
+ * 
+ */
 
 function unmus_options_content() {
 
@@ -30,9 +40,10 @@ function unmus_options_content() {
 	echo '</form></div><div class="clear"></div>';
 }
 
-/*
-Fields
-#*/
+/**
+ * Define Input Fields
+ * 
+ */
 
 function unmus_options_display_environment()
 {
@@ -59,12 +70,6 @@ function unmus_options_display_ello_amountofposts()
 	echo '<input class="regular-text" type="text" name="unmus_ello_amountofposts" id="unmus_ello_amountofposts" value="'. get_option('unmus_ello_amountofposts') .'"/>';
 }
 
-
-function unmus_options_display_force_feedupdate()
-{
-	echo '<input class="regular-text" type="text" name="unmus_force_feedupdate" id="unmus_force_feedupdate" value="'. get_option('unmus_force_feedupdate') .'"/>';
-}
-
 function unmus_options_display_wordpress_update_auto()
 {
 	echo '<input class="regular-text" type="text" name="unmus_wordpress_update_auto" id="unmus_wordpress_update_auto" value="'. get_option('unmus_wordpress_update_auto') .'"/>';
@@ -80,9 +85,10 @@ function unmus_options_display_themes_update_auto()
 	echo '<input class="regular-text" type="text" name="unmus_themes_update_auto" id="unmus_themes_update_auto" value="'. get_option('unmus_themes_update_auto') .'"/>';
 }
 
-/* 
-Sections
-*/
+/**
+ * Define Section Headlines
+ * 
+ */
 
 function unmus_options_display_blog_description()
 { echo '<p>Basic Settings</p>'; }
@@ -93,9 +99,10 @@ function unmus_options_display_customposttype_description()
 function unmus_options_display_internal_description()
 { echo '<p>Technical Settings</p>'; }
 
-/* 
-Definitions
-*/
+/**
+ * Define Sections
+ * 
+ */
 
 // Plugin Basic Settings 
 
@@ -111,6 +118,8 @@ function unmus_options_blog_display()
 	register_setting("unmus_settings", "unmus_maintenance", "unmus_validate_maintenance");
 
 }
+
+// Loop Settings
 
 function unmus_options_customposttype_display()
 {
@@ -133,125 +142,23 @@ function unmus_options_internal_display()
 	
 	add_settings_section("internal_settings_section", "Internal", "unmus_options_display_internal_description", "unmus-options");
 	
-	add_settings_field("unmus_force_feedupdate", "Force Feed Update", "unmus_options_display_force_feedupdate", "unmus-options", "internal_settings_section");
 	add_settings_field("unmus_wordpress_update_auto", "Update WordPress Auto", "unmus_options_display_wordpress_update_auto", "unmus-options", "internal_settings_section");
 	add_settings_field("unmus_plugins_update_auto", "Update Plugins Auto", "unmus_options_display_plugins_update_auto", "unmus-options", "internal_settings_section");
 	add_settings_field("unmus_themes_update_auto", "Update Themes Auto", "unmus_options_display_themes_update_auto", "unmus-options", "internal_settings_section");
 	
-	register_setting("unmus_settings", "unmus_force_feedupdate", "unmus_validate_force_feedupdate");
 	register_setting("unmus_settings", "unmus_wordpress_update_auto", "unmus_validate_wordpress_update_auto");
 	register_setting("unmus_settings", "unmus_plugins_update_auto", "unmus_validate_plugins_update_auto");
 	register_setting("unmus_settings", "unmus_themes_update_auto", "unmus_validate_themes_update_auto");
 
 }
 
-/*
-Actions
-*/
+/**
+ * Actions
+ * 
+ */
 
 add_action("admin_init", "unmus_options_blog_display");
 add_action("admin_init", "unmus_options_customposttype_display");
 add_action("admin_init", "unmus_options_internal_display");
-
-/*
-Validation
-*/
-
-/* Validate Input: Environment */
-
-function unmus_validate_environment ( $environment ) {
-    
-    $output = $environment;
-    return $output;
-
-} 
-
-/* Validate Input: Maintenance */
-
-function unmus_validate_maintenance ( $maintenance ) {
-	
-	$output;
-
-	if($maintenance == 1) {
-		$output=1;
-	} else {
-		$output=0;
-	}
-
-	$current_mode=get_option('unmus_maintenance');
-	
-	if ($current_mode!=$maintenance) {
-
-		if( function_exists( 'rocket_deactivation' ) ) { 
-			rocket_clean_domain();
-		}
-	
-	}
-
-    return $output;
-} 
-
-/* Validate Input: Raketenstaub Number of Posts */
-
-function unmus_validate_raketenstaub_amountofposts ( $amountofposts ) {
-    
-    $output = $amountofposts;
-    return $output;
-
-} 
-
-/* Validate Input: Zirkusliebe Number of Posts */
-
-function unmus_validate_zirkusliebe_amountofposts ( $amountofposts ) {
-    
-    $output = $amountofposts;
-    return $output;
-
-} 
-
-/* Validate Input: Ello Number of Posts */
-
-function unmus_validate_ello_amountofposts ( $amountofposts ) {
-    
-    $output = $amountofposts;
-    return $output;
-
-} 
-
-/* Validate Input: Force Feedupdate */
-
-function unmus_validate_force_feedupdate ( $force ) {
-	
-    $output = $force;
-	return $output;
-	
-}
-
-/* Validate Input: WordPress Update Auto */
-
-function unmus_validate_wordpress_update_auto ( $update ) {
-	
-    $output = $update;
-	return $output;
-	
-}
-
-/* Validate Input: Plugins Update Auto */
-
-function unmus_validate_plugins_update_auto ( $update ) {
-	
-    $output = $update;
-	return $output;
-	
-}
-
-/* Validate Input: Themes Update Auto */
-
-function unmus_validate_themes_update_auto ( $update ) {
-	
-    $output = $update;
-	return $output;
-	
-}
 
 ?>

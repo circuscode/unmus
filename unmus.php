@@ -29,6 +29,7 @@ require_once('unmus_editor.php');
 require_once('unmus_search.php');
 require_once('unmus_wordpress.php');
 require_once('unmus_settings.php');
+require_once('unmus_validate.php');
 require_once('unmus_tools.php');
 require_once('unmus_script.php');
 require_once('unmus_conditionals.php');

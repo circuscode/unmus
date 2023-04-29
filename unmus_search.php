@@ -1,14 +1,20 @@
 <?php
 
-/*
-Search Modifications
-*/
+/**
+ * Search Modifications
+ * 
+ * @package unmus
+ */
 
-/* 
-Remove Quotes & Images Post Types from Search 
-*/
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
 
-function unmus_search_exclude_post_format( $query ) {
+/**
+ * Remove Quotes & Images Post Types from Search 
+ *
+ */
+
+function unmus_search_exclude_post_formats( $query ) {
     
     if( $query->is_main_query() && $query->is_search() ) {
 
@@ -25,77 +31,24 @@ function unmus_search_exclude_post_format( $query ) {
     }
 
 }
-add_action( 'pre_get_posts', 'unmus_search_exclude_post_format' );
+add_action( 'pre_get_posts', 'unmus_search_exclude_post_formats' );
 
-/* 
-Exclude Page WordPress from Search
-*/
+/**
+ * Remove the WordPress Page from Search
+ *
+ */
 
 function unmus_search_filter( $query ) {
 
-  // Exclude "WordPress" Page with ID2169
+  $page = get_page_by_path('wordpress',OBJECT,'page');
+  if($page==null){return false;}
+  $pageid=$page->ID;
 
   if ( ! $query->is_admin && $query->is_search && $query->is_main_query() ) {
-    $query->set( 'post__not_in', array( 2169 ) );
+    $query->set( 'post__not_in', array( $pageid ) );
   }
 
-  }
+}
 add_action( 'pre_get_posts', 'unmus_search_filter' );
-
-/* 
-Include Custom Fields in WordPress Search
-*/
-
-/**
- * Join posts and postmeta tables
- *
- * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_join
- */
-
-function cf_search_join( $join ) {
-
-  global $wpdb;
-
-  if ( is_search() ) {    
-      $join .=' LEFT JOIN '.$wpdb->postmeta. ' ON '. $wpdb->posts . '.ID = ' . $wpdb->postmeta . '.post_id ';
-  }
-
-  return $join;
-}
-// add_filter('posts_join', 'cf_search_join' );
-
-/**
- * Modify the search query with posts_where
- *
- * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_where
- */
-function cf_search_where( $where ) {
-  global $pagenow, $wpdb;
-
-  if ( is_search() ) {
-      $where = preg_replace(
-          "/\(\s*".$wpdb->posts.".post_title\s+LIKE\s*(\'[^\']+\')\s*\)/",
-          "(".$wpdb->posts.".post_title LIKE $1) OR (".$wpdb->postmeta.".meta_value LIKE $1)", $where );
-  }
-
-  return $where;
-}
-// add_filter( 'posts_where', 'cf_search_where' );
-
-/**
- * Prevent duplicates
- *
- * http://codex.wordpress.org/Plugin_API/Filter_Reference/posts_distinct
- */
-function cf_search_distinct( $where ) {
-  global $wpdb;
-
-  if ( is_search() ) {
-      return "DISTINCT";
-  }
-
-  return $where;
-}
-// add_filter( 'posts_distinct', 'cf_search_distinct' );
 
 ?>

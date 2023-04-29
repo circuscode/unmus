@@ -81,6 +81,11 @@ Following standard features of the WordPress Core will be manipulated or extende
 
 * Option to Change Amount of Post per Page for CPT Raketenstaub
 
+### Search
+
+* Remove Post Formats from Search
+* Remove WordPress Page from Search
+
 ### Rewrites
 
 * Remove CPT Slug from Post URL
@@ -104,15 +109,25 @@ Standard features of the following plugins will be manipulated or extended.
 
 * Adjust Embed Overlay Text
 
-### Podlove Publisher & Web Player
+### Podlove Publisher & Podlove Web Player
 
 * Remove Podlove Web Player Resources from Pages without Podcast
+
+### The SEO Framework
+
+* Manipulate Title for TootPress, Mathilda & Podcast Archive
+* Manipulate Meta Description for Custom Post Type Archives
+* Disable Cannonical URLs for Archives and Pages without Content
+* Create Cannonical URLs for TootPress and Mathilda Pages
+* Create NEXT and PREV Links for TootPress and Mathilda Pages
+* Set Schema to BlogPosting
 
 ### wpRocket
 
 * Create valid HTML in Cache based on W3C Standards
 * Remove TootPress Pages from Cache if new Toots have been loaded
 * Remove Mathilda Pages from Cache if new Tweets have been loaded
+* Clean Cache if Maintenance Mode is activated or deactivated
 
 ## Related Theme
 
@@ -165,6 +180,7 @@ in progress
 * Removed: AMP Extensions
 * Removed: Creative Commons (integrated to huhu)
 * Removed: Force Feed Update (this can better be done by deleting transients)
+* Removed: Custom Fields in Search
 * Improved: Documentation
 * Improved: Code Refactoring
 
