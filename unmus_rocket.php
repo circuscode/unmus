@@ -1,14 +1,23 @@
 <?php
 
 /**
+ * wpRocket - All about Caching
+ * 
+ * @package unmus
+ */
+
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
+
+/**
  * Filter cache buffer, extract meta tag, inject right after opening head tag.
  * This ensures html output is valid with W3C Standards
  *
- * @var  $buffer
+ * @var $buffer
  * @return void
  */
 
-function wp_rocket_unmus_put_charset_first($buffer) {
+function unmus_wprocket_put_charset_first($buffer) {
 
 	// Find meta charset tag.
 	preg_match_all( '/<meta\s+charset=[\'|"]+([^"\']+)(["\'])(\s*\/)?>/iU', $buffer, $meta_tag_matches );
@@ -34,27 +43,24 @@ function wp_rocket_unmus_put_charset_first($buffer) {
 
 	return $buffer;
 };
-add_filter( 'rocket_buffer', 'wp_rocket_unmus_put_charset_first',PHP_INT_MAX);
+if(function_exists('rocket_clean_files')) {
+add_filter( 'rocket_buffer', 'unmus_wprocket_put_charset_first',PHP_INT_MAX);
+}
 
-/*
-* Clean Cache for Mathilda Pages
-*/
+/**
+ * Removes Mathilda Pages from wpRocket Cache
+ * 
+ * Function will called everytime new tweets have been loaded
+ * 
+ */
 
-function wp_rocket_unmus_refresh_mathilda()
+function unmus_wprocket_refresh_mathilda()
 {
 
-	$cache_mathilda_url=null;
-	$current_host = $_SERVER['HTTP_HOST'];
+	$current_host=get_site_url();
+	$page_slug=get_option('mathilda_slug');
 
-	if($current_host == 'localhost') {
-        $cache_mathilda_url='http://localhost/tweets/';
-	}
-	elseif($current_host == 'dev.unmus.de') {
-        $cache_mathilda_url='http://dev.unmus.de/tweets/';
-    }
-    elseif($current_host == 'www.unmus.de') {
-        $cache_mathilda_url='http://www.unmus.de/tweets/';
-    }
+	$cache_mathilda_url=$current_host.'/'.$page_slug.'/';
 
 	$cache_number_of_pages=mathilda_pages();
 	$clear_urls=array();
@@ -68,12 +74,12 @@ function wp_rocket_unmus_refresh_mathilda()
 		}
 	}
 
-	if (function_exists('rocket_clean_files')) {
-		rocket_clean_files( $clear_urls );
-	}
+	rocket_clean_files( $clear_urls );
 
 }
-add_action('mathilda_tweets_updated', 'wp_rocket_unmus_refresh_mathilda');
+if(function_exists('rocket_clean_files') && function_exists('mathilda_activate')) {
+add_action('mathilda_tweets_updated', 'unmus_wprocket_refresh_mathilda');
+}
 
 /**
  * Removes TootPress Pages from wpRocket Cache
@@ -84,10 +90,6 @@ add_action('mathilda_tweets_updated', 'wp_rocket_unmus_refresh_mathilda');
  */
 
 function unmus_wprocket_fresh_cache_tootpress() {
-
-	if(!function_exists('rocket_clean_files') OR !function_exists('tootpress_activate')) {
-		return false;
-	}
 
 	$current_host=get_site_url();
 	$page_slug=tootpress_get_slug();
@@ -109,6 +111,9 @@ function unmus_wprocket_fresh_cache_tootpress() {
 	rocket_clean_files( $clear_urls );
 
 }
+if(function_exists('rocket_clean_files') && function_exists('tootpress_activate')) {
 add_action('tootpress_toots_update', 'unmus_wprocket_fresh_cache_tootpress');
+}
+
 
 ?>

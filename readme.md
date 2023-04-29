@@ -42,8 +42,10 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Comment Form
 * Site Health
 * Update
+* Dashboard
+* Loop
 * Search
-* Rewrite Rules
+* Rewrites
 
 ### Feed
 
@@ -71,15 +73,28 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Run Plugin Updates automaticly 
 * Run Theme Updates automaticly
 
+### Dashboard
+
+* Add Custom Post Types to At a Glance Widget
+
+### Loop
+
+* Option to Change Amount of Post per Page for CPT Raketenstaub
+
+### Rewrites
+
+* Remove CPT Slug from Post URL
+
 ## Plugin Modifications
 
 Standard features of the following plugins will be manipulated or extended.
 
 * Advanced Custom Fields
+* Embed Privacy
 * Podlove Publisher
+* Podlove Web Player
 * The SEO Framework
 * wpRocket
-* Embed Privacy
 
 ### Advanced Custom Fields
 
@@ -88,6 +103,16 @@ Standard features of the following plugins will be manipulated or extended.
 ### Embed Privacy 
 
 * Adjust Embed Overlay Text
+
+### Podlove Publisher & Web Player
+
+* Remove Podlove Web Player Resources from Pages without Podcast
+
+### wpRocket
+
+* Create valid HTML in Cache based on W3C Standards
+* Remove TootPress Pages from Cache if new Toots have been loaded
+* Remove Mathilda Pages from Cache if new Tweets have been loaded
 
 ## Related Theme
 
@@ -136,6 +161,7 @@ This project is licensed under the GPL3 License.
 in progress
 
 * Added: Adjustment Embed Overlay Text (Embed Privacy)
+* Added: Support for Podlove Web Player 5
 * Removed: AMP Extensions
 * Removed: Creative Commons (integrated to huhu)
 * Removed: Force Feed Update (this can better be done by deleting transients)

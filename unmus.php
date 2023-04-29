@@ -40,6 +40,7 @@ require_once('unmus_resources.php');
 require_once('unmus_sitehealth.php');
 require_once('unmus_glance.php');
 require_once('unmus_update.php');
+require_once('unmus_loop.php');
 
 // Ensure that all required functions are available during setup
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php');

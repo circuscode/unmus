@@ -1,12 +1,24 @@
 <?php
 
-/*
-Rewrites
-*/
+/**
+ * Rewrites
+ * 
+ * @package unmus
+ */
 
-/* 
-Remove slug from custom post type post URLs
-*/
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
+
+/**
+ * Remove Slug from Custom Post Type Post URLs
+ *
+ * URL Concept is the following.
+ * https://www.unmus.de/post-slug/
+ * 
+ * Zimtwolke required a special routine as CPT Name is different (Ello) 
+ * CPT Episode is handled by the podlove plugin.
+ * 
+ */
 
 function unmus_remove_cpt_slug( $post_link, $post, $leavename ) {
  
@@ -15,7 +27,7 @@ function unmus_remove_cpt_slug( $post_link, $post, $leavename ) {
     if ( ! in_array( $post->post_type, $custom_post_types ) || 'publish' != $post->post_status ) {
         return $post_link;
     }
- 
+
   	if(stristr($post_link, 'zimtwolke') === FALSE) {
     	$post_link = str_replace( '/' . $post->post_type . '/', '/', $post_link );
   	}
@@ -27,9 +39,13 @@ function unmus_remove_cpt_slug( $post_link, $post, $leavename ) {
 }
 add_filter( 'post_type_link', 'unmus_remove_cpt_slug', 10, 3 );
 
-/* 
-Enable CPT Access without Slug
-*/
+/**
+ * Enable Access to CPT Post Page without Slug
+ *
+ * CPT post page URLs are not working without this function.
+ * This is required because of the URL Concept.
+ * 
+ */
 
 function unmus_parse_request_trick( $query ) {
  
