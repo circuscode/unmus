@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) { exit; }
  *
  */
 
-function pinseldisko_custom_post_type() {
+function unmus_pinseldisko_custom_post_type() {
 
 		$labels = array(
 			'name'               => _x( 'Pinseldisko', 'post type general name' ),
@@ -69,7 +69,7 @@ function pinseldisko_custom_post_type() {
 		register_post_type( 'pinseldisko', $args );
 
 }
-add_action( 'init', 'pinseldisko_custom_post_type' );
+add_action( 'init', 'unmus_pinseldisko_custom_post_type' );
 
 /**
  * Adds Current Menu Item Class
@@ -78,7 +78,7 @@ add_action( 'init', 'pinseldisko_custom_post_type' );
  *
  */
 
-function pinseldisko_nav_class( $classes, $item ) {
+function unmus_pinseldisko_nav_class( $classes, $item ) {
 
     if ( is_post_type_archive('pinseldisko') && $item->title == 'pinseldisko' ) {
         $classes[] = 'current-menu-item';
@@ -87,6 +87,6 @@ function pinseldisko_nav_class( $classes, $item ) {
     return $classes;
 
 }
-add_filter( 'nav_menu_css_class', 'pinseldisko_nav_class', 10, 2 );
+add_filter( 'nav_menu_css_class', 'unmus_pinseldisko_nav_class', 10, 2 );
 
 ?>
