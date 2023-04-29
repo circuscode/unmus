@@ -4,15 +4,15 @@ This is the custom WordPress plugin running on [unmus.de](https://www.unmus.de/)
 
 ## Description 
 
-unmus custom WordPress plugin provides additional features related to the blog unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added.
+unmus custom WordPress plugin provides additional features related to the blog unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added. Using this plugin at other WordPress instances it not recommended.
 
 ## Custom Post Types
 
 Following custom post types are implemented.
 
 * Zimtwolke (Ello)
-* Pinseldisko
 * Raketenstaub
+* Pinseldisko
 
 ## Custom Taxonomies
 
@@ -31,37 +31,54 @@ The plugin provides the following additional features.
 * Custom WordPress Settings
 * Custom WordPress Tools
 * Maintenance Mode
-* Scripting
 
 ## WordPress Core
 
 Following standard features of the WordPress Core will be manipulated or extended.
 
-* Feed
-* Editor
 * Comment Form
+* Dashboard
+* Editor
+* Feed
+* Loop
+* Rewrites
+* Search
 * Site Health
 * Update
-* Dashboard
-* Loop
-* Search
-* Rewrites
-
-### Feed
-
-* Add unmus-related Post Types to Feed
-* Remove Post Formats Quote & Image from Feed
-
-### Editor
-
-* Add Post Format Filter in Ello Table View
-* Deactivate Post Format Option for Standard Posts
 
 ### Comment Form
 
 * Remove Comment Author's IP address
 * Remove Comment Author's User Agent
 * Remove Cookie Option in Comment Field
+
+### Dashboard
+
+* Add Custom Post Types to At a Glance Widget
+
+### Editor
+
+* Add Post Format Filter in Ello Table View
+* Deactivate Post Format Option for Standard Posts
+
+### Feed
+
+* Add unmus-related Post Types to Feed
+* Remove Post Formats Quote & Image from Feed
+
+### Loop
+
+* Option to Change Amount of Post per Page for CPT Raketenstaub
+* Option to Change Amount of Post per Page for CPT Ello
+
+### Rewrites
+
+* Remove CPT Slug from Post URL
+
+### Search
+
+* Remove Post Formats from Search
+* Remove WordPress Page from Search
 
 ### Site Health
 
@@ -72,23 +89,6 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Run WordPress Updates automaticly
 * Run Plugin Updates automaticly 
 * Run Theme Updates automaticly
-
-### Dashboard
-
-* Add Custom Post Types to At a Glance Widget
-
-### Loop
-
-* Option to Change Amount of Post per Page for CPT Raketenstaub
-
-### Search
-
-* Remove Post Formats from Search
-* Remove WordPress Page from Search
-
-### Rewrites
-
-* Remove CPT Slug from Post URL
 
 ## Plugin Modifications
 
@@ -183,6 +183,7 @@ in progress
 * Removed: Custom Fields in Search
 * Improved: Documentation
 * Improved: Code Refactoring
+* Security: No code execution without WordPress
 
 ### 0.6
 
