@@ -27,7 +27,6 @@ require_once('unmus_rocket.php');
 require_once('unmus_seo.php');
 require_once('unmus_editor.php');
 require_once('unmus_search.php');
-require_once('unmus_wordpress.php');
 require_once('unmus_settings.php');
 require_once('unmus_validate.php');
 require_once('unmus_tools.php');
@@ -42,6 +41,7 @@ require_once('unmus_sitehealth.php');
 require_once('unmus_glance.php');
 require_once('unmus_update.php');
 require_once('unmus_loop.php');
+require_once('unmus_archives.php');
 
 // Ensure that all required functions are available during setup
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php');

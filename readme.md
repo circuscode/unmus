@@ -36,6 +36,7 @@ The plugin provides the following additional features.
 
 Following standard features of the WordPress Core will be manipulated or extended.
 
+* Archives
 * Comment Form
 * Dashboard
 * Editor
@@ -45,6 +46,12 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Search
 * Site Health
 * Update
+* Others
+
+### Archives
+
+* Add Custom Post Types to Autor Archives
+* Add Custom Post Types to Date Archives
 
 ### Comment Form
 
@@ -70,6 +77,7 @@ Following standard features of the WordPress Core will be manipulated or extende
 
 * Option to Change Amount of Post per Page for CPT Raketenstaub
 * Option to Change Amount of Post per Page for CPT Ello
+* Option to Change Amount of Post per Page for CPT Podcast
 
 ### Rewrites
 
@@ -90,6 +98,11 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Run Plugin Updates automaticly 
 * Run Theme Updates automaticly
 
+### Others
+
+* Disable Loading Emoji Resources
+* Disable Emoji Plugin in TinyMCE
+
 ## Plugin Modifications
 
 Standard features of the following plugins will be manipulated or extended.
@@ -109,7 +122,11 @@ Standard features of the following plugins will be manipulated or extended.
 
 * Adjust Embed Overlay Text
 
-### Podlove Publisher & Podlove Web Player
+### Podlove Publisher
+
+* Adjust Excerpt Length
+
+### Podlove Web Player
 
 * Remove Podlove Web Player Resources from Pages without Podcast
 
