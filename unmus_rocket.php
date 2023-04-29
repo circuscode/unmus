@@ -43,9 +43,7 @@ function unmus_wprocket_put_charset_first($buffer) {
 
 	return $buffer;
 };
-if(function_exists('rocket_clean_files')) {
 add_filter( 'rocket_buffer', 'unmus_wprocket_put_charset_first',PHP_INT_MAX);
-}
 
 /**
  * Removes Mathilda Pages from wpRocket Cache
@@ -77,9 +75,7 @@ function unmus_wprocket_refresh_mathilda()
 	rocket_clean_files( $clear_urls );
 
 }
-if(function_exists('rocket_clean_files') && function_exists('mathilda_activate')) {
 add_action('mathilda_tweets_updated', 'unmus_wprocket_refresh_mathilda');
-}
 
 /**
  * Removes TootPress Pages from wpRocket Cache
@@ -108,12 +104,11 @@ function unmus_wprocket_fresh_cache_tootpress() {
 		}
 	}
 
+
 	rocket_clean_files( $clear_urls );
 
 }
-if(function_exists('rocket_clean_files') && function_exists('tootpress_activate')) {
 add_action('tootpress_toots_update', 'unmus_wprocket_fresh_cache_tootpress');
-}
 
 /**
  * Delete Cache if Maintenance Mode is activated or deactivated
@@ -125,8 +120,6 @@ add_action('tootpress_toots_update', 'unmus_wprocket_fresh_cache_tootpress');
 function unmus_wprocket_delete_cache(){
 	rocket_clean_domain();
 }
-if(function_exists('rocket_clean_files')){
 add_action('update_option_unmus_maintenance','unmus_wprocket_delete_cache');
-}
 
 ?>
