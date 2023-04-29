@@ -1,14 +1,22 @@
 <?php
 
-/* 
-All about Taxonomies
-*/ 
+/**
+ * All about Taxonomies
+ * 
+ * @package unmus 
+ */
 
-/* 
-Zirkusliebe Taxonomy
-*/
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
+ 
+/**
+ * Create Artists Taxonomy
+ *
+ * Reference: Custom Post Type Episode (Zirkusliebe)
+ * 
+ */
 
-function create_artist_taxonomy() {
+function unmus_create_artist_taxonomy() {
 
 	$labels = array(
 		'name' => _x( 'Artisten', 'taxonomy general name' ),
@@ -44,13 +52,16 @@ function create_artist_taxonomy() {
 		)
 	);
 }
-add_action( 'init', 'create_artist_taxonomy' );
+add_action( 'init', 'unmus_create_artist_taxonomy' );
 
-/* 
-Raketenstaub Taxonomy
-*/
+/**
+ * Create Fotoalbum Taxonomy
+ *
+ * Reference: Custom Post Type Raketenstaub
+ * 
+ */
 
-function create_raketen_taxonomy() {
+function unmus_create_raketen_taxonomy() {
 
 	$labels = array(
 		'name' => _x( 'Fotoalbum', 'taxonomy general name' ),
@@ -86,13 +97,16 @@ function create_raketen_taxonomy() {
 		)
 	);
 }
-add_action( 'init', 'create_raketen_taxonomy' );
+add_action( 'init', 'unmus_create_raketen_taxonomy' );
 
-/* 
-Pinseldisko Taxonomy
-*/
+/**
+ * Create Kunsthalle Taxonomy
+ *
+ * Reference: Custom Post Type Pinseldisko
+ * 
+ */
 
-function create_pinseldisko_taxonomy() {
+function unmus_create_pinseldisko_taxonomy() {
 
 	$labels = array(
 		'name' => _x( 'Kunsthalle', 'taxonomy general name' ),
@@ -128,13 +142,17 @@ function create_pinseldisko_taxonomy() {
 		)
 	);
 }
-add_action( 'init', 'create_pinseldisko_taxonomy' );
+add_action( 'init', 'unmus_create_pinseldisko_taxonomy' );
 
-/* 
-Zimtwolke Taxonomy
-*/
 
-function create_zimtwolke_taxonomy() {
+/**
+ * Create Tagebuch Taxonomy
+ *
+ * Reference: Custom Post Type Ello (Zimtwolke)
+ * 
+ */
+
+function unmus_create_zimtwolke_taxonomy() {
 
 	$labels = array(
 		'name' => _x( 'Tagebuch', 'taxonomy general name' ),
@@ -170,6 +188,6 @@ function create_zimtwolke_taxonomy() {
 		)
 	);
 }
-add_action( 'init', 'create_zimtwolke_taxonomy' );
+add_action( 'init', 'unmus_create_zimtwolke_taxonomy' );
 
 ?>
