@@ -27,7 +27,6 @@ require_once('unmus_rocket.php');
 require_once('unmus_seo.php');
 require_once('unmus_editor.php');
 require_once('unmus_search.php');
-require_once('unmus_wordpress.php');
 require_once('unmus_settings.php');
 require_once('unmus_validate.php');
 require_once('unmus_tools.php');
