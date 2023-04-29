@@ -200,6 +200,7 @@ in progress
 * Removed: Custom Fields in Search
 * Improved: Documentation
 * Improved: Code Refactoring
+* Bugfix: Add Custom Post Types to Date Archive
 * Security: No code execution without WordPress
 
 ### 0.6
