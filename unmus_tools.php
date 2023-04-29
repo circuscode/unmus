@@ -1,5 +1,14 @@
 <?php
 
+/**
+ * Developer Tools
+ * 
+ * @package unmus 
+ */
+
+// Security: Stops code execution if WordPress is not loaded
+if (!defined('ABSPATH')) { exit; }
+ 
 /* 
 Developer - Yes or No? 
 */
@@ -10,9 +19,10 @@ if (! $unmus_developer == 1)
 return;
 }
 
-/* 
-unmus Tools @ Menu
-*/
+/**
+ * Create Menu Item
+ * 
+ */
 
 function unmus_tools_menu() {
     	add_management_page(
@@ -26,9 +36,10 @@ function unmus_tools_menu() {
 
 add_action('admin_menu', 'unmus_tools_menu');
 
-/*
-unmus Tools Controller
-*/
+/**
+ * Tools Controller
+ * 
+ */
 
 function unmus_tools_controller() {
 	
