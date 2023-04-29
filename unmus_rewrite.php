@@ -42,7 +42,7 @@ add_filter( 'post_type_link', 'unmus_remove_cpt_slug', 10, 3 );
 /**
  * Enable Access to CPT Post Page without Slug
  *
- * CPT post page URLs are not working without this function
+ * CPT post page URLs are not working without this function.
  * This is required because of the URL Concept.
  * 
  */
