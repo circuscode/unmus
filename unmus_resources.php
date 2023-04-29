@@ -27,7 +27,9 @@ function unmus_remove_podlove_css(){
     }
 
 }
+if (function_exists('run_podlove_web_player') OR function_exists('load_podlove_podcast_publisher')) {
 add_action('wp_enqueue_scripts', 'unmus_remove_podlove_css');
+}
 
 /**
  * Remove Podlove CSS @ Pages without Podcast
@@ -45,6 +47,8 @@ function unmus_remove_podlove_js(){
     wp_dequeue_script( 'podlove-web-player-player-cache' );
     }
 }
+if (function_exists('run_podlove_web_player') OR function_exists('load_podlove_podcast_publisher')) {
 add_action('wp_enqueue_scripts', 'unmus_remove_podlove_js',99);
+}
 
 ?>
