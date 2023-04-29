@@ -42,6 +42,8 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Comment Form
 * Site Health
 * Update
+* Dashboard
+* Loop
 * Search
 * Rewrite Rules
 
@@ -70,6 +72,14 @@ Following standard features of the WordPress Core will be manipulated or extende
 * Run WordPress Updates automaticly
 * Run Plugin Updates automaticly 
 * Run Theme Updates automaticly
+
+### Dashboard
+
+* Add Custom Post Types to At a Glance Widget
+
+### Loop
+
+* Option to Change Amount of Post per Page for CPT Raketenstaub
 
 ## Plugin Modifications
 
