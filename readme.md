@@ -61,7 +61,7 @@ Following standard features of the WordPress Core are manipulated or extended.
 
 ### Feed
 
-* Add unmus-related Post Types to Feed
+* Add Custom Post Types to Feed
 * Remove Post Formats Quote & Image from Feed
 
 ### Loop
