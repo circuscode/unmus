@@ -35,13 +35,14 @@ require_once('unmus_conditionals.php');
 require_once('unmus_maintenance.php');
 require_once('unmus_raketenstaub.php');
 require_once('unmus_taxonomy.php');
-require_once('unmus_dataprivacy.php');
+require_once('unmus_privacy.php');
 require_once('unmus_resources.php');
 require_once('unmus_sitehealth.php');
 require_once('unmus_glance.php');
 require_once('unmus_update.php');
 require_once('unmus_loop.php');
 require_once('unmus_archives.php');
+require_once('unmus_menu.php');
 
 // Ensure that all required functions are available during setup
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php');

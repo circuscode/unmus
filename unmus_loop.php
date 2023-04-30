@@ -11,60 +11,35 @@
 if (!defined('ABSPATH')) { exit; }
 
 /**
- * Raketenstaub: Modify Amount of Posts per Page
+ * Modify Amount of Posts per Page for Custom Post Types
  *
+ * @since 0.7
+ * 
+ * @param WP_Query The WP_Query Instance
  */
 
-function unmus_raketenstaub_change_posts_per_page( $query ) {
+function unmus_amount_of_posts_per_page( $query ) {
 
-	$amountofposts=get_option('unmus_raketenstaub_amountofposts');
+   if ( is_admin() || ! $query->is_main_query() ) {
+      return;
+   }
 
-    if ( is_admin() || ! $query->is_main_query() ) {
-       return;
-    }
+   if ( is_post_type_archive( 'raketenstaub' ) ) {
+      $amountofposts=get_option('unmus_raketenstaub_amountofposts');
+      $query->set( 'posts_per_page', $amountofposts );
+   }
 
-    if ( is_post_type_archive( 'raketenstaub' ) ) {
-       $query->set( 'posts_per_page', $amountofposts );
-    }
+   if ( is_post_type_archive( 'ello' ) ) {
+      $amountofposts=get_option('unmus_ello_amountofposts');
+      $query->set( 'posts_per_page', $amountofposts );
+   }
+
+   if ( is_post_type_archive( 'podcast' ) ) {
+      $amountofposts=get_option('unmus_zirkusliebe_amountofposts');
+      $query->set( 'posts_per_page', $amountofposts );
+   }
+
 }
-add_filter( 'pre_get_posts', 'unmus_raketenstaub_change_posts_per_page' );
-
-/**
- * Ello: Modify Amount of Posts per Page
- *
- */
-
-function unmus_ello_change_posts_per_page( $query ) {
-
-	$amountofposts=get_option('unmus_ello_amountofposts');
-
-    if ( is_admin() || ! $query->is_main_query() ) {
-       return;
-    }
-
-    if ( is_post_type_archive( 'ello' ) ) {
-       $query->set( 'posts_per_page', $amountofposts );
-    }
-}
-add_filter( 'pre_get_posts', 'unmus_ello_change_posts_per_page' );
-
-/**
- * Podcast: Modify Amount of Posts per Page
- *
- */
-
-function unmus_zirkusliebe_change_posts_per_page( $query ) {
-
-	$amountofposts=get_option('unmus_zirkusliebe_amountofposts');
-
-    if ( is_admin() || ! $query->is_main_query() ) {
-       return;
-    }
-
-    if ( is_post_type_archive( 'podcast' ) ) {
-       $query->set( 'posts_per_page', $amountofposts );
-    }
-}
-add_filter( 'pre_get_posts', 'unmus_zirkusliebe_change_posts_per_page' );
+add_filter( 'pre_get_posts', 'unmus_amount_of_posts_per_page' );
 
 ?>

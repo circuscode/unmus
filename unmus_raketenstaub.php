@@ -4,7 +4,7 @@
  * All about Raketenstaub
  * 
  * @package unmus
- * 
+ * @since 0.1
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -13,6 +13,7 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Create Custom Post Type Raketenstaub
  *
+ * @since 0.1
  */
 
 function unmus_raketenstaub_custom_post_type() {
@@ -69,22 +70,5 @@ function unmus_raketenstaub_custom_post_type() {
 
 }
 add_action( 'init', 'unmus_raketenstaub_custom_post_type' );
-
-/**
- * Adds Current Menu Item Class
- * 
- * Required for Raketenstaub Archive Pages (2 to n)
- *
- */
-
-function unmus_raketenstaub_nav_class( $classes, $item ) {
-
-    if ( is_post_type_archive('raketenstaub') && $item->title == 'Raketenstaub' ) {
-        $classes[] = 'current-menu-item';
-    }
-    return $classes;
-
-}
-add_filter( 'nav_menu_css_class', 'unmus_raketenstaub_nav_class', 10, 2 );
 
 ?>

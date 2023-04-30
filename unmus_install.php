@@ -18,7 +18,7 @@ if (!defined('ABSPATH')) { exit; }
  */
 
 function unmus_activate () {
-	add_option('unmus_environment',"na");
+	add_option('unmus_environment',"");
 	add_option('unmus_maintenance',"0");
 	add_option('unmus_raketenstaub_amountofposts',"10");
 	add_option('unmus_zirkusliebe_amountofposts',"10");

@@ -4,7 +4,7 @@
  * Pinseldisko
  * 
  * @package unmus
- * 
+ * @since 0.1
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -13,6 +13,7 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Create Custom Post Type Pinseldisko
  *
+ * @since 0.1
  */
 
 function unmus_pinseldisko_custom_post_type() {
@@ -70,23 +71,5 @@ function unmus_pinseldisko_custom_post_type() {
 
 }
 add_action( 'init', 'unmus_pinseldisko_custom_post_type' );
-
-/**
- * Adds Current Menu Item Class
- * 
- * Required for Pinseldisko Archive Pages (2 to n)
- *
- */
-
-function unmus_pinseldisko_nav_class( $classes, $item ) {
-
-    if ( is_post_type_archive('pinseldisko') && $item->title == 'pinseldisko' ) {
-        $classes[] = 'current-menu-item';
-    }
-
-    return $classes;
-
-}
-add_filter( 'nav_menu_css_class', 'unmus_pinseldisko_nav_class', 10, 2 );
 
 ?>
