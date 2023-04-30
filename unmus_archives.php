@@ -13,6 +13,8 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Add Custom Post Types to Archives
  * 
+ * @since 0.7
+ * 
  * @param WP_Query The WP_Query Instance
  */
 
