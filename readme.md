@@ -56,7 +56,7 @@ Following standard features of the WordPress Core are manipulated or extended.
 
 ### Editor
 
-* Add Post Format Filter in Ello Table View
+* Add Post Format Filter in Table View for Custom Post Type Ello
 * Deactivate Post Format Option for Standard Posts
 
 ### Feed
