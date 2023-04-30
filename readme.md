@@ -33,6 +33,7 @@ Following standard features of the WordPress Core are manipulated or extended.
 * Editor
 * Feed
 * Loop
+* Menu
 * Rewrites
 * Search
 * Site Health
@@ -69,6 +70,10 @@ Following standard features of the WordPress Core are manipulated or extended.
 * Option to Change Amount of Post per Page for CPT Raketenstaub
 * Option to Change Amount of Post per Page for CPT Ello
 * Option to Change Amount of Post per Page for CPT Podcast
+
+### Menu
+
+* Add Class to Current Menu Item in Custom Post Type Archives
 
 ### Rewrites
 
