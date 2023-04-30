@@ -23,15 +23,6 @@ Following custom taxonomies are implemented.
 * Kunsthalle (Pinseldisko related)
 * Tagebuch (Zimtwolke related)
 
-## Features
-
-The plugin provides the following additional features.
-
-* Custom WordPress Conditionals
-* Custom WordPress Settings
-* Custom WordPress Tools
-* Maintenance Mode
-
 ## WordPress Core
 
 Following standard features of the WordPress Core are manipulated or extended.
@@ -145,6 +136,15 @@ Standard features of the following plugins will be manipulated or extended.
 * Remove TootPress Pages from Cache if new Toots have been loaded
 * Remove Mathilda Pages from Cache if new Tweets have been loaded
 * Clean Cache if Maintenance Mode is activated or deactivated
+
+## Features
+
+The plugin provides the following additional features.
+
+* Custom WordPress Conditionals
+* Custom WordPress Settings
+* Custom WordPress Tools
+* Maintenance Mode
 
 ## Related Theme
 
