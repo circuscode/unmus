@@ -4,25 +4,11 @@
  * Data Privacy
  * 
  * @package unmus
+ * @since 0.6
  */
 
 // Security: Stops code execution if WordPress is not loaded
 if (!defined('ABSPATH')) { exit; }
-
-/**
- * Removes the cookie opt-in from comment form
- *
- * Filter affects that cookie will not be set
- * 
- * @param array Default comment fields
- * @return array Comment fields without cookie option
- */
-
-function unmus_comment_form_remove_cookies_consent( $fields ) {
-	unset( $fields['cookies'] );
-	return $fields;
-}
-add_filter( 'comment_form_default_fields', 'unmus_comment_form_remove_cookies_consent' );
 
 /**
  * Removes the comment author's IP address
@@ -30,7 +16,7 @@ add_filter( 'comment_form_default_fields', 'unmus_comment_form_remove_cookies_co
  * Filter will be applied before IP adress is set
  * 
  * @param string comment author's IP address
- * @return string empty string
+ * @return string blank
  */
 
 function unmus_remove_comment_author_ip( $comment_author_ip ) {
@@ -44,7 +30,7 @@ add_filter( 'pre_comment_user_ip', 'unmus_remove_comment_author_ip' );
  * Filter will be applied before user agent is set
  * 
  * @param string comment author's user agent
- * @return string empty string
+ * @return string blank
  */
 
 function unmus_remove_comment_agent_string( $comment_agent ) { 
@@ -58,6 +44,8 @@ add_filter( 'pre_comment_user_agent', 'unmus_remove_comment_agent_string' );
  * @since 0.7
  * 
  * @see WordPress Plugin Embed Privacy
+ * @link https://de.wordpress.org/plugins/embed-privacy/
+ * 
  * @param string Embed Overlay Content
  * @param string Embed Provider
  * @return string Manipulated Embed Overlay Content

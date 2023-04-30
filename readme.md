@@ -23,18 +23,9 @@ Following custom taxonomies are implemented.
 * Kunsthalle (Pinseldisko related)
 * Tagebuch (Zimtwolke related)
 
-## Features
-
-The plugin provides the following additional features.
-
-* Custom WordPress Conditionals
-* Custom WordPress Settings
-* Custom WordPress Tools
-* Maintenance Mode
-
 ## WordPress Core
 
-Following standard features of the WordPress Core will be manipulated or extended.
+Following standard features of the WordPress Core are manipulated or extended.
 
 * Archives
 * Comment Form
@@ -65,7 +56,7 @@ Following standard features of the WordPress Core will be manipulated or extende
 
 ### Editor
 
-* Add Post Format Filter in Ello Table View
+* Add Post Format Filter in Table View for Custom Post Type Ello
 * Deactivate Post Format Option for Standard Posts
 
 ### Feed
@@ -146,6 +137,15 @@ Standard features of the following plugins will be manipulated or extended.
 * Remove Mathilda Pages from Cache if new Tweets have been loaded
 * Clean Cache if Maintenance Mode is activated or deactivated
 
+## Features
+
+The plugin provides the following additional features.
+
+* Custom WordPress Conditionals
+* Custom WordPress Settings
+* Custom WordPress Tools
+* Maintenance Mode
+
 ## Related Theme
 
 * huhu
@@ -198,6 +198,7 @@ in progress
 * Removed: Creative Commons (integrated to huhu)
 * Removed: Force Feed Update (this can better be done by deleting transients)
 * Removed: Custom Fields in Search
+* Removed: Disable Comment Cookie (Cookie can be disabled in WordPress Settings now)
 * Improved: Documentation
 * Improved: Code Refactoring
 * Bugfix: Add Custom Post Types to Date Archive
