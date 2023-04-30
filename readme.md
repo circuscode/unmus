@@ -34,7 +34,7 @@ The plugin provides the following additional features.
 
 ## WordPress Core
 
-Following standard features of the WordPress Core will be manipulated or extended.
+Following standard features of the WordPress Core are manipulated or extended.
 
 * Archives
 * Comment Form
