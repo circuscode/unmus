@@ -11,33 +11,25 @@
 if (!defined('ABSPATH')) { exit; }
 
 /**
- * Add Custom Post Types to Author Archives
+ * Add Custom Post Types to Archives
  * 
  * @param WP_Query The WP_Query Instance
  */
 
-function unmus_custom_post_types_author_archives($query) {
+function unmus_custom_post_types_archives($query) {
 
-    if ( $query->is_author ) {
+    if ( $query->is_author OR $query->is_date ) {
 
-		$query->set( 'post_type', array('ello', 'post', 'podcast', 'pinseldisko', 'raketenstaub') );
+		$query->set( 'post_type', array(
+			'ello', 
+			'post', 
+			'podcast', 
+			'pinseldisko', 
+			'raketenstaub'
+		) );
+
 	}
 }
-add_action( 'pre_get_posts', 'unmus_custom_post_types_author_archives' );
-
-/**
- * Add Custom Post Types to Date Archives
- *
- * @param WP_Query The WP_Query Instance
- */
-
-function unmus_custom_post_types_date_archives($query) {
-	
-    if ( $query->is_date ) {
-    
-		$query->set( 'post_type', array('ello', 'post', 'podcast', 'pinseldisko', 'raketenstaub') );
-	}
-}
-add_action( 'pre_get_posts', 'unmus_custom_post_types_date_archives' );
+add_action( 'pre_get_posts', 'unmus_custom_post_types_archives' );
 
 ?>
