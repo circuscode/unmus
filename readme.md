@@ -120,10 +120,11 @@ Standard features of the following plugins will be manipulated or extended.
 ### Podlove Publisher
 
 * Adjust Excerpt Length
+* Remove Resources (if not required)
 
 ### Podlove Web Player
 
-* Remove Podlove Web Player Resources from Pages without Podcast
+* Remove Resources (if not required)
 
 ### The SEO Framework
 
@@ -203,6 +204,7 @@ in progress
 * Removed: Force Feed Update (this can better be done by deleting transients)
 * Removed: Custom Fields in Search
 * Removed: Disable Comment Cookie (Cookie can be disabled in WordPress Settings now)
+* Removed: Disable Podlove Web Player 4 Resources
 * Improved: Documentation
 * Improved: Code Refactoring
 * Changed: Initial Values Installation Routine

@@ -3,6 +3,8 @@
 /**
  * Resources
  * 
+ * Disable Resources not required increases site performance.
+ * 
  * @package unmus
  */
 
@@ -10,11 +12,12 @@
 if (!defined('ABSPATH')) { exit; }
 
 /**
- * Remove Podlove CSS @ Pages without Podcast
+ * Remove Podlove Publisher Resources
  *
+ * @see Plugin Podlove Publisher
  */
 
-function unmus_remove_podlove_css(){
+function unmus_remove_podlove_publisher_resources(){
 
     if(! ( is_post_type_archive('podcast') OR ('podcast' == get_post_type() ) ) )
     {
@@ -27,38 +30,36 @@ function unmus_remove_podlove_css(){
     }
 
 }
-if (function_exists('run_podlove_web_player') OR function_exists('load_podlove_podcast_publisher')) {
-add_action('wp_enqueue_scripts', 'unmus_remove_podlove_css');
+if (function_exists('load_podlove_podcast_publisher')) {
+    add_action('wp_enqueue_scripts', 'unmus_remove_podlove_publisher_resources');
 }
 
 /**
- * Remove Podlove CSS @ Pages without Podcast
+ * Remove Podlove Web Player Resources
  *
+ * @see Plugin Podlove Web Player
  */
 
-function unmus_remove_podlove_js(){
+function unmus_remove_podlove_web_player_resources(){
+
     if(! ( is_post_type_archive('podcast') OR ('podcast' == get_post_type() ) ) )
     {
-    wp_dequeue_script( 'podlove_frontend' );
-    wp_dequeue_script( 'podlove-player4-embed' );
-    wp_dequeue_script( 'podlove-pwp4-player' );
-    // Podlove WebPlayer 5
-    wp_dequeue_script( 'podlove-web-player-player' );
-    wp_dequeue_script( 'podlove-web-player-player-cache' );
+        // Podlove WebPlayer 5
+        wp_dequeue_script( 'podlove-web-player-player' );
+        wp_dequeue_script( 'podlove-web-player-player-cache' );
     }
 }
-if (function_exists('run_podlove_web_player') OR function_exists('load_podlove_podcast_publisher')) {
-add_action('wp_enqueue_scripts', 'unmus_remove_podlove_js',99);
+if (function_exists('run_podlove_web_player')) {
+    add_action('wp_enqueue_scripts', 'unmus_remove_podlove_web_player_resources',99);
 }
 
 /**
- * Disable Loading Emojis Resources
+ * Disable Emoji Resources
  * 
  * @link https://kinsta.com/knowledgebase/disable-emojis-wordpress/#disable-emojis-code
- *
  */
 
-function unmus_remove_emoji() {
+function unmus_remove_emoji_resources() {
     remove_action('wp_head', 'print_emoji_detection_script', 7);
     remove_action('admin_print_scripts', 'print_emoji_detection_script');
     remove_action('admin_print_styles', 'print_emoji_styles');
@@ -70,13 +71,13 @@ function unmus_remove_emoji() {
         add_filter('tiny_mce_plugins', 'unmus_remove_tinymce_emoji');
     }
 }
-add_action('init', 'unmus_remove_emoji');
+add_action('init', 'unmus_remove_emoji_resources');
 
 /**
- * Filter function used to remove the tinymce emoji plugin.
+ * Remove TinyMCE Emoji Plugin
  * 
- * @param array $plugins 
- * @return array Difference betwen the two arrays
+ * @param array
+ * @return array
  */
 
 function unmus_remove_tinymce_emoji($plugins) {
