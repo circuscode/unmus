@@ -32,13 +32,13 @@ Following standard features of the WordPress Core are manipulated or extended.
 * Dashboard
 * Editor
 * Feed
+* Header
 * Loop
 * Menu
 * Rewrites
 * Search
 * Site Health
 * Update
-* Others
 
 ### Archives
 
@@ -49,7 +49,6 @@ Following standard features of the WordPress Core are manipulated or extended.
 
 * Remove Comment Author's IP address
 * Remove Comment Author's User Agent
-* Remove Cookie Option in Comment Field
 
 ### Dashboard
 
@@ -64,6 +63,11 @@ Following standard features of the WordPress Core are manipulated or extended.
 
 * Add Custom Post Types to Feed
 * Remove Post Formats Quote & Image from Feed
+
+### Header
+
+* Disable Loading Emoji Resources
+* Disable Emoji Plugin in TinyMCE
 
 ### Loop
 
@@ -93,11 +97,6 @@ Following standard features of the WordPress Core are manipulated or extended.
 * Run WordPress Updates automaticly
 * Run Plugin Updates automaticly 
 * Run Theme Updates automaticly
-
-### Others
-
-* Disable Loading Emoji Resources
-* Disable Emoji Plugin in TinyMCE
 
 ## Plugin Modifications
 

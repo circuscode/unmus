@@ -19,16 +19,20 @@ if (!defined('ABSPATH')) { exit; }
  * 
  * @param array CSS Menu Item Classes
  * @param object Current Menu Item
+ * @return array CSS Menu Item Classes
  */
 
 function unmus_menu_current_item_class( $classes, $item ) {
 
-    if ( 
-			( is_post_type_archive('pinseldisko') && $item->title == 'Pinseldisko' ) OR
-			( is_post_type_archive('raketenstaub') && $item->title == 'Raketenstaub' )
-	   )
-	{
-        $classes[] = 'current-menu-item';
+    if (!in_array('current-menu-item',$classes)){
+
+        if (is_post_type_archive('pinseldisko') && $item->title == 'Pinseldisko') {
+            $classes[] = 'current-menu-item';
+        } 
+        elseif(is_post_type_archive('raketenstaub') && $item->title == 'Raketenstaub') {
+            $classes[] = 'current-menu-item';
+        }
+
     }
 
     return $classes;
