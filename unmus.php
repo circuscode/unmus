@@ -35,7 +35,7 @@ require_once('unmus_conditionals.php');
 require_once('unmus_maintenance.php');
 require_once('unmus_raketenstaub.php');
 require_once('unmus_taxonomy.php');
-require_once('unmus_dataprivacy.php');
+require_once('unmus_privacy.php');
 require_once('unmus_resources.php');
 require_once('unmus_sitehealth.php');
 require_once('unmus_glance.php');
