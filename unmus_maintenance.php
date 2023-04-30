@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Maintenance
+ * Maintenance Mode
  * 
  * @package unmus
  *
@@ -13,6 +13,7 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Activate the Maintenance mode
  * 
+ * @see Theme including maintenance.php
  */
 
 function unmus_maintenace_mode() {
@@ -23,7 +24,7 @@ function unmus_maintenace_mode() {
     if($doing_maintenance) {
         // Do not activate maintenance mode for Admins and User logged in
         if (! (is_admin() OR is_user_logged_in() ) ) {
-            // Do not activate maintenance mode if maintenance page does not exist
+            // Activate maintenance mode if maintenance page exists
             if ( file_exists( WP_CONTENT_DIR . '/maintenance.php' ) ) {
                 require_once( WP_CONTENT_DIR . '/maintenance.php' );
                 die();

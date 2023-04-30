@@ -111,7 +111,7 @@ function unmus_wprocket_fresh_cache_tootpress() {
 add_action('tootpress_toots_update', 'unmus_wprocket_fresh_cache_tootpress');
 
 /**
- * Delete Cache if Maintenance Mode is activated or deactivated
+ * Delete Cache if Maintenance Mode was activated or deactivated
  * 
  * @since 0.7
  * @see wpRocket Plugin
@@ -120,6 +120,8 @@ add_action('tootpress_toots_update', 'unmus_wprocket_fresh_cache_tootpress');
 function unmus_wprocket_delete_cache(){
 	rocket_clean_domain();
 }
-add_action('update_option_unmus_maintenance','unmus_wprocket_delete_cache');
+if (defined('WP_ROCKET_VERSION')) {
+	add_action('update_option_unmus_maintenance','unmus_wprocket_delete_cache');
+}
 
 ?>
