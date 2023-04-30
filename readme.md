@@ -198,6 +198,7 @@ in progress
 * Removed: Creative Commons (integrated to huhu)
 * Removed: Force Feed Update (this can better be done by deleting transients)
 * Removed: Custom Fields in Search
+* Removed: Disable Comment Cookie (Cookie can be disabled in WordPress Settings now)
 * Improved: Documentation
 * Improved: Code Refactoring
 * Bugfix: Add Custom Post Types to Date Archive
