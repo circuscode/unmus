@@ -137,7 +137,7 @@ Standard features of the following plugins will be manipulated or extended.
 * Remove Mathilda Pages from Cache if new Tweets have been loaded
 * Clean Cache if Maintenance Mode is activated or deactivated
 
-## Features
+## Additional Features
 
 The plugin provides the following additional features.
 
@@ -201,6 +201,7 @@ in progress
 * Removed: Disable Comment Cookie (Cookie can be disabled in WordPress Settings now)
 * Improved: Documentation
 * Improved: Code Refactoring
+* Changed: Initial Values Installation Routine
 * Bugfix: Add Custom Post Types to Date Archive
 * Security: No code execution without WordPress
 * Security: Escaping Echos
