@@ -81,7 +81,8 @@ Following standard features of the WordPress Core are manipulated or extended.
 
 ### Rewrites
 
-* Remove CPT Slug from Post URL
+* Remove Custom Post Type Slug from Permalink
+* Enable Parsing of Custom Post Type URLs
 
 ### Search
 
@@ -120,11 +121,11 @@ Standard features of the following plugins will be manipulated or extended.
 ### Podlove Publisher
 
 * Adjust Excerpt Length
-* Remove Resources (if not required)
+* Remove Header Resources
 
 ### Podlove Web Player
 
-* Remove Resources (if not required)
+* Remove Header Resources
 
 ### The SEO Framework
 
@@ -137,7 +138,6 @@ Standard features of the following plugins will be manipulated or extended.
 
 ### wpRocket
 
-* Create valid HTML in Cache based on W3C Standards
 * Remove TootPress Pages from Cache if new Toots have been loaded
 * Remove Mathilda Pages from Cache if new Tweets have been loaded
 * Clean Cache if Maintenance Mode is activated or deactivated
