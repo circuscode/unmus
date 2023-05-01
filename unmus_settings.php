@@ -4,6 +4,7 @@
  * Options
  * 
  * @package unmus
+ * @since 0.1
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -41,52 +42,52 @@ function unmus_options_content() {
 }
 
 /**
- * Define Input Fields
+ * Input Fields
  * 
  */
 
 function unmus_options_display_environment()
 {
-	echo '<input class="regular-text" type="text" name="unmus_environment" id="unmus_environment" value="'. get_option('unmus_environment') .'"/>';
+	echo '<input class="regular-text" type="text" name="unmus_environment" id="unmus_environment" value="'. esc_attr(get_option('unmus_environment')) .'"/>';
 }
 
 function unmus_options_display_maintenance()
 {
-	echo '<input class="regular-text" type="text" name="unmus_maintenance" id="unmus_maintenance" value="'. get_option('unmus_maintenance') .'"/>';
+	echo '<input class="regular-text" type="text" name="unmus_maintenance" id="unmus_maintenance" value="'. esc_attr(get_option('unmus_maintenance')) .'"/>';
 }
 
 function unmus_options_display_raketenstaub_amountofposts()
 {
-	echo '<input class="regular-text" type="text" name="unmus_raketenstaub_amountofposts" id="unmus_raketenstaub_amountofposts" value="'. get_option('unmus_raketenstaub_amountofposts') .'"/>';
+	echo '<input class="regular-text" type="text" name="unmus_raketenstaub_amountofposts" id="unmus_raketenstaub_amountofposts" value="'. esc_attr(get_option('unmus_raketenstaub_amountofposts')) .'"/>';
 }
 
 function unmus_options_display_zirkusliebe_amountofposts()
 {
-	echo '<input class="regular-text" type="text" name="unmus_zirkusliebe_amountofposts" id="unmus_zirkusliebe_amountofposts" value="'. get_option('unmus_zirkusliebe_amountofposts') .'"/>';
+	echo '<input class="regular-text" type="text" name="unmus_zirkusliebe_amountofposts" id="unmus_zirkusliebe_amountofposts" value="'. esc_attr(get_option('unmus_zirkusliebe_amountofposts')) .'"/>';
 }
 
 function unmus_options_display_ello_amountofposts()
 {
-	echo '<input class="regular-text" type="text" name="unmus_ello_amountofposts" id="unmus_ello_amountofposts" value="'. get_option('unmus_ello_amountofposts') .'"/>';
+	echo '<input class="regular-text" type="text" name="unmus_ello_amountofposts" id="unmus_ello_amountofposts" value="'. esc_attr(get_option('unmus_ello_amountofposts')) .'"/>';
 }
 
 function unmus_options_display_wordpress_update_auto()
 {
-	echo '<input class="regular-text" type="text" name="unmus_wordpress_update_auto" id="unmus_wordpress_update_auto" value="'. get_option('unmus_wordpress_update_auto') .'"/>';
+	echo '<input class="regular-text" type="text" name="unmus_wordpress_update_auto" id="unmus_wordpress_update_auto" value="'. esc_attr(get_option('unmus_wordpress_update_auto')) .'"/>';
 }
 
 function unmus_options_display_plugins_update_auto()
 {
-	echo '<input class="regular-text" type="text" name="unmus_plugins_update_auto" id="unmus_plugins_update_auto" value="'. get_option('unmus_plugins_update_auto') .'"/>';
+	echo '<input class="regular-text" type="text" name="unmus_plugins_update_auto" id="unmus_plugins_update_auto" value="'. esc_attr(get_option('unmus_plugins_update_auto')) .'"/>';
 }
 
 function unmus_options_display_themes_update_auto()
 {
-	echo '<input class="regular-text" type="text" name="unmus_themes_update_auto" id="unmus_themes_update_auto" value="'. get_option('unmus_themes_update_auto') .'"/>';
+	echo '<input class="regular-text" type="text" name="unmus_themes_update_auto" id="unmus_themes_update_auto" value="'. esc_attr(get_option('unmus_themes_update_auto')) .'"/>';
 }
 
 /**
- * Define Section Headlines
+ * Section Headlines
  * 
  */
 
@@ -100,7 +101,7 @@ function unmus_options_display_internal_description()
 { echo '<p>Technical Settings</p>'; }
 
 /**
- * Define Sections
+ * Sections
  * 
  */
 
