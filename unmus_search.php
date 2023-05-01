@@ -12,6 +12,7 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Remove Quotes & Images Post Types from Search 
  *
+ * @param WP_Query The WP_Query Instance
  */
 
 function unmus_search_exclude_post_formats( $query ) {
@@ -27,15 +28,14 @@ function unmus_search_exclude_post_formats( $query ) {
          ) );
          $query->set( 'tax_query', $tax_query );
         }
-
     }
-
 }
 add_action( 'pre_get_posts', 'unmus_search_exclude_post_formats' );
 
 /**
  * Remove the WordPress Page from Search
  *
+ * @param WP_Query The WP_Query Instance
  */
 
 function unmus_search_filter( $query ) {
