@@ -134,7 +134,6 @@ Standard features of the following plugins will be manipulated or extended.
 * Disable Cannonical URLs for Archives and Pages without Content
 * Create Cannonical URLs for TootPress and Mathilda Pages
 * Create NEXT and PREV Links for TootPress and Mathilda Pages
-* Set Schema to BlogPosting
 
 ### wpRocket
 
