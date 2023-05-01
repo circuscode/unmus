@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Remove Podlove Publisher Resources
  *
+ * @since 0.7
  * @see Plugin Podlove Publisher
  */
 
@@ -38,6 +39,7 @@ if (function_exists('load_podlove_podcast_publisher')) {
 /**
  * Remove Podlove Web Player Resources
  *
+ * @since 0.7
  * @see Plugin Podlove Web Player
  */
 
