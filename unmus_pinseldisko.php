@@ -62,7 +62,7 @@ function unmus_pinseldisko_custom_post_type() {
 			'supports'            => $supports,
 			'has_archive'         => true,
 			'can_export'          => true,
-			'menu_position'       => 7,
+			'menu_position'       => 5,
 			'capability_type'     => 'post',
 			'rewrite'             => array('slug' => 'pinseldisko')
 		);
