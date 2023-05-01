@@ -32,7 +32,10 @@ function unmus_menu_current_item_class( $classes, $item ) {
         elseif(is_post_type_archive('raketenstaub') && $item->title == 'Raketenstaub') {
             $classes[] = 'current-menu-item';
         }
-        elseif(is_post_type_archive('ello') && $item->title == 'Zimtwolke' ) {
+        elseif(is_post_type_archive('ello') && $item->title == 'Zimtwolke') {
+            $classes[] = 'current-menu-item';
+        }
+        elseif(is_post_type_archive('podcast') && $item->title == 'Zirkusliebe') {
             $classes[] = 'current-menu-item';
         }
 

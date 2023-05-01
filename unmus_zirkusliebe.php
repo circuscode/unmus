@@ -4,39 +4,25 @@
  * All about Podcast
  * 
  * @package unmus
+ * @since 0.1
  */
 
 // Security: Stops code execution if WordPress is not loaded
 if (!defined('ABSPATH')) { exit; }
 
 /**
- * Adds Current Menu Item Class
- * 
- * Required for Podcast Archive Pages (2 to n)
- *
- */
-
-function unmus_zirkusliebe_nav_class( $classes, $item ) {
-
-    if ( is_post_type_archive('podcast') && $item->title == 'Zirkusliebe' ) {
-        $classes[] = 'current-menu-item';
-    }
-
-    return $classes;
-
-}
-if (function_exists('load_podlove_podcast_publisher')) {
-    add_filter( 'nav_menu_css_class', 'unmus_zirkusliebe_nav_class', 10, 2 );
-}
-
-/**
  * Modify Podcast Excerpt Length
  * 
- * I do not remember why I have created this function.
+ * Required for Taxonomy/Date Archives & Search.
+ * Excerpt Lenght will be reduced to WordPress Standard.
  *
+ * @since 0.2
+ * 
+ * @param string Excerpt
+ * @return string Excerpt
  */
 
-function unmus_zirkusliebe_excerpt_modify($input) {
+function unmus_zirkusliebe_modify_excerpt_length($input) {
 
     if('podcast' == get_post_type()) {
 
@@ -60,14 +46,13 @@ function unmus_zirkusliebe_excerpt_modify($input) {
         else {
             return $input;
         }
+
     }
     else { 
         return $input;
     }
 
 }
-if (function_exists('load_podlove_podcast_publisher')) {
-    add_filter('the_excerpt', 'unmus_zirkusliebe_excerpt_modify');
-}
+add_filter('the_excerpt', 'unmus_zirkusliebe_modify_excerpt_length');
 
 ?>
