@@ -17,19 +17,22 @@ if (!defined('ABSPATH')) { exit; }
  *
  * @since 0.7
  * 
- * @param array CSS Menu Item Classes
- * @param object Current Menu Item
- * @return array CSS Menu Item Classes
+ * @param array $classes CSS Menu Item Classes
+ * @param object $item Current Menu Item
+ * @return array $classes CSS Menu Item Classes
  */
 
 function unmus_menu_current_item_class( $classes, $item ) {
 
     if (!in_array('current-menu-item',$classes)){
 
-        if (is_post_type_archive('pinseldisko') && $item->title == 'Pinseldisko') {
+        if(is_post_type_archive('pinseldisko') && $item->title == 'Pinseldisko') {
             $classes[] = 'current-menu-item';
         } 
         elseif(is_post_type_archive('raketenstaub') && $item->title == 'Raketenstaub') {
+            $classes[] = 'current-menu-item';
+        }
+        elseif(is_post_type_archive('ello') && $item->title == 'Zimtwolke' ) {
             $classes[] = 'current-menu-item';
         }
 

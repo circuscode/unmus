@@ -4,7 +4,7 @@
  * All about Zimtwolke
  * 
  * @package unmus
- * 
+ * @since 0.1
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -13,6 +13,7 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Create Custom Post Type Ello (Zimtwolke)
  *
+ * @since 0.1
  */
 
 function unmus_ello_custom_post_type() {
@@ -70,23 +71,5 @@ function unmus_ello_custom_post_type() {
 
 }
 add_action( 'init', 'unmus_ello_custom_post_type' );
-
-/**
- * Adds Current Menu Item Class
- * 
- * Required for Ello Archive Pages (2 to n)
- *
- */
-
-function unmus_ello_special_nav_class( $classes, $item ) {
-
-    if ( is_post_type_archive('ello') && $item->title == 'Zimtwolke' ) {
-        $classes[] = 'current-menu-item';
-    }
-
-    return $classes;
-
-}
-add_filter( 'nav_menu_css_class', 'unmus_ello_special_nav_class', 10, 2 );
 
 ?>
