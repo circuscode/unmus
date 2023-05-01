@@ -194,7 +194,7 @@ This project is licensed under the GPL3 License.
 
 ### 0.7
 
-in progress
+Released: 01.05.2023
 
 * Added: Adjustment Embed Overlay Text (Embed Privacy)
 * Added: Support for Podlove Web Player 5

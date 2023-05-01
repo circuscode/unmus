@@ -4,6 +4,7 @@
  * Editor Enhancements
  * 
  * @package unmus
+ * @since 0.7
  */
 
 // Security: Stops code execution if WordPress is not loaded
