@@ -10,20 +10,27 @@
 if (!defined('ABSPATH')) { exit; }
 
 /**
- * Remove Slug from Custom Post Type Post URLs
+ * Remove Custom Post Type Slug from Permalink
  *
- * URL Concept is the following.
+ * Standard Permalink:
+ * https://www.unmus.de/cpt-slug/post-slug/
+ * 
+ * Target is to have an URL as the following for all posts.
  * https://www.unmus.de/post-slug/
  * 
- * Zimtwolke required a special routine as CPT Name is different (Ello) 
+ * Format Zimtwolke requires a special routine as CPT Name is different (Ello).
  * CPT Episode is handled by the podlove plugin.
  * 
+ * @param string $post_link Permalink
+ * @param WP_Post $post Post
+ * @param book $leavename Wheter to keep the post?
  */
 
-function unmus_remove_cpt_slug( $post_link, $post, $leavename ) {
+function unmus_remove_cpt_slug_from_perma( $post_link, $post, $leavename ) {
  
 	$custom_post_types = array( 'pinseldisko', 'ello', 'podcast', 'raketenstaub' );
 	
+    // No Action required for Standard Post Type
     if ( ! in_array( $post->post_type, $custom_post_types ) || 'publish' != $post->post_status ) {
         return $post_link;
     }
@@ -37,17 +44,18 @@ function unmus_remove_cpt_slug( $post_link, $post, $leavename ) {
 	
     return $post_link;
 }
-add_filter( 'post_type_link', 'unmus_remove_cpt_slug', 10, 3 );
+add_filter( 'post_type_link', 'unmus_remove_cpt_slug_from_perma', 10, 3 );
 
 /**
- * Enable Access to CPT Post Page without Slug
+ * Enable Parsing of Custom Post Types URLs
  *
- * CPT post page URLs are not working without this function.
- * This is required because of the URL Concept.
+ * Custom Post Type URLs are not working without this function.
+ * But I do remember why this is required exactly.
  * 
+ * @param WP_Query The WP_Query Instance
  */
 
-function unmus_parse_request_trick( $query ) {
+function unmus_enable_parsing_cpt_urls( $query ) {
  
     if ( ! $query->is_main_query() )
         return;
@@ -56,6 +64,6 @@ function unmus_parse_request_trick( $query ) {
         $query->set( 'post_type', array( 'post', 'page', 'pinseldisko', 'ello', 'podcast', 'raketenstaub' ) );
     }
 }
-add_action( 'pre_get_posts', 'unmus_parse_request_trick');
+add_action( 'pre_get_posts', 'unmus_enable_parsing_cpt_urls');
 
 ?>

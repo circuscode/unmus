@@ -81,7 +81,8 @@ Following standard features of the WordPress Core are manipulated or extended.
 
 ### Rewrites
 
-* Remove CPT Slug from Post URL
+* Remove Custom Post Type Slug from Permalink
+* Enable Parsing of Custom Post Type URLs
 
 ### Search
 
@@ -120,11 +121,11 @@ Standard features of the following plugins will be manipulated or extended.
 ### Podlove Publisher
 
 * Adjust Excerpt Length
-* Remove Resources (if not required)
+* Remove Header Resources
 
 ### Podlove Web Player
 
-* Remove Resources (if not required)
+* Remove Header Resources
 
 ### The SEO Framework
 
