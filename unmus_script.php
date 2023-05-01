@@ -12,8 +12,8 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Executes the including code.
  *
- * With this code snippets can be tested without whole plugin logic around.
- * But WordPress Functionality can be used.
+ * Code snippets can be tested without whole plugin logic around.
+ * Advantage: WordPress Functionality can be used.
  * 
  */
 
@@ -30,6 +30,8 @@ Script
 */
 
 // Code here
+
+
 
 /* 
 Copy
