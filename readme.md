@@ -138,7 +138,6 @@ Standard features of the following plugins will be manipulated or extended.
 
 ### wpRocket
 
-* Create valid HTML in Cache based on W3C Standards
 * Remove TootPress Pages from Cache if new Toots have been loaded
 * Remove Mathilda Pages from Cache if new Tweets have been loaded
 * Clean Cache if Maintenance Mode is activated or deactivated
