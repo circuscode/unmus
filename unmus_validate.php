@@ -18,8 +18,18 @@ if (!defined('ABSPATH')) { exit; }
 
 function unmus_validate_environment ( $environment ) {
     
-    $output = $environment;
-    return $output;
+    $list_of_environments=array('local','dev','public','');
+
+    if (in_array($environment, $list_of_environments)) {
+        $output = $environment;
+        return $output;
+    } else {
+        if($environment=='') {
+            return '';
+        } else {
+            return get_option('unmus_environment');
+        }
+    }
 
 } 
 
@@ -50,10 +60,24 @@ function unmus_validate_maintenance ( $maintenance ) {
  * @return int Raketenstaub Number of Posts
  */
 
-function unmus_validate_raketenstaub_amountofposts ( $amountofposts ) {
+function unmus_validate_raketenstaub_amountofposts ( $amount ) {
     
-    $output = $amountofposts;
-    return $output;
+    // Input required
+    if ($amount == '') {
+        add_settings_error( 'unmus-options', 'invalid-amount', 'Raketenstaub / Amount of Posts: Input is required' );
+        $amount=get_option( 'unmus_raketenstaub_amountofposts' );
+    }
+    // Invalid Input
+    elseif (!is_numeric($amount) OR $amount < 0 OR $amount==0 OR is_float($amount)) {
+        add_settings_error( 'unmus-options', 'invalid-amount', 'Raketenstaub / Amount of Posts: Invalid input' );
+        $amount=get_option( 'unmus_raketenstaub_amountofposts' );
+    }
+    else {
+        // Make Inputs like "15.0" to "15"
+        $amount=intval($amount);
+    }
+
+    return $amount;
 
 } 
 
@@ -64,10 +88,24 @@ function unmus_validate_raketenstaub_amountofposts ( $amountofposts ) {
  * @return int Zirkusliebe Number of Posts
  */
 
-function unmus_validate_zirkusliebe_amountofposts ( $amountofposts ) {
+function unmus_validate_zirkusliebe_amountofposts ( $amount ) {
     
-    $output = $amountofposts;
-    return $output;
+    // Input required
+    if ($amount == '') {
+        add_settings_error( 'unmus-options', 'invalid-amount', 'Zirkusliebe / Amount of Posts: Input is required' );
+        $amount=get_option( 'unmus_zirkusliebe_amountofposts' );
+    }
+    // Invalid Input
+    elseif (!is_numeric($amount) OR $amount < 0 OR $amount==0 OR is_float($amount)) {
+        add_settings_error( 'unmus-options', 'invalid-amount', 'Zirkusliebe / Amount of Posts: Invalid input' );
+        $amount=get_option( 'unmus_zirkusliebe_amountofposts' );
+    }
+    else {
+        // Make Inputs like "15.0" to "15"
+        $amount=intval($amount);
+    }
+
+    return $amount;
 
 } 
 
@@ -78,10 +116,24 @@ function unmus_validate_zirkusliebe_amountofposts ( $amountofposts ) {
  * @return int Ello Number of Posts
  */
 
-function unmus_validate_ello_amountofposts ( $amountofposts ) {
+function unmus_validate_ello_amountofposts ( $amount ) {
     
-    $output = $amountofposts;
-    return $output;
+    // Input required
+    if ($amount == '') {
+        add_settings_error( 'unmus-options', 'invalid-amount', 'Ello / Amount of Posts: Input is required' );
+        $amount=get_option( 'unmus_ello_amountofposts' );
+    }
+    // Invalid Input
+    elseif (!is_numeric($amount) OR $amount < 0 OR $amount==0 OR is_float($amount)) {
+        add_settings_error( 'unmus-options', 'invalid-amount', 'Ello / Amount of Posts: Invalid input' );
+        $amount=get_option( 'unmus_ello_amountofposts' );
+    }
+    else {
+        // Make Inputs like "15.0" to "15"
+        $amount=intval($amount);
+    }
+
+    return $amount;
 
 } 
 
@@ -94,8 +146,15 @@ function unmus_validate_ello_amountofposts ( $amountofposts ) {
 
 function unmus_validate_wordpress_update_auto ( $update ) {
 	
-    $output = $update;
-	return $output;
+    $output;
+
+	if($update == 1) {
+		$output=1;
+	} else {
+		$output=0;
+	}
+
+    return $output;
 	
 }
 
@@ -108,8 +167,15 @@ function unmus_validate_wordpress_update_auto ( $update ) {
 
 function unmus_validate_plugins_update_auto ( $update ) {
 	
-    $output = $update;
-	return $output;
+    $output;
+
+	if($update == 1) {
+		$output=1;
+	} else {
+		$output=0;
+	}
+
+    return $output;
 	
 }
 
@@ -122,8 +188,15 @@ function unmus_validate_plugins_update_auto ( $update ) {
 
 function unmus_validate_themes_update_auto ( $update ) {
 	
-    $output = $update;
-	return $output;
+    $output;
+
+	if($update == 1) {
+		$output=1;
+	} else {
+		$output=0;
+	}
+
+    return $output;
 	
 }
 

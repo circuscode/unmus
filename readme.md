@@ -209,6 +209,7 @@ in progress
 * Changed: Initial Values Installation Routine
 * Bugfix: Add Custom Post Types to Date Archive
 * Security: No code execution without WordPress
+* Security: Better Input Validation
 * Security: Escaping Echos
 
 ### 0.6
