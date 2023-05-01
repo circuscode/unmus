@@ -6,6 +6,7 @@
  * Disable Resources not required increases site performance.
  * 
  * @package unmus
+ * @since 0.5
  */
 
 // Security: Stops code execution if WordPress is not loaded

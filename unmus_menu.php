@@ -15,7 +15,7 @@ if (!defined('ABSPATH')) { exit; }
  * 
  * Required for Custom Post Type Archive Pages (2 to n)
  *
- * @since 0.7
+ * @since 0.2
  * 
  * @param array $classes CSS Menu Item Classes
  * @param object $item Current Menu Item

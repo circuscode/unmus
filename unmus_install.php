@@ -15,6 +15,7 @@ if (!defined('ABSPATH')) { exit; }
  * 
  * Function will triggered with plugin activation
  * 
+ * @since 0.1
  */
 
 function unmus_activate () {
@@ -33,6 +34,8 @@ function unmus_activate () {
  * Deactivates the plugin
  * 
  * Function will triggered with plugin deactivation
+ * 
+ * @since 0.1
  */
 
 function unmus_deactivate () {
@@ -44,6 +47,7 @@ function unmus_deactivate () {
  * 
  * Function will triggered with plugin deletion
  * 
+ * @since 0.1
  */
 
 function unmus_delete () {
