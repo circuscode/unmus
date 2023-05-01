@@ -4,6 +4,7 @@
  * Maintenance Mode
  * 
  * @package unmus
+ * @since 0.1
  *
  */
 
@@ -12,6 +13,8 @@ if (!defined('ABSPATH')) { exit; }
 
 /**
  * Activate the Maintenance mode
+ * 
+ * @since 0.1
  * 
  * @see Theme including maintenance.php
  */

@@ -4,6 +4,7 @@
  * SEO Framework Modifications
  * 
  * @package unmus
+ * @since 0.1
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -13,6 +14,8 @@ if (!defined('ABSPATH')) { exit; }
  * Filter Stack
  * 
  * Includes all SEO manipulations to be applied.
+ * 
+ * @since 0.1
  */
 
 function unmus_seo_framework_filter_stack() {
@@ -154,8 +157,9 @@ function mathilda_canonical() {
 /**
  * Creates the canonical URL for the TootPress Pages 
  * 
- * @see TootPress Plugin
  * @since 0.6
+ * 
+ * @see TootPress Plugin
  * 
  * @return html Cannonical Link
  */
@@ -237,6 +241,8 @@ function mathilda_prev_meta_output() {
  * 
  * @since 0.6
  * 
+ * @see TootPress Plugin
+ * 
  * @return string Next Link
  */
 
@@ -263,6 +269,8 @@ function tootpress_next_meta_output() {
  * Creates the PREV Link for the TootPress Pages
  * 
  * @since 0.6
+ * 
+ * @see TootPress Plugin
  * 
  * @return string Prev Link
  */
