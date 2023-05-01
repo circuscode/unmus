@@ -4,6 +4,7 @@
  * All about Taxonomies
  * 
  * @package unmus 
+ * @since 0.2
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -12,8 +13,9 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Create Artists Taxonomy
  *
- * Reference: Custom Post Type Episode (Zirkusliebe)
+ * Reference: Custom Post Type Podcast (Zirkusliebe)
  * 
+ * @since 0.2
  */
 
 function unmus_create_artist_taxonomy() {
@@ -59,6 +61,7 @@ add_action( 'init', 'unmus_create_artist_taxonomy' );
  *
  * Reference: Custom Post Type Raketenstaub
  * 
+ * @since 0.5
  */
 
 function unmus_create_raketen_taxonomy() {
@@ -104,6 +107,7 @@ add_action( 'init', 'unmus_create_raketen_taxonomy' );
  *
  * Reference: Custom Post Type Pinseldisko
  * 
+ * @since 0.5
  */
 
 function unmus_create_pinseldisko_taxonomy() {
@@ -150,6 +154,7 @@ add_action( 'init', 'unmus_create_pinseldisko_taxonomy' );
  *
  * Reference: Custom Post Type Ello (Zimtwolke)
  * 
+ * @since 0.5
  */
 
 function unmus_create_zimtwolke_taxonomy() {

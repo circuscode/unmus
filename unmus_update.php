@@ -4,6 +4,7 @@
  * WordPress Updates
  * 
  * @package unmus
+ * @since 0.2
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -48,6 +49,7 @@ add_filter( 'auto_update_plugin', 'unmus_themes_update' );
 /**
  * Disable eMail Notification after Update
  *
+ * @since 0.6
  */
 
 // Disable core auto-update email notifications.

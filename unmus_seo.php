@@ -4,6 +4,7 @@
  * SEO Framework Modifications
  * 
  * @package unmus
+ * @since 0.1
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -12,9 +13,9 @@ if (!defined('ABSPATH')) { exit; }
 /**
  * Filter Stack
  * 
- * Includes and triggers all modifications 
- * Logic of the Modifications is defined outside of the Filter Stack
- *
+ * Includes all SEO manipulations to be applied.
+ * 
+ * @since 0.1
  */
 
 function unmus_seo_framework_filter_stack() {
@@ -24,9 +25,6 @@ function unmus_seo_framework_filter_stack() {
 
         // Manipulate Meta Descriptions
         add_filter( 'the_seo_framework_generated_description', 'unmus_seo_framework_manipulate_meta_description' );
-
-        // Structured Data
-        add_filter( 'the_seo_framework_articles_default_meta', 'unmus_tsf_blogposting' );
 
         // Disable Cannonical for Archives and Pages without Content
         if ( is_archive() OR is_search() OR ( is_paged() AND is_home() ) OR is_page('wordpress') OR is_page('notify-me')) {
@@ -159,8 +157,9 @@ function mathilda_canonical() {
 /**
  * Creates the canonical URL for the TootPress Pages 
  * 
- * @see TootPress Plugin
  * @since 0.6
+ * 
+ * @see TootPress Plugin
  * 
  * @return html Cannonical Link
  */
@@ -242,6 +241,8 @@ function mathilda_prev_meta_output() {
  * 
  * @since 0.6
  * 
+ * @see TootPress Plugin
+ * 
  * @return string Next Link
  */
 
@@ -269,6 +270,8 @@ function tootpress_next_meta_output() {
  * 
  * @since 0.6
  * 
+ * @see TootPress Plugin
+ * 
  * @return string Prev Link
  */
 
@@ -289,16 +292,6 @@ function tootpress_prev_meta_output() {
         return esc_html( $tootpress_permalink );
 
         }
-}
-
-/**
- * Set the Schema to BlogPosting.
- * 
- */
-
-function unmus_tsf_blogposting( $meta ) {
-        $meta['type'] = 'BlogPosting';    
-        return $meta;
 }
 
 ?>

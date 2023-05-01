@@ -4,7 +4,7 @@ This is the custom WordPress plugin running on [unmus.de](https://www.unmus.de/)
 
 ## Description 
 
-unmus custom WordPress plugin provides additional features related to the blog unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added. Using this plugin at other WordPress instances it not recommended.
+unmus custom WordPress plugin provides additional features related to the blog unmus. In addition it manipulates and extends standard features of WordPress and 3rd party plugins. At least some operation functions are added. 
 
 ## Custom Post Types
 
@@ -134,7 +134,6 @@ Standard features of the following plugins will be manipulated or extended.
 * Disable Cannonical URLs for Archives and Pages without Content
 * Create Cannonical URLs for TootPress and Mathilda Pages
 * Create NEXT and PREV Links for TootPress and Mathilda Pages
-* Set Schema to BlogPosting
 
 ### wpRocket
 
@@ -164,9 +163,9 @@ The plugin provides the following additional features.
 
 The plugin supports German only (hard-coded).
 
-## Installation
+## Instructions For Use
 
-Do it the WordPress Way! 
+It is not recommended to use this plugin on other WordPress instances. The plugin is tailor-made for use on the blog unmus. However, any code snippets can be adopted.
 
 ## Branches
 
@@ -205,11 +204,14 @@ in progress
 * Removed: Custom Fields in Search
 * Removed: Disable Comment Cookie (Cookie can be disabled in WordPress Settings now)
 * Removed: Disable Podlove Web Player 4 Resources
+* Removed: SEO Schema Filter BlogPosting
+* Removed: wpRocket Output HTML Validation
 * Improved: Documentation
 * Improved: Code Refactoring
 * Changed: Initial Values Installation Routine
 * Bugfix: Add Custom Post Types to Date Archive
 * Security: No code execution without WordPress
+* Security: Better Input Validation
 * Security: Escaping Echos
 
 ### 0.6
