@@ -149,6 +149,7 @@ The plugin provides the following additional features.
 * Custom WordPress Settings
 * Custom WordPress Tools
 * Maintenance Mode
+* Mastodon Verification
 
 ## Related Theme
 
@@ -191,6 +192,12 @@ Branches will be deployed continously onto the environments. The master branch i
 This project is licensed under the GPL3 License.
 
 ## Changelog
+
+### 0.8
+
+Release pending.
+
+* Added: Mastodon Verification
 
 ### 0.7
 
