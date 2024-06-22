@@ -26,16 +26,17 @@ function unmus_maintenace_mode() {
 
     if($doing_maintenance) {
         // Do not activate maintenance mode for Admins and User logged in
-        if (! (is_admin() OR is_user_logged_in() ) ) {
+        if (! (is_admin() OR is_user_logged_in() ) ) { 
             // Activate maintenance mode if maintenance page exists
             if ( file_exists( WP_CONTENT_DIR . '/maintenance.php' ) ) {
                 require_once( WP_CONTENT_DIR . '/maintenance.php' );
                 die();
-            }
+            } 
+
         }
     }
 
 }
-add_action('get_header', 'unmus_maintenace_mode');
+add_action('wp', 'unmus_maintenace_mode');
 
 ?>

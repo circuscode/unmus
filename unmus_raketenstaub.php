@@ -63,7 +63,8 @@ function unmus_raketenstaub_custom_post_type() {
 			'can_export'          => true,
 			'menu_position'       => 5,
 			'capability_type'     => 'post',
-			'rewrite'             => array('slug' => 'raketenstaub')
+			'rewrite'             => array('slug' => 'raketenstaub'),
+			'show_in_rest'        => true
 		);
 
 		register_post_type( 'raketenstaub', $args );
