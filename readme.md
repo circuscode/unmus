@@ -201,6 +201,7 @@ Release pending.
 * Added: Block Editor Support Custom Post Type Pinseldisko
 * Added: Block Editor Support Custom Post Type Raketenstaub
 * Changed: Maintenance Mode Internal Processing
+* Removed: Adding Current Menu Item
 
 ### 0.7
 

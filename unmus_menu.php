@@ -44,6 +44,7 @@ function unmus_menu_current_item_class( $classes, $item ) {
     return $classes;
 
 }
-add_filter( 'nav_menu_css_class', 'unmus_menu_current_item_class', 10, 2 );
+// This is not working anymore with Block Themes :-(
+// add_filter( 'nav_menu_css_class', 'unmus_menu_current_item_class', 10, 2 );
 
 ?>
