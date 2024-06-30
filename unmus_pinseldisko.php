@@ -64,7 +64,8 @@ function unmus_pinseldisko_custom_post_type() {
 			'can_export'          => true,
 			'menu_position'       => 5,
 			'capability_type'     => 'post',
-			'rewrite'             => array('slug' => 'pinseldisko')
+			'rewrite'             => array('slug' => 'pinseldisko'),
+			'show_in_rest'        => true
 		);
 
 		register_post_type( 'pinseldisko', $args );

@@ -198,6 +198,10 @@ This project is licensed under the GPL3 License.
 Release pending.
 
 * Added: Mastodon Verification
+* Added: Block Editor Support Custom Post Type Pinseldisko
+* Added: Block Editor Support Custom Post Type Raketenstaub
+* Changed: Maintenance Mode Internal Processing
+* Removed: Adding Current Menu Item
 
 ### 0.7
 
