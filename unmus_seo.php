@@ -28,24 +28,24 @@ function unmus_seo_framework_filter_stack() {
 
         // Disable Cannonical for Archives and Pages without Content
         if ( is_archive() OR is_search() OR ( is_paged() AND is_home() ) OR is_page('wordpress') OR is_page('notify-me')) {
-                add_filter( 'the_seo_framework_rel_canonical_output', '__return_false' );
+               add_filter('the_seo_framework_meta_render_data','unmus_seo_framework_meta_remove_canonical');
         }
 
         // Create Next, Create Previous & Overwrite Canonicals @ Mathilda
         if(function_exists('mathilda_activate')) {
                 if( mathilda_is_tweet_page() ) {
-                        add_filter( 'the_seo_framework_paged_url_output_prev', 'mathilda_prev_meta_output' );
-                        add_filter( 'the_seo_framework_paged_url_output_next', 'mathilda_next_meta_output' );
-                        add_filter( 'the_seo_framework_rel_canonical_output', 'mathilda_canonical' );
+                        add_filter('the_seo_framework_meta_render_data','mathilda_set_prev');
+                        add_filter('the_seo_framework_meta_render_data','mathilda_set_next');
+                        add_filter('the_seo_framework_meta_render_data','mathilda_set_canonical');
                 }
         }
 
         // Create Next, Create Previous & Overwrite Canonicals @ TootPress
         if(function_exists('tootpress_activate')) {
                 if( tootpress_toot_here() ) {
-                        add_filter( 'the_seo_framework_paged_url_output_prev', 'tootpress_prev_meta_output' );
-                        add_filter( 'the_seo_framework_paged_url_output_next', 'tootpress_next_meta_output' );
-                        add_filter( 'the_seo_framework_rel_canonical_output', 'tootpress_canonical' );
+                        add_filter('the_seo_framework_meta_render_data','tootpress_set_prev');
+                        add_filter('the_seo_framework_meta_render_data','tootpress_set_next');
+                        add_filter('the_seo_framework_meta_render_data','tootpress_set_canonical');
                 }
         }       
 
@@ -223,9 +223,11 @@ function mathilda_prev_meta_output() {
 
                 $mathilda_subpage=mathilda_which_page();
                 $number_of_pages=mathilda_pages();
-
                 $mathilda_permalink=get_permalink();
-                $mathilda_permalink=$mathilda_permalink . ($mathilda_subpage-1)."/";
+
+                if($mathilda_subpage>2) {
+                        $mathilda_permalink=$mathilda_permalink . ($mathilda_subpage-1)."/";
+                }
                 
                 if($mathilda_subpage==1) {
                         $mathilda_permalink=false;
@@ -281,10 +283,12 @@ function tootpress_prev_meta_output() {
 
                 $tootpress_subpage=tootpress_get_query_var();
                 $number_of_pages=tootpress_amount_of_pages();
-
                 $tootpress_permalink=get_permalink();
-                $tootpress_permalink=$tootpress_permalink . ($tootpress_subpage-1)."/";
-                
+
+                if($tootpress_subpage>2) {
+                        $tootpress_permalink=$tootpress_permalink . ($tootpress_subpage-1)."/";
+                }
+
                 if($tootpress_subpage==1) {
                         $tootpress_permalink=false;
                 }
@@ -292,6 +296,178 @@ function tootpress_prev_meta_output() {
         return esc_html( $tootpress_permalink );
 
         }
+}
+
+// TSF 5.0
+// New technical approach
+// Background: depreciated filters
+
+/**
+ * Removes the Canonical Link
+ * 
+ * @since 0.8
+ * 
+ * @param array $tags_render_data
+ * @return array $tags_render_data
+ */
+
+function unmus_seo_framework_meta_remove_canonical($tags_render_data) {
+
+	unset( $tags_render_data['canonical'] );
+        return $tags_render_data;
+
+}
+
+/**
+ * Set Tootpress Canonical
+ * 
+ * @since 0.8
+ * 
+ * @param array $tags_render_data
+ * @return array $tags_render_data
+ */
+
+function tootpress_set_canonical($tags_render_data) {
+
+	$tags_render_data['canonical']['attributes']['href'] = tootpress_canonical();
+        return $tags_render_data;
+
+}
+
+/**
+ * Set Tootpress Next Link
+ * 
+ * @since 0.8
+ * 
+ * @param array $tags_render_data
+ * @return array $tags_render_data
+ */
+
+ function tootpress_set_next($tags_render_data) {
+        
+        $next_meta_content=tootpress_next_meta_output();
+
+        if($next_meta_content!='') {
+       
+                $tags_render_data['next'] = [
+
+                        'tag' => 'link',
+                        'attributes' => [
+                                'rel' => 'next',
+                                'href' => $next_meta_content,
+                        ]
+                ];
+
+        }
+
+        return $tags_render_data;
+
+}
+
+/**
+ * Set Tootpress Prev Link
+ * 
+ * @since 0.8
+ * 
+ * @param array $tags_render_data
+ * @return array $tags_render_data
+ */
+
+ function tootpress_set_prev($tags_render_data) {
+       
+        $prev_meta_content=tootpress_prev_meta_output();
+
+        if($prev_meta_content!='') {
+
+                $tags_render_data['prev'] = [
+
+                        'tag' => 'link',
+                        'attributes' => [
+                                'rel' => 'prev',
+                                'href' => $prev_meta_content,
+                        ]
+                ];
+
+        }
+
+        return $tags_render_data;
+
+}
+
+/**
+ * Set Mathilda Canonical
+ * 
+ * @since 0.8
+ * 
+ * @param array $tags_render_data
+ * @return array $tags_render_data
+ */
+
+ function mathilda_set_canonical($tags_render_data) {
+
+	$tags_render_data['canonical']['attributes']['href'] = mathilda_canonical();
+        return $tags_render_data;
+
+}
+
+/**
+ * Set Mathilda Next Link
+ * 
+ * @since 0.8
+ * 
+ * @param array $tags_render_data
+ * @return array $tags_render_data
+ */
+
+ function mathilda_set_next($tags_render_data) {
+        
+        $next_meta_content=mathilda_next_meta_output();
+
+        if($next_meta_content!='') {
+       
+                $tags_render_data['next'] = [
+
+                        'tag' => 'link',
+                        'attributes' => [
+                                'rel' => 'next',
+                                'href' => $next_meta_content,
+                        ]
+                ];
+
+        }
+
+        return $tags_render_data;
+
+}
+
+/**
+ * Set Mathilda Prev Link
+ * 
+ * @since 0.8
+ * 
+ * @param array $tags_render_data
+ * @return array $tags_render_data
+ */
+
+ function mathilda_set_prev($tags_render_data) {
+       
+        $prev_meta_content=mathilda_prev_meta_output();
+
+        if($prev_meta_content!='') {
+
+                $tags_render_data['prev'] = [
+
+                        'tag' => 'link',
+                        'attributes' => [
+                                'rel' => 'prev',
+                                'href' => $prev_meta_content,
+                        ]
+                ];
+
+        }
+
+        return $tags_render_data;
+
 }
 
 ?>
