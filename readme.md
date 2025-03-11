@@ -201,6 +201,7 @@ Release pending.
 * Added: Block Editor Support Custom Post Type Pinseldisko
 * Added: Block Editor Support Custom Post Type Raketenstaub
 * Changed: Maintenance Mode Internal Processing
+* Changed: Depreciated TSF Filters replaced with the_seo_framework_meta_render_data
 * Removed: Adding Current Menu Item
 
 ### 0.7
