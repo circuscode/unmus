@@ -203,6 +203,7 @@ Release pending.
 * Changed: Maintenance Mode Internal Processing
 * Changed: Depreciated TSF Filters replaced with the_seo_framework_meta_render_data
 * Removed: Adding Current Menu Item
+* Fixed: Missing Category Field in Gutenberg Editor
 
 ### 0.7
 
