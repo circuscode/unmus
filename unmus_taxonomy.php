@@ -184,6 +184,7 @@ function unmus_create_zimtwolke_taxonomy() {
 			'hierarchical' => true,
 			'labels' => $labels,
 			'show_ui' => true,
+			'show_in_rest' => true,
 			'show_admin_column' => true,
 			'update_count_callback' => '_update_post_term_count',
 			'query_var' => true,
