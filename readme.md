@@ -150,6 +150,7 @@ The plugin provides the following additional features.
 * Custom WordPress Tools
 * Maintenance Mode
 * Mastodon Verification
+* Mastodon Fediverse Creator
 
 ## Related Theme
 
@@ -198,6 +199,7 @@ This project is licensed under the GPL3 License.
 Release pending.
 
 * Added: Mastodon Verification
+* Added: Mastodon Fediverse Creator
 * Added: Block Editor Support Custom Post Type Pinseldisko
 * Added: Block Editor Support Custom Post Type Raketenstaub
 * Changed: Maintenance Mode Internal Processing
