@@ -27,4 +27,22 @@ function unmus_mastodon_verification() {
 }
 add_action('wp_head', 'unmus_mastodon_verification');
 
+/**
+ * Mastodon Creator
+ *
+ * @since 0.8
+ * @see https://blog.joinmastodon.org/2024/07/highlighting-journalism-on-mastodon/ 
+ */
+
+function unmus_mastodon_creator() {
+
+   ?>
+
+      <meta name="fediverse:creator" content="@irrlicht@mastodon.social">
+
+   <?php
+
+}
+add_action('wp_head', 'unmus_mastodon_creator');
+
 ?>
