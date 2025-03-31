@@ -32,7 +32,7 @@ function unmus_federated_comment_remove_account( $comment_text, $comment = null 
 
 		$pos=strpos($comment_text, $handle);
 
-		if($pos==0) {
+		if($pos===0) {
 			$comment_text = substr_replace($comment_text, '<p>', $pos, strlen($handle));
 		}
 
