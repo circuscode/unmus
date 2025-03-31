@@ -103,12 +103,17 @@ Following standard features of the WordPress Core are manipulated or extended.
 
 Standard features of the following plugins will be manipulated or extended.
 
+* ActivityPub
 * Advanced Custom Fields
 * Embed Privacy
 * Podlove Publisher
 * Podlove Web Player
 * The SEO Framework
 * wpRocket
+
+### Activity Pub
+
+* Remove Mastodon Account @ Comments
 
 ### Advanced Custom Fields
 
@@ -200,6 +205,7 @@ Release pending.
 
 * Added: Mastodon Verification
 * Added: Mastodon Fediverse Creator
+* Added: Remove Mastodon Account @ Federated Comment
 * Added: Block Editor Support Custom Post Type Pinseldisko
 * Added: Block Editor Support Custom Post Type Raketenstaub
 * Changed: Maintenance Mode Internal Processing
