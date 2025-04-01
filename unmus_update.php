@@ -61,4 +61,35 @@ add_filter( 'auto_plugin_update_send_email', '__return_false' );
 // Disable themes auto-update email notifications.
 add_filter( 'auto_theme_update_send_email', '__return_false' );
 
+/**
+ * The annoying Message
+ * 
+ * Plugin: UpdraftPlus
+ * Fades out the Message on WordPress Upgrade Page
+ *
+ * @since 0.8
+ */
+
+function unmus_updraft_message_invisible() {
+
+    // Get current page
+	global $pagenow;
+
+	// Run on specific pages only
+    if ( $pagenow == 'update-core.php') {
+
+        echo "
+        <style type='text/css'>
+        .updraft-ad-container {
+            display:none !important;
+        }
+        </style>
+        ";
+   }
+
+}
+if(function_exists('updraftplus_list_cron_schedules')) {
+add_action( 'admin_head', 'unmus_updraft_message_invisible' );
+}
+
 ?>
