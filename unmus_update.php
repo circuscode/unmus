@@ -88,8 +88,6 @@ function unmus_updraft_message_invisible() {
    }
 
 }
-if(function_exists('updraftplus_list_cron_schedules')) {
 add_action( 'admin_head', 'unmus_updraft_message_invisible' );
-}
 
 ?>
