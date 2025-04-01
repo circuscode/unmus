@@ -109,6 +109,7 @@ Standard features of the following plugins will be manipulated or extended.
 * Podlove Publisher
 * Podlove Web Player
 * The SEO Framework
+* UpdraftPlus
 * wpRocket
 
 ### Activity Pub
@@ -139,6 +140,10 @@ Standard features of the following plugins will be manipulated or extended.
 * Disable Cannonical URLs for Archives and Pages without Content
 * Create Cannonical URLs for TootPress and Mathilda Pages
 * Create NEXT and PREV Links for TootPress and Mathilda Pages
+
+### UpdraftPlus
+
+* Fade out the annoying Message on Upgrade Page
 
 ### wpRocket
 
@@ -208,6 +213,7 @@ Release pending.
 * Added: Remove Mastodon Account @ Federated Comment
 * Added: Block Editor Support Custom Post Type Pinseldisko
 * Added: Block Editor Support Custom Post Type Raketenstaub
+* Added: Fade Out UpdraftPlus Upgrade Message
 * Changed: Maintenance Mode Internal Processing
 * Changed: Depreciated TSF Filters replaced with the_seo_framework_meta_render_data
 * Removed: Adding Current Menu Item
