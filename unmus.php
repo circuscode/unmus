@@ -45,6 +45,7 @@ require_once('unmus_archives.php');
 require_once('unmus_menu.php');
 require_once('unmus_me.php');
 require_once('unmus_activitypub.php');
+require_once('unmus_widgets.php');
 
 // Ensure that all required functions are available during setup
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php');
