@@ -93,6 +93,7 @@ Following standard features of the WordPress Core are manipulated or extended.
 ### Site Health
 
 * Disable Persistent Object Cache Test
+* Disable Threaded Comments Check (Activity Pub)
 
 ### Update
 
@@ -216,6 +217,7 @@ Release pending.
 * Added: Block Editor Support Custom Post Type Raketenstaub
 * Added: Fade Out UpdraftPlus Upgrade Message
 * Added: CPT in Activity Widget
+* Added: Disable Threaded Comments Test (ActivityPub/Site Health)
 * Changed: Maintenance Mode Internal Processing
 * Changed: Depreciated TSF Filters replaced with the_seo_framework_meta_render_data
 * Removed: Adding Current Menu Item
