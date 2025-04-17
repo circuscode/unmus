@@ -208,7 +208,7 @@ This project is licensed under the GPL3 License.
 
 ### 0.8
 
-Release pending.
+Released: 17.04.2025
 
 * Added: Mastodon Verification
 * Added: Mastodon Fediverse Creator
