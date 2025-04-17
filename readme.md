@@ -206,6 +206,12 @@ This project is licensed under the GPL3 License.
 
 ## Changelog
 
+### 0.9
+
+Release pending.
+
+* No new features until now.
+
 ### 0.8
 
 Released: 17.04.2025
