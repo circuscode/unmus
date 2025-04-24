@@ -146,6 +146,7 @@ Standard features of the following plugins will be manipulated or extended.
 ### UpdraftPlus
 
 * Fade out the annoying Message on Upgrade Page
+* Fade out UpdraftPlus @ Admin Bar
 
 ### wpRocket
 
