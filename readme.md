@@ -210,7 +210,7 @@ This project is licensed under the GPL3 License.
 
 Release pending.
 
-* No new features until now.
+* Added: Disable UpdraftPlus @ Admin Bar
 
 ### 0.8
 
