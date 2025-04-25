@@ -148,6 +148,10 @@ Standard features of the following plugins will be manipulated or extended.
 * Fade out the annoying Message on Upgrade Page
 * Fade out UpdraftPlus @ Admin Bar
 
+### WP REST CACHE
+
+* Fade out Icon @ Admin Bar
+
 ### wpRocket
 
 * Remove TootPress Pages from Cache if new Toots have been loaded
@@ -211,6 +215,7 @@ This project is licensed under the GPL3 License.
 
 Release pending.
 
+* Added: Fade out WB REST CACHE Icon @ Admin Bar
 * Added: Disable UpdraftPlus @ Admin Bar
 
 ### 0.8

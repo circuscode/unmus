@@ -31,3 +31,9 @@
 #adminmenu .menu-icon-raketenstaub div.wp-menu-image:before {
   content: "\f128";
 }
+
+/* WP REST CACHE */
+
+#wp-admin-bar-wp-rest-cache-clear .ab-item span.ab-icon {
+  display:none !important;
+}
