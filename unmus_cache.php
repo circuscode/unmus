@@ -9,7 +9,7 @@
  * @package unmus
  * @since 0.9
  * 
- * @link https://epiph.yt/en/blog/2025/activitypub-plugin-and-accidental-ddos/
+ * @link https://epiph.yt/blog/2025/das-activitypub-plugin-und-der-versehentliche-ddos/
  */
 
 // Security: Stops code execution if WordPress is not loaded
@@ -111,7 +111,8 @@ function unmus_is_activitypub_endpoint( string $uri ) :bool {
 function unmus_cache_determine_object_type( $object_type, $cache_key, $data, $uri ) {
 
     if (unmus_is_activitypub_endpoint( $uri ) ) {
-        $object_type = 'ActivityPub';
+        return 'ActivityPub';
+    } else {
         return $object_type;
     }
 }
@@ -153,13 +154,14 @@ add_action( 'transition_post_status', 'unmus_cache_reset_by_transition_post_stat
  * Always return false for ActivityPub endpoints, 
  * since cache entries cannot be flushed otherwise.
  *
- * @param	bool	$is_single Whether the current cache represents a single item
- * @param	mixed	$data Data to cache
- * @param	string	$uri Request URI
- * @return	bool Whether the cache represents a single item
+ * @param bool $is_single Whether the current cache represents a single item
+ * @param mixed $data Data to cache
+ * @param string $uri Request URI
+ * @return bool Whether the cache represents a single item
  */
 
 function set_is_single_item( bool $is_single, mixed $data, string $uri ): bool {
+
     if ( unmus_is_activitypub_endpoint( $uri ) ) {
         return false;
     }
