@@ -219,6 +219,7 @@ Release pending.
 * Added: Caching of ActivityPub Endpoints in WP REST API
 * Added: Fade out WB REST CACHE Icon @ Admin Bar
 * Added: Disable UpdraftPlus @ Admin Bar
+* Fixed: Content Type Return @ WP REST CACHE
 
 ### 0.8
 
