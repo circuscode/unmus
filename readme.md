@@ -216,6 +216,7 @@ This project is licensed under the GPL3 License.
 
 Release pending.
 
+* Added: TootPress Afterloop Filter
 * Added: Caching of ActivityPub Endpoints in WP REST API
 * Added: Fade out WB REST CACHE Icon @ Admin Bar
 * Added: Disable UpdraftPlus @ Admin Bar
