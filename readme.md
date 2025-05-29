@@ -143,6 +143,10 @@ Standard features of the following plugins will be manipulated or extended.
 * Create Cannonical URLs for TootPress and Mathilda Pages
 * Create NEXT and PREV Links for TootPress and Mathilda Pages
 
+### TootPress
+
+* Add Closing Remark
+
 ### UpdraftPlus
 
 * Fade out the annoying Message on Upgrade Page
