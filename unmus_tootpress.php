@@ -22,7 +22,7 @@ function tootpress_closing_add( $content ) {
       $domain=get_site_url();
       $path='/tweets/';
 
- 		$content='<div class="tootpress-closing-filter"><p>Vor Mastodon war Twitter.<br/><a style="padding-top:7px;" href="'.$domain.$path.'">Tweets lesen</a></p></div>';
+ 		$content='<div class="tootpress-followup-mathilda"><p>Vor Mastodon war Twitter.<br/><a style="padding-top:7px;" href="'.$domain.$path.'">Tweets lesen</a></p></div>';
  
  		return $content;
 
