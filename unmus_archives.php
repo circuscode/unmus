@@ -20,7 +20,7 @@ if (!defined('ABSPATH')) { exit; }
 
 function unmus_custom_post_types_archives($query) {
 
-    if ( $query->is_author OR $query->is_date ) {
+    if ( $query->is_author OR $query->is_date OR $query->is_tag ) {
 
 		$query->set( 'post_type', array(
 			'ello', 

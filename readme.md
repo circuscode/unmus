@@ -225,6 +225,7 @@ Release pending.
 * Added: Fade out WB REST CACHE Icon @ Admin Bar
 * Added: Disable UpdraftPlus @ Admin Bar
 * Fixed: Content Type Return @ WP REST CACHE
+* Fixed: Force CPTs in Tag Archives
 * Changed: Remove Mastodon Account @ Federated Comment extended with Mentions
 
 ### 0.8
