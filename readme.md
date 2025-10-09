@@ -39,6 +39,7 @@ Following standard features of the WordPress Core are manipulated or extended.
 * Search
 * Site Health
 * Update
+* Uploads
 
 ### Archives
 
@@ -100,6 +101,10 @@ Following standard features of the WordPress Core are manipulated or extended.
 * Run WordPress Updates automaticly
 * Run Plugin Updates automaticly 
 * Run Theme Updates automaticly
+
+###
+
+* Add Subdirectory YEAR for Uploads
 
 ## Plugin Modifications
 
@@ -220,6 +225,7 @@ This project is licensed under the GPL3 License.
 
 Release pending.
 
+* Added: Custom Upload Subdirectories 
 * Added: TootPress Afterloop Filter
 * Added: Caching of ActivityPub Endpoints in WP REST API
 * Added: Fade out WB REST CACHE Icon @ Admin Bar

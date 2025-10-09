@@ -49,6 +49,7 @@ require_once('unmus_widgets.php');
 require_once('unmus_visibility.php');
 require_once('unmus_cache.php');
 require_once('unmus_tootpress.php');
+require_once('unmus_ftp.php');
 
 // Ensure that all required functions are available during setup
 require_once( ABSPATH . 'wp-admin/includes/upgrade.php');
