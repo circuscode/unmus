@@ -101,6 +101,7 @@ Following standard features of the WordPress Core are manipulated or extended.
 * Run WordPress Updates automaticly
 * Run Plugin Updates automaticly 
 * Run Theme Updates automaticly
+* Exclude specific plugins from Auto Update
 
 ###
 
@@ -230,6 +231,7 @@ Release pending.
 * Added: Caching of ActivityPub Endpoints in WP REST API
 * Added: Fade out WB REST CACHE Icon @ Admin Bar
 * Added: Disable UpdraftPlus @ Admin Bar
+* Added: Exclude specific plugins from Auto Update
 * Fixed: Content Type Return @ WP REST CACHE
 * Fixed: Force CPTs in Tag Archives
 * Changed: Remove Mastodon Account @ Federated Comment extended with Mentions

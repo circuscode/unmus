@@ -47,6 +47,27 @@ add_filter( 'auto_update_plugin', 'unmus_plugins_update' );
 add_filter( 'auto_update_plugin', 'unmus_themes_update' );
 
 /**
+ * Exclude specific plugins from Auto Update
+ *
+ * @since 0.9
+ */
+
+function unmus_exclude_from_auto_update( $update, $item ) {
+    
+    $exclude = array(
+        'podlove-podcasting-plugin-for-wordpress/podlove.php',
+        // add further plugins
+    );
+
+    if ( in_array( $item->plugin, $exclude, true ) ) {
+        return false;
+    }
+
+    return $update;
+}
+add_filter( 'auto_update_plugin', 'exclude_from_auto_update', 10, 2 );
+
+/**
  * Disable eMail Notification after Update
  *
  * @since 0.6
