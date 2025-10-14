@@ -65,7 +65,7 @@ function unmus_exclude_from_auto_update( $update, $item ) {
 
     return $update;
 }
-add_filter( 'auto_update_plugin', 'exclude_from_auto_update', 10, 2 );
+add_filter( 'auto_update_plugin', 'unmus_exclude_from_auto_update', 10, 2 );
 
 /**
  * Disable eMail Notification after Update
