@@ -30,4 +30,16 @@ function unmus_activitypub_threaded_comments_check( $tests ) {
 }
 add_filter( 'site_status_tests', 'unmus_activitypub_threaded_comments_check',100 );
 
+/**
+ * Disable WordPress Cron Check @ Activity Pub
+ *
+ * @since 0.9
+ */
+
+function unmus_activitypub_wpcron_check( $tests ) {
+	unset( $tests['direct']['activitypub_test_wp_cron'] );
+	return $tests;
+}
+add_filter( 'site_status_tests', 'unmus_activitypub_wpcron_check',100 );
+
 ?>
