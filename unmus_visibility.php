@@ -53,4 +53,23 @@ add_action('wp_before_admin_bar_render', 'unmus_disable_updraftplus_admin_bar', 
 }
 add_action( 'admin_head', 'unmus_updraft_message_invisible' );
 
+/**
+ * Disable Envira Notices
+ *
+ * @since 0.9
+ */
+
+function unmus_envira_notices_invisible () {
+
+        echo "
+        <style type='text/css'>
+        .envira-notice {
+            display:none !important;
+        }
+        </style>
+        ";
+
+}
+add_action( 'admin_head', 'unmus_envira_notices_invisible' );
+
 ?>

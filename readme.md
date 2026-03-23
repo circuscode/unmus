@@ -231,6 +231,7 @@ Release pending.
 * Added: Caching of ActivityPub Endpoints in WP REST API
 * Added: Fade out WB REST CACHE Icon @ Admin Bar
 * Added: Disable UpdraftPlus @ Admin Bar
+* Added: Disable Envira Notices
 * Added: Exclude specific plugins from Auto Update
 * Added: Exclude ActivityPub WP_Cron Check (SiteHealth)
 * Fixed: Content Type Return @ WP REST CACHE
