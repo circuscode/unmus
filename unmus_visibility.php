@@ -72,4 +72,28 @@ function unmus_envira_notices_invisible () {
 }
 add_action( 'admin_head', 'unmus_envira_notices_invisible' );
 
+/**
+ * Disable Modula Submenu Quatsch
+ *
+ * @since 0.9
+ */
+
+function unmus_modula_submenu_invisible () {
+
+    remove_submenu_page( 'edit.php?post_type=modula-gallery', '#gallery-defaults' );
+    remove_submenu_page( 'edit.php?post_type=modula-gallery', '#modula-albums' );
+    remove_submenu_page( 'edit.php?post_type=modula-gallery', '#albums-defaults' );
+    remove_submenu_page( 'edit.php?post_type=modula-gallery', '#modula-licenses' );
+
+}
+add_action( 'admin_menu', 'unmus_modula_submenu_invisible', 999);
+
+/**
+ * Remove Edit Gallery Link @ FrontEnd
+ *
+ * @since 0.9
+ */
+
+add_filter( 'modula_troubleshooting_disable_edit', '__return_true' );
+
 ?>

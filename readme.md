@@ -234,6 +234,7 @@ Release pending.
 * Added: Disable Envira Notices
 * Added: Exclude specific plugins from Auto Update
 * Added: Exclude ActivityPub WP_Cron Check (SiteHealth)
+* Added: Disable Modula Submenus & Edit Link
 * Fixed: Content Type Return @ WP REST CACHE
 * Fixed: Force CPTs in Tag Archives
 * Changed: Remove Mastodon Account @ Federated Comment extended with Mentions
