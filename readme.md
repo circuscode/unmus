@@ -95,6 +95,7 @@ Following standard features of the WordPress Core are manipulated or extended.
 
 * Disable Persistent Object Cache Test
 * Disable Threaded Comments Check (Activity Pub)
+* Disable OPcode Check
 
 ### Update
 
@@ -238,6 +239,7 @@ Release pending.
 * Fixed: Content Type Return @ WP REST CACHE
 * Fixed: Force CPTs in Tag Archives
 * Changed: Remove Mastodon Account @ Federated Comment extended with Mentions
+* Removed: Disbale OPcode Check @ Site Health
 
 ### 0.8
 
