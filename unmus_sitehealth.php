@@ -19,6 +19,18 @@ if (!defined('ABSPATH')) { exit; }
 add_filter('site_status_should_suggest_persistent_object_cache', '__return_false');
 
 /**
+ * Disable OPcache Check
+ *
+ * @since 0.9
+ */
+
+function unmus_sitehealth_disable_opcode_check($tests) {
+    unset($tests['direct']['opcode_cache']);
+    return $tests;
+}
+add_filter('site_status_tests', 'unmus_sitehealth_disable_opcode_check');
+
+/**
  * Disable Threaded Comments Check @ Activity Pub
  *
  * @since 0.8
